@@ -4,7 +4,7 @@ set tabstop=4
 set shiftwidth=4
 set smarttab
 set mouse=a
-
+set cursorline
 set relativenumber
 set nocompatible              " be iMproved, required
 filetype off                  " required
