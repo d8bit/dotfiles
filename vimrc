@@ -85,6 +85,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'https://github.com/matze/vim-move.git'
 Plugin 'https://github.com/Raimondi/delimitMate.git'
 Plugin 'https://github.com/joonty/vim-phpqa.git'
+Plugin 'https://github.com/tpope/vim-repeat.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
