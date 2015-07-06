@@ -46,6 +46,16 @@ let g:tagbar_autoclose = 1
 "move lines with control key
 let g:move_key_modifier = 'C'
 
+" Show code coverage on load (default = 0)
+let g:phpqa_codecoverage_autorun = 1
+
+" Don't run messdetector on save (default = 1)
+let g:phpqa_messdetector_autorun = 0
+
+" Don't run codesniffer on save (default = 1)
+let g:phpqa_codesniffer_autorun = 0
+
+
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -74,6 +84,7 @@ Plugin 'https://github.com/tpope/vim-surround.git'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'https://github.com/matze/vim-move.git'
 Plugin 'https://github.com/Raimondi/delimitMate.git'
+Plugin 'https://github.com/joonty/vim-phpqa.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
