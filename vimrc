@@ -6,6 +6,7 @@ set smarttab
 set mouse=a
 set cursorline
 set relativenumber
+set number
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
