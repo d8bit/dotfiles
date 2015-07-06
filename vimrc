@@ -10,6 +10,9 @@ set number
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+"save temp files in other path
+set dir=~/.vimswap//,/var/tmp//,/tmp//
+
 "airline (status bar)
 let g:airline_powerline_fonts = 1
 set laststatus=2
@@ -36,14 +39,19 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
+"tabgar autofocus
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
+
+"move lines with control key
+let g:move_key_modifier = 'C'
+
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 "alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-"move lines with control key
-let g:move_key_modifier = 'C'
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -62,7 +70,10 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'https://github.com/tomtom/tcomment_vim.git'
 Plugin 'https://github.com/tmhedberg/matchit.git'
+Plugin 'https://github.com/tpope/vim-surround.git'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'https://github.com/matze/vim-move.git'
+Plugin 'https://github.com/Raimondi/delimitMate.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
