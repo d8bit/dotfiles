@@ -41,11 +41,11 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
-"tabgar autofocus
+"tabgar autofocus and close on select
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
 
-"move lines with control key
+"move lines with Control key
 let g:move_key_modifier = 'C'
 
 " Show code coverage on load (default = 0)
