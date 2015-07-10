@@ -10,6 +10,7 @@ set number
 set nocompatible              " be iMproved, required
 set incsearch
 set hlsearch
+set showcmd
 filetype off                  " required
 
 "save temp files in other path
