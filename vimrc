@@ -68,26 +68,36 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+" Search files
 Plugin 'https://github.com/kien/ctrlp.vim.git'
+" File tree
 Plugin 'https://github.com/scrooloose/nerdtree.git'
+" Show git info on nerdtree
 Plugin 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 Plugin 'airblade/vim-gitgutter'
+" Emmet plugin for html
 Plugin 'mattn/emmet-vim'
+" Multiple cursors
 Plugin 'https://github.com/terryma/vim-multiple-cursors.git'
 Plugin 'https://github.com/tpope/vim-fugitive.git'
+" Show functions and vars on current file
 Plugin 'https://github.com/majutsushi/tagbar.git'
+" Bar info
 Plugin 'https://github.com/bling/vim-airline.git'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
+" Plugin for snippets
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'https://github.com/bonsaiben/bootstrap-snippets.git'
+" Comment lines
 Plugin 'https://github.com/tomtom/tcomment_vim.git'
+" Match tags with %
 Plugin 'https://github.com/tmhedberg/matchit.git'
 Plugin 'https://github.com/tpope/vim-surround.git'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'https://github.com/matze/vim-move.git'
-Plugin 'https://github.com/jiangmiao/auto-pairs.git'
+"Plugin 'https://github.com/jiangmiao/auto-pairs.git'
 Plugin 'https://github.com/joonty/vim-phpqa.git'
 Plugin 'https://github.com/tpope/vim-repeat.git'
 
