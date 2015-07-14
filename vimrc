@@ -7,10 +7,10 @@ set mouse=a
 set cursorline
 set relativenumber
 set number
-set nocompatible              " be iMproved, required
 set incsearch
 set hlsearch
 set showcmd
+set nocompatible              " be iMproved, required
 filetype off                  " required
 
 "save temp files in other path
