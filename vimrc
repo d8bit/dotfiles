@@ -1,3 +1,5 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
 syntax enable
 colorscheme monokai
 set tabstop=4
@@ -10,8 +12,6 @@ set number
 set incsearch
 set hlsearch
 set showcmd
-set nocompatible              " be iMproved, required
-filetype off                  " required
 
 "save temp files in other path
 set dir=~/.vimswap//,/var/tmp//,/tmp//
