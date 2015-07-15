@@ -115,6 +115,8 @@ Plugin 'https://github.com/matze/vim-move.git'
 "Plugin 'https://github.com/jiangmiao/auto-pairs.git'
 Plugin 'https://github.com/joonty/vim-phpqa.git'
 Plugin 'https://github.com/tpope/vim-repeat.git'
+" Silver searcher
+Plugin 'https://github.com/rking/ag.vim.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
