@@ -23,6 +23,7 @@ set laststatus=2
 "shortcuts
 map <Leader>1 :NERDTreeToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
+map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
 "hide php variables on Tagbar
 let g:tagbar_type_php  = {
