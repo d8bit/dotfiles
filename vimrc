@@ -21,8 +21,8 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 
 "shortcuts
-map <F2> :NERDTreeToggle<CR>
-nmap <F3> :TagbarToggle<CR>
+map <Leader>1 :NERDTreeToggle<CR>
+nmap <Leader>2 :TagbarToggle<CR>
 
 "hide php variables on Tagbar
 let g:tagbar_type_php  = {
@@ -73,6 +73,9 @@ let g:phpqa_messdetector_autorun = 0
 " Don't run codesniffer on save (default = 1)
 let g:phpqa_codesniffer_autorun = 0
 
+" Stop at breakpoints on debugging
+" let g:dbgPavimBreakAtEntry = 1
+
 
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -117,6 +120,9 @@ Plugin 'https://github.com/joonty/vim-phpqa.git'
 Plugin 'https://github.com/tpope/vim-repeat.git'
 " Silver searcher
 Plugin 'https://github.com/rking/ag.vim.git'
+" Debuger
+" Plugin 'https://github.com/brookhong/DBGPavim.git'
+Plugin 'https://github.com/joonty/vdebug.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
