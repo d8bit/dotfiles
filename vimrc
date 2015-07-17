@@ -120,7 +120,6 @@ Plugin 'https://github.com/tmhedberg/matchit.git'
 Plugin 'https://github.com/tpope/vim-surround.git'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'https://github.com/matze/vim-move.git'
-"Plugin 'https://github.com/jiangmiao/auto-pairs.git'
 Plugin 'https://github.com/joonty/vim-phpqa.git'
 Plugin 'https://github.com/tpope/vim-repeat.git'
 " Silver searcher
