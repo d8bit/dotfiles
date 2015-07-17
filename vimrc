@@ -63,6 +63,9 @@ let g:multi_cursor_quit_key='<Esc>'
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
 
+" Close Nerdtree on open
+let NERDTreeQuitOnOpen = 1
+
 "move lines with Control key
 let g:move_key_modifier = 'C'
 
