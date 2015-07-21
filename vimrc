@@ -97,12 +97,14 @@ Plugin 'https://github.com/kien/ctrlp.vim.git'
 Plugin 'https://github.com/scrooloose/nerdtree.git'
 " Show git info on nerdtree
 Plugin 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
+" Git integration
 Plugin 'airblade/vim-gitgutter'
+" Git integration
+Plugin 'https://github.com/tpope/vim-fugitive.git'
 " Emmet plugin for html
 Plugin 'mattn/emmet-vim'
 " Multiple cursors
 Plugin 'https://github.com/terryma/vim-multiple-cursors.git'
-Plugin 'https://github.com/tpope/vim-fugitive.git'
 " Show functions and vars on current file
 Plugin 'https://github.com/majutsushi/tagbar.git'
 " Bar info
@@ -113,23 +115,23 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'https://github.com/bonsaiben/bootstrap-snippets.git'
-" Comment lines
+" Comment lines with gcc command
 Plugin 'https://github.com/tomtom/tcomment_vim.git'
 " Match tags with %
 Plugin 'https://github.com/tmhedberg/matchit.git'
 " Surround text objects
 Plugin 'https://github.com/tpope/vim-surround.git'
-" Move through document with \\w
+" Move in a file with \\w
 Plugin 'easymotion/vim-easymotion'
 Plugin 'https://github.com/matze/vim-move.git'
 " PHP integration
 Plugin 'https://github.com/joonty/vim-phpqa.git'
-" Repeat actions with '.' like surround
+" Repeat commands with '.' with surround (among others)
 Plugin 'https://github.com/tpope/vim-repeat.git'
 " Silver searcher
 Plugin 'https://github.com/rking/ag.vim.git'
 " Debuger
-Plugin 'https://github.com/joonty/vdebug.git'
+" Plugin 'https://github.com/joonty/vdebug.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
