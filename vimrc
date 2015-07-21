@@ -117,15 +117,19 @@ Plugin 'https://github.com/bonsaiben/bootstrap-snippets.git'
 Plugin 'https://github.com/tomtom/tcomment_vim.git'
 " Match tags with %
 Plugin 'https://github.com/tmhedberg/matchit.git'
+" Surround text objects
 Plugin 'https://github.com/tpope/vim-surround.git'
+" Move through document with \\w
 Plugin 'easymotion/vim-easymotion'
 Plugin 'https://github.com/matze/vim-move.git'
+" PHP integration
 Plugin 'https://github.com/joonty/vim-phpqa.git'
+" Repeat actions with '.' like surround
 Plugin 'https://github.com/tpope/vim-repeat.git'
 " Silver searcher
 Plugin 'https://github.com/rking/ag.vim.git'
 " Debuger
-" Plugin 'https://github.com/joonty/vdebug.git'
+Plugin 'https://github.com/joonty/vdebug.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
