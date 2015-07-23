@@ -132,6 +132,8 @@ Plugin 'https://github.com/tpope/vim-repeat.git'
 Plugin 'https://github.com/rking/ag.vim.git'
 " Debuger
 " Plugin 'https://github.com/joonty/vdebug.git'
+" Hightlight html tags
+Plugin 'https://github.com/gregsexton/MatchTag.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
