@@ -16,8 +16,10 @@ set showcmd
 "save temp files in other path
 set dir=~/.vimswap//,/var/tmp//,/tmp//
 
-"airline (status bar)
-let g:airline_powerline_fonts = 1
+" powerline (installed with pip)
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 set laststatus=2
 
 "shortcuts
@@ -107,8 +109,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'https://github.com/terryma/vim-multiple-cursors.git'
 " Show functions and vars on current file
 Plugin 'https://github.com/majutsushi/tagbar.git'
-" Bar info
-Plugin 'https://github.com/bling/vim-airline.git'
+" No idea
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 " Plugin for snippets
