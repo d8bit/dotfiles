@@ -64,6 +64,7 @@ let g:multi_cursor_quit_key='<Esc>'
 "tabgar autofocus and close on select
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
+let g:tagbar_show_linenumbers = 2
 
 " Close Nerdtree on open
 let NERDTreeQuitOnOpen = 1
@@ -83,6 +84,10 @@ let g:phpqa_codesniffer_autorun = 0
 " Stop at breakpoints on debugging
 " let g:dbgPavimBreakAtEntry = 1
 
+" Ctrlp options
+let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_by_filename = 1
+set wildignore+=*/tmp/*,*/plugins/*,*/vendor/*,*/storage/*,*/demo/*,*/plantillas/*
 
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -99,9 +104,9 @@ Plugin 'https://github.com/kien/ctrlp.vim.git'
 Plugin 'https://github.com/scrooloose/nerdtree.git'
 " Show git info on nerdtree
 Plugin 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
-" Git integration
+" Git integration. Shows line state on margin.
 Plugin 'airblade/vim-gitgutter'
-" Git integration
+" Git integration. Git commands.
 Plugin 'https://github.com/tpope/vim-fugitive.git'
 " Emmet plugin for html
 Plugin 'mattn/emmet-vim'
@@ -109,10 +114,9 @@ Plugin 'mattn/emmet-vim'
 Plugin 'https://github.com/terryma/vim-multiple-cursors.git'
 " Show functions and vars on current file
 Plugin 'https://github.com/majutsushi/tagbar.git'
-" No idea
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
 " Plugin for snippets
+Plugin 'tomtom/tlib_vim' " snipmate dependecy
+Plugin 'MarcWeber/vim-addon-mw-utils' " snipmate dependecy
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'https://github.com/bonsaiben/bootstrap-snippets.git'
@@ -124,6 +128,7 @@ Plugin 'https://github.com/tmhedberg/matchit.git'
 Plugin 'https://github.com/tpope/vim-surround.git'
 " Move in a file with \\w
 Plugin 'easymotion/vim-easymotion'
+" Move line with ctrl-[j,k]
 Plugin 'https://github.com/matze/vim-move.git'
 " PHP integration
 Plugin 'https://github.com/joonty/vim-phpqa.git'
