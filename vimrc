@@ -83,6 +83,10 @@ let g:phpqa_codesniffer_autorun = 0
 " Stop at breakpoints on debugging
 " let g:dbgPavimBreakAtEntry = 1
 
+" Ctrlp options
+let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_by_filename = 1
+set wildignore+=*/tmp/*,*/plugins/*,*/vendor/*,*/storage/*,*/demo/*,*/plantillas/*
 
 "set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
