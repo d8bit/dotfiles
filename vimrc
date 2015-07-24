@@ -64,6 +64,7 @@ let g:multi_cursor_quit_key='<Esc>'
 "tabgar autofocus and close on select
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
+let g:tagbar_show_linenumbers = 2
 
 " Close Nerdtree on open
 let NERDTreeQuitOnOpen = 1
