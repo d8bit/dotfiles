@@ -78,15 +78,6 @@ let NERDTreeQuitOnOpen = 1
 " move lines with Control key
 let g:move_key_modifier = 'C'
 
-" show code coverage on load (default = 0)
-let g:phpqa_codecoverage_autorun = 1
-
-" don't run messdetector on save (default = 1)
-let g:phpqa_messdetector_autorun = 0
-
-" don't run codesniffer on save (default = 1)
-let g:phpqa_codesniffer_autorun = 0
-
 " stop at breakpoints on debugging
 " let g:dbgPavimBreakAtEntry = 1
 
@@ -137,8 +128,6 @@ Plugin 'https://github.com/tpope/vim-surround.git'
 Plugin 'easymotion/vim-easymotion'
 " Move line with ctrl[j,k]
 Plugin 'https://github.com/matze/vim-move.git'
-" PHP integration
-Plugin 'https://github.com/joonty/vim-phpqa.git'
 " Repeat commands with '.' for surround plugin (among others)
 Plugin 'https://github.com/tpope/vim-repeat.git'
 " Silver searcher
@@ -147,7 +136,8 @@ Plugin 'https://github.com/rking/ag.vim.git'
 Plugin 'https://github.com/joonty/vdebug.git'
 " Hightlight html tags
 Plugin 'https://github.com/gregsexton/MatchTag.git'
-
+" Code linter
+Plugin 'https://github.com/scrooloose/syntastic.git'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
