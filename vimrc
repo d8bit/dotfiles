@@ -32,7 +32,7 @@ map <Leader>1 :NERDTreeToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
 " run script to make blockmayus = esc
 map <Leader>e :!xmodmap ~/.speedswapper<CR>
-map <Leader>c :!ctags-exuberant .<CR>
+map <Leader>c :!ctags-exuberant -R .<CR>
 
 "hide php variables on Tagbar
 let g:tagbar_type_php  = {
