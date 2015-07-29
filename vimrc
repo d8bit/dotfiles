@@ -2,9 +2,8 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 syntax enable
 colorscheme monokai
-set tabstop=4
-set shiftwidth=4
-set smarttab
+" tab to spaces
+set softtabstop=4 shiftwidth=4 expandtab smarttab
 " enable mouse
 set mouse=a
 " hightlight current line
@@ -38,11 +37,11 @@ map <Leader>c :!ctags-exuberant -R .<CR>
 let g:tagbar_type_php  = {
   \ 'ctagstype' : 'php',
   \ 'kinds'     : [
-	  \ 'i:interfaces',
-	  \ 'c:classes',
-	  \ 'd:constant definitions',
-	  \ 'f:functions',
-	  \ 'j:javascript functions:1'
+          \ 'i:interfaces',
+          \ 'c:classes',
+          \ 'd:constant definitions',
+          \ 'f:functions',
+          \ 'j:javascript functions:1'
   \ ]
 \ }
 
