@@ -82,7 +82,6 @@ let g:move_key_modifier = 'C'
 
 " Ctrlp options
 let g:ctrlp_working_path_mode = 'a'
-let g:ctrlp_by_filename = 1
 set wildignore+=*/tmp/*,*/plugins/*,*/vendor/*,*/storage/*,*/demo/*,*/plantillas/*
 
 nnoremap <silent> <Leader>+ :exe "vertical resize " . (winheight(0) * 3/2)<CR>
