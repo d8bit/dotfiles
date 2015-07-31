@@ -2,9 +2,8 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 syntax enable
 colorscheme monokai
-set tabstop=4
-set shiftwidth=4
-set smarttab
+" tab to spaces
+set softtabstop=4 shiftwidth=4 expandtab smarttab
 " enable mouse
 set mouse=a
 " hightlight current line
@@ -38,11 +37,11 @@ map <Leader>c :!ctags-exuberant -R .<CR>
 let g:tagbar_type_php  = {
   \ 'ctagstype' : 'php',
   \ 'kinds'     : [
-	  \ 'i:interfaces',
-	  \ 'c:classes',
-	  \ 'd:constant definitions',
-	  \ 'f:functions',
-	  \ 'j:javascript functions:1'
+          \ 'i:interfaces',
+          \ 'c:classes',
+          \ 'd:constant definitions',
+          \ 'f:functions',
+          \ 'j:javascript functions:1'
   \ ]
 \ }
 
@@ -75,6 +74,9 @@ let g:tagbar_show_linenumbers = 2
 " close Nerdtree on open
 let NERDTreeQuitOnOpen = 1
 
+" show line numbers on NerdTree
+let NERDTreeShowLineNumbers=1
+
 " move lines with Control key
 let g:move_key_modifier = 'C'
 
@@ -83,9 +85,12 @@ let g:move_key_modifier = 'C'
 
 " Ctrlp options
 let g:ctrlp_working_path_mode = 'a'
-let g:ctrlp_by_filename = 1
 set wildignore+=*/tmp/*,*/plugins/*,*/vendor/*,*/storage/*,*/demo/*,*/plantillas/*
 
+nnoremap <silent> <Leader>+ :exe "vertical resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
+
+" BUNDLE
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
