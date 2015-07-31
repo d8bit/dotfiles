@@ -74,6 +74,9 @@ let g:tagbar_show_linenumbers = 2
 " close Nerdtree on open
 let NERDTreeQuitOnOpen = 1
 
+" show line numbers on NerdTree
+let NERDTreeShowLineNumbers=1
+
 " move lines with Control key
 let g:move_key_modifier = 'C'
 
