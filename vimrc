@@ -84,8 +84,8 @@ let g:move_key_modifier = 'C'
 " let g:dbgPavimBreakAtEntry = 1
 
 " Ctrlp options
-let g:ctrlp_working_path_mode = 'a'
-set wildignore+=*/tmp/*,*/plugins/*,*/vendor/*,*/storage/*,*/demo/*,*/plantillas/*
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPMRU'
 
 nnoremap <silent> <Leader>+ :exe "vertical resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
