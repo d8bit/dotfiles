@@ -8,6 +8,7 @@ set softtabstop=4 shiftwidth=4 expandtab smarttab
 set mouse=a
 " hightlight current line
 set cursorline
+
 set relativenumber
 set number
 " incremental search
@@ -32,9 +33,12 @@ set laststatus=2
 "shortcuts
 map <Leader>1 :NERDTreeToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
+nnoremap <silent> <Leader>+ :exe "vertical resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
+
 " run script to make blockmayus = esc
 map <Leader>e :!xmodmap ~/.speedswapper<CR>
-map <Leader>c :!ctags-exuberant -R .<CR>
+map <Leader>c :!ctags-exuberant --languages=PHP -R .<CR>
 
 "hide php variables on Tagbar
 let g:tagbar_type_php  = {
@@ -90,9 +94,6 @@ let g:move_key_modifier = 'C'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMRU'
 
-nnoremap <silent> <Leader>+ :exe "vertical resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
-
 " Syntastic options
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -101,6 +102,9 @@ let g:syntastic_check_on_wq = 1
 " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 let g:syntastic_php_checkers = ['php']
 
+" Do not open split window with doc when using Omnicompletion
+set completeopt-=preview
+
 " BUNDLE
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -108,52 +112,70 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
 
-
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
 " Search files
 Plugin 'https://github.com/kien/ctrlp.vim.git'
+
 " File tree
 Plugin 'https://github.com/scrooloose/nerdtree.git'
+
 " git integration. Show git info on nerdtree
 Plugin 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
+
 " git integration. Shows line state on margin.
 Plugin 'airblade/vim-gitgutter'
+
 " git integration. Git commands.
 Plugin 'https://github.com/tpope/vim-fugitive.git'
+
 " emmet plugin for html
 Plugin 'mattn/emmet-vim'
+
 " multiple cursors
 Plugin 'https://github.com/terryma/vim-multiple-cursors.git'
+
 " show functions and vars on current file
 Plugin 'https://github.com/majutsushi/tagbar.git'
+
 " plugin for snippets
 Plugin 'tomtom/tlib_vim' " snipmate dependecy
 Plugin 'MarcWeber/vim-addon-mw-utils' " snipmate dependecy
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'https://github.com/bonsaiben/bootstrap-snippets.git'
+
 " comment lines with gcc command
 Plugin 'https://github.com/tomtom/tcomment_vim.git'
+
 " match tags with %
 Plugin 'https://github.com/tmhedberg/matchit.git'
+
 " Surround text objects
 Plugin 'https://github.com/tpope/vim-surround.git'
+
 " Move in a file with <leader> <leader> w
 Plugin 'easymotion/vim-easymotion'
+
 " Move line with ctrl[j,k]
 Plugin 'https://github.com/matze/vim-move.git'
+
 " Repeat commands with '.' for surround plugin (among others)
 Plugin 'https://github.com/tpope/vim-repeat.git'
+
 " Silver searcher
 Plugin 'https://github.com/rking/ag.vim.git'
+
 " Debuger
 " Plugin 'https://github.com/joonty/vdebug.git'
+
 " Hightlight html tags
 Plugin 'https://github.com/gregsexton/MatchTag.git'
+
 " Code linter
 Plugin 'https://github.com/scrooloose/syntastic.git'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
