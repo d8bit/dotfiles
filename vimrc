@@ -16,6 +16,9 @@ set incsearch
 set hlsearch
 " show commands
 set showcmd
+" split options
+set splitbelow
+set splitright
 
 " save temp files in different path
 set dir=~/.vimswap//,/var/tmp//,/tmp//
@@ -93,10 +96,10 @@ nnoremap <silent> <Leader>- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
 " Syntastic options
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
 " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-let g:syntastic_php_checkers = ['php', 'phpmd']
+let g:syntastic_php_checkers = ['php']
 
 " BUNDLE
 " set the runtime path to include Vundle and initialize
