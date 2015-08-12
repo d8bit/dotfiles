@@ -109,52 +109,70 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
 
-
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
 " Search files
 Plugin 'https://github.com/kien/ctrlp.vim.git'
+
 " File tree
 Plugin 'https://github.com/scrooloose/nerdtree.git'
+
 " git integration. Show git info on nerdtree
 Plugin 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
+
 " git integration. Shows line state on margin.
 Plugin 'airblade/vim-gitgutter'
+
 " git integration. Git commands.
 Plugin 'https://github.com/tpope/vim-fugitive.git'
+
 " emmet plugin for html
 Plugin 'mattn/emmet-vim'
+
 " multiple cursors
 Plugin 'https://github.com/terryma/vim-multiple-cursors.git'
+
 " show functions and vars on current file
 Plugin 'https://github.com/majutsushi/tagbar.git'
+
 " plugin for snippets
 Plugin 'tomtom/tlib_vim' " snipmate dependecy
 Plugin 'MarcWeber/vim-addon-mw-utils' " snipmate dependecy
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'https://github.com/bonsaiben/bootstrap-snippets.git'
+
 " comment lines with gcc command
 Plugin 'https://github.com/tomtom/tcomment_vim.git'
+
 " match tags with %
 Plugin 'https://github.com/tmhedberg/matchit.git'
+
 " Surround text objects
 Plugin 'https://github.com/tpope/vim-surround.git'
+
 " Move in a file with <leader> <leader> w
 Plugin 'easymotion/vim-easymotion'
+
 " Move line with ctrl[j,k]
 Plugin 'https://github.com/matze/vim-move.git'
+
 " Repeat commands with '.' for surround plugin (among others)
 Plugin 'https://github.com/tpope/vim-repeat.git'
+
 " Silver searcher
 Plugin 'https://github.com/rking/ag.vim.git'
+
 " Debuger
 " Plugin 'https://github.com/joonty/vdebug.git'
+
 " Hightlight html tags
 Plugin 'https://github.com/gregsexton/MatchTag.git'
+
 " Code linter
 Plugin 'https://github.com/scrooloose/syntastic.git'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
