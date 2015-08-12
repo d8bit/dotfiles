@@ -8,6 +8,7 @@ set softtabstop=4 shiftwidth=4 expandtab smarttab
 set mouse=a
 " hightlight current line
 set cursorline
+
 set relativenumber
 set number
 " incremental search
@@ -29,9 +30,12 @@ set laststatus=2
 "shortcuts
 map <Leader>1 :NERDTreeToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
+nnoremap <silent> <Leader>+ :exe "vertical resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
+
 " run script to make blockmayus = esc
 map <Leader>e :!xmodmap ~/.speedswapper<CR>
-map <Leader>c :!ctags-exuberant -R .<CR>
+map <Leader>c :!ctags-exuberant --languages=PHP -R .<CR>
 
 "hide php variables on Tagbar
 let g:tagbar_type_php  = {
@@ -87,9 +91,6 @@ let g:move_key_modifier = 'C'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMRU'
 
-nnoremap <silent> <Leader>+ :exe "vertical resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
-
 " Syntastic options
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -97,6 +98,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 let g:syntastic_php_checkers = ['php', 'phpmd']
+
+" Do not open split window with doc when using Omnicompletion
+set completeopt-=preview
 
 " BUNDLE
 " set the runtime path to include Vundle and initialize
