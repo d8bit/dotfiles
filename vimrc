@@ -33,8 +33,6 @@ set laststatus=2
 "shortcuts
 map <Leader>1 :NERDTreeToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
-nnoremap <silent> <Leader>+ :exe "vertical resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
 
 " run script to make blockmayus = esc
 map <Leader>e :!xmodmap ~/.speedswapper<CR>
