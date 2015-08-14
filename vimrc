@@ -139,7 +139,7 @@ Plugin 'https://github.com/terryma/vim-multiple-cursors.git'
 " show functions and vars on current file
 Plugin 'https://github.com/majutsushi/tagbar.git'
 
-" plugin for snippets
+" plugins for snippets
 Plugin 'tomtom/tlib_vim' " snipmate dependecy
 Plugin 'MarcWeber/vim-addon-mw-utils' " snipmate dependecy
 Plugin 'garbas/vim-snipmate'
@@ -154,9 +154,6 @@ Plugin 'https://github.com/tmhedberg/matchit.git'
 
 " Surround text objects
 Plugin 'https://github.com/tpope/vim-surround.git'
-
-" Move in a file with <leader> <leader> w
-Plugin 'easymotion/vim-easymotion'
 
 " Move line with ctrl[j,k]
 Plugin 'https://github.com/matze/vim-move.git'
