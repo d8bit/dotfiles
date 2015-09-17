@@ -91,7 +91,7 @@ let g:move_key_modifier = 'C'
 " Ctrlp options
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_match_window = 'max:20,results:20'
 
 " Syntastic options

@@ -569,15 +569,7 @@ snippet ase
 snippet asne
 	$this->assertNotEquals(${1:expected}, ${2:actual});
 
-snippet asf
-	$this->assertFalse(${1:Something});
-
-snippet ast
-	$this->assertTrue(${1:Something});
-
-snippet asfex
-	$this->assertFileExists(${1:path/to/file});
-
+snippet asf $this->assertFalse(${1:Something}); snippet ast $this->assertTrue(${1:Something}); snippet asfex $this->assertFileExists(${1:path/to/file}); 
 snippet asfnex
 	$this->assertFileNotExists(${1:path/to/file});
 
@@ -608,5 +600,4 @@ snippet todo
 	// TODO: ${1}
 snippet print
 	echo "<pre>".print_r(${1}, true)."</pre>";
-snippet token
-    csrf_token()${1}
+
