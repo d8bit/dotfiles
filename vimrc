@@ -3,7 +3,7 @@ filetype off                  " required
 syntax enable
 colorscheme monokai
 " tab to spaces
-set softtabstop=4 shiftwidth=4 expandtab smarttab
+set tabstop=4 shiftwidth=4 expandtab
 " enable mouse
 set mouse=a
 " hightlight current line
