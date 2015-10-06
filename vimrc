@@ -21,6 +21,9 @@ set showcmd
 set splitbelow
 set splitright
 
+" set font for mvim
+set guifont=Meslo\ LG\ M\ for\ Powerline
+
 " save temp files in different path
 set dir=~/.vimswap//,/var/tmp//,/tmp//
 
