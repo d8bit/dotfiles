@@ -4,6 +4,7 @@ syntax enable
 colorscheme monokai
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
+set autoindent
 " enable mouse
 set mouse=a
 " hightlight current line
