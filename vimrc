@@ -23,7 +23,7 @@ set splitbelow
 set splitright
 
 " set font for mvim
-set guifont=Meslo\ LG\ M\ for\ Powerline
+set guifont=Meslo\ LG\ M\ for\ Powerline:h12
 
 " save temp files in different path
 set dir=~/.vimswap//,/var/tmp//,/tmp//
@@ -40,7 +40,7 @@ nmap <Leader>2 :TagbarToggle<CR>
 
 " run script to make blockmayus = esc
 map <Leader>e :!xmodmap ~/.speedswapper<CR>
-map <Leader>c :!ctags-exuberant --languages=PHP -R .<CR>
+map <Leader>c :!ctags --languages=PHP -R .<CR>
 
 "hide php variables on Tagbar
 let g:tagbar_type_php  = {
@@ -176,6 +176,12 @@ Plugin 'https://github.com/gregsexton/MatchTag.git'
 
 " Code linter
 Plugin 'https://github.com/scrooloose/syntastic.git'
+
+"Auto-close
+Plugin 'https://github.com/jiangmiao/auto-pairs.git'
+
+"JSX
+Plugin 'https://github.com/mxw/vim-jsx.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
