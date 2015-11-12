@@ -21,7 +21,8 @@ set showcmd
 " split options
 set splitbelow
 set splitright
-
+" remove esc delay to return to visual mode quickly
+set timeoutlen=1000 ttimeoutlen=0
 " set font for mvim
 set guifont=Meslo\ LG\ M\ for\ Powerline:h12
 
@@ -101,10 +102,14 @@ let g:ctrlp_match_window = 'max:20,results:20'
 " Syntastic options
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-" let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-let g:syntastic_php_checkers = ['php']
+let g:syntastic_php_checkers = ['php', 'phpmd'] " removed phpcs
+let g:syntastic_aggregate_errors = 1
+
+" PHPDOC config
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+nnoremap <buffer> <C-c> :call pdv#DocumentWithSnip()<CR>
 
 " Do not open split window with doc when using Omnicompletion
 set completeopt-=preview
@@ -144,9 +149,7 @@ Plugin 'https://github.com/terryma/vim-multiple-cursors.git'
 Plugin 'https://github.com/majutsushi/tagbar.git'
 
 " plugins for snippets
-Plugin 'tomtom/tlib_vim' " snipmate dependecy
-Plugin 'MarcWeber/vim-addon-mw-utils' " snipmate dependecy
-Plugin 'garbas/vim-snipmate'
+Plugin 'https://github.com/vim-scripts/UltiSnips.git'
 Plugin 'honza/vim-snippets'
 Plugin 'https://github.com/bonsaiben/bootstrap-snippets.git'
 
@@ -156,32 +159,33 @@ Plugin 'https://github.com/tomtom/tcomment_vim.git'
 " match tags with %
 Plugin 'https://github.com/tmhedberg/matchit.git'
 
-" Surround text objects
+" surround text objects
 Plugin 'https://github.com/tpope/vim-surround.git'
 
-" Move line with ctrl[j,k]
+" move line with ctrl[j,k]
 Plugin 'https://github.com/matze/vim-move.git'
 
-" Repeat commands with '.' for surround plugin (among others)
+" repeat commands with '.' for surround plugin (among others)
 Plugin 'https://github.com/tpope/vim-repeat.git'
 
-" Silver searcher
+" silver searcher
 Plugin 'https://github.com/rking/ag.vim.git'
 
-" Debuger
-" Plugin 'https://github.com/joonty/vdebug.git'
+" debuger
+" plugin 'https://github.com/joonty/vdebug.git'
 
-" Hightlight html tags
+" hightlight html tags
 Plugin 'https://github.com/gregsexton/MatchTag.git'
 
-" Code linter
+" code linter
 Plugin 'https://github.com/scrooloose/syntastic.git'
 
-"Auto-close
+" auto-close
 Plugin 'https://github.com/jiangmiao/auto-pairs.git'
 
-"JSX
-Plugin 'https://github.com/mxw/vim-jsx.git'
+" generate phpdoc
+Plugin 'https://github.com/tobyS/pdv.git'
+Plugin 'https://github.com/tobyS/vmustache.git' " phpdoc dependency
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
