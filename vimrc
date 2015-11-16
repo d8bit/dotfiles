@@ -9,7 +9,6 @@ set autoindent
 set mouse=a
 " hightlight current line
 set cursorline
-
 set relativenumber
 set number
 " incremental search
@@ -26,7 +25,7 @@ set timeoutlen=1000 ttimeoutlen=0
 " set font for mvim
 set guifont=Meslo\ LG\ M\ for\ Powerline:h12
 
-" save temp files in different path
+" save temp files in a different path
 set dir=~/.vimswap//,/var/tmp//,/tmp//
 
 " powerline (installed with pip)
@@ -40,10 +39,13 @@ map <Leader>1 :NERDTreeToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
 
 " run script to make blockmayus = esc
-map <Leader>e :!xmodmap ~/.speedswapper<CR>
-map <Leader>c :!ctags --languages=PHP -R .<CR>
+" map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
-"hide php variables on Tagbar
+map <Leader>t :!ctags --languages=PHP -R .<CR>
+map <Leader>c :SyntasticCheck phpcs<CR>
+map <Leader>m :SyntasticCheck phpmd<CR>
+
+" hide php variables on Tagbar
 let g:tagbar_type_php  = {
   \ 'ctagstype' : 'php',
   \ 'kinds'     : [
@@ -66,9 +68,6 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
-
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " multicursor shortcuts
 let g:multi_cursor_next_key='<C-n>'
@@ -104,12 +103,18 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-let g:syntastic_php_checkers = ['php', 'phpmd'] " removed phpcs
+let g:syntastic_php_checkers = ['php', 'phpmd'] " removed phpcs and phpmd to execute manually
 let g:syntastic_aggregate_errors = 1
 
 " PHPDOC config
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-nnoremap <buffer> <C-c> :call pdv#DocumentWithSnip()<CR>
+nnoremap <buffer> <C-b> :call pdv#DocumentWithSnip()<CR>
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-snippets/UltiSnips"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Do not open split window with doc when using Omnicompletion
 set completeopt-=preview
@@ -149,9 +154,8 @@ Plugin 'https://github.com/terryma/vim-multiple-cursors.git'
 Plugin 'https://github.com/majutsushi/tagbar.git'
 
 " plugins for snippets
-Plugin 'https://github.com/vim-scripts/UltiSnips.git'
+Plugin 'https://github.com/SirVer/ultisnips.git'
 Plugin 'honza/vim-snippets'
-Plugin 'https://github.com/bonsaiben/bootstrap-snippets.git'
 
 " comment lines with gcc command
 Plugin 'https://github.com/tomtom/tcomment_vim.git'
