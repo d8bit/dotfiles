@@ -140,7 +140,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 
 " Search files
-NeoBundle 'https://github.com/kien/ctrlp.vim.git'
+" NeoBundle 'https://github.com/kien/ctrlp.vim.git'
+NeoBundle 'https://github.com/ctrlpvim/ctrlp.vim'
 
 " File tree
 NeoBundle 'https://github.com/scrooloose/nerdtree.git'
@@ -205,6 +206,9 @@ NeoBundle 'benekastah/neomake'
 
 " generate phpdoc
 NeoBundle 'vexxor/phpdoc.vim'
+
+" nerdtree icons
+NeoBundle 'ryanoasis/vim-devicons'
 
  call neobundle#end()
 
