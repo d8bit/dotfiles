@@ -101,6 +101,15 @@ autocmd! BufWritePost * Neomake
 " airline
 let g:airline_powerline_fonts = 1
 
+
+" use namespace plugin with <leader>e
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+
 " end my config
 
 
@@ -209,6 +218,10 @@ NeoBundle 'vexxor/phpdoc.vim'
 
 " nerdtree icons
 NeoBundle 'ryanoasis/vim-devicons'
+
+" manage namespaces
+NeoBundle 'arnaud-lb/vim-php-namespace'
+
 
  call neobundle#end()
 
