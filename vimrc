@@ -202,6 +202,9 @@ Plugin 'https://github.com/tobyS/vmustache.git' " phpdoc dependency
 " manage namespaces
 Bundle 'arnaud-lb/vim-php-namespace'
 
+" refactor tool
+Plugin 'adoy/vim-php-refactoring-toolbox'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

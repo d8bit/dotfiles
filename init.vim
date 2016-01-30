@@ -222,6 +222,8 @@ NeoBundle 'ryanoasis/vim-devicons'
 " manage namespaces
 NeoBundle 'arnaud-lb/vim-php-namespace'
 
+" refactor tool
+Plugin 'adoy/vim-php-refactoring-toolbox'
 
  call neobundle#end()
 
