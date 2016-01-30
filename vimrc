@@ -103,7 +103,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-let g:syntastic_php_checkers = ['php', 'phpmd'] " removed phpcs and phpmd to execute manually
+let g:syntastic_php_checkers = ['php'] " removed phpcs and phpmd to execute manually
 let g:syntastic_aggregate_errors = 1
 
 " PHPDOC config
@@ -118,6 +118,14 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Do not open split window with doc when using Omnicompletion
 set completeopt-=preview
+
+" use namespace plugin with <leader>e
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 " BUNDLE
 " set the runtime path to include Vundle and initialize
@@ -190,6 +198,9 @@ Plugin 'https://github.com/jiangmiao/auto-pairs.git'
 " generate phpdoc
 Plugin 'https://github.com/tobyS/pdv.git'
 Plugin 'https://github.com/tobyS/vmustache.git' " phpdoc dependency
+
+" manage namespaces
+Bundle 'arnaud-lb/vim-php-namespace'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
