@@ -1,6 +1,5 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-syntax enable
 colorscheme monokai
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
@@ -207,4 +206,5 @@ Plugin 'adoy/vim-php-refactoring-toolbox'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+syntax enable
 :
