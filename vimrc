@@ -110,6 +110,7 @@ let g:syntastic_aggregate_errors = 1
 map <Leader>d :call PhpDoc()<CR>
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" Execute 'UltiSnipsAddFiletypes php' if necessary
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-snippets/UltiSnips"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
