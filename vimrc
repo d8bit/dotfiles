@@ -107,8 +107,7 @@ let g:syntastic_php_checkers = ['php'] " removed phpcs and phpmd to execute manu
 let g:syntastic_aggregate_errors = 1
 
 " PHPDOC config
-let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-nnoremap <buffer> <C-b> :call pdv#DocumentWithSnip()<CR>
+map <Leader>d :call PhpDoc()<CR>
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-snippets/UltiSnips"
@@ -196,8 +195,7 @@ Plugin 'https://github.com/scrooloose/syntastic.git'
 Plugin 'https://github.com/jiangmiao/auto-pairs.git'
 
 " generate phpdoc
-Plugin 'https://github.com/tobyS/pdv.git'
-Plugin 'https://github.com/tobyS/vmustache.git' " phpdoc dependency
+Bundle 'vexxor/phpdoc.vim'
 
 " manage namespaces
 Bundle 'arnaud-lb/vim-php-namespace'
