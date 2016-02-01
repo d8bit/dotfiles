@@ -223,7 +223,7 @@ NeoBundle 'ryanoasis/vim-devicons'
 NeoBundle 'arnaud-lb/vim-php-namespace'
 
 " refactor tool
-Plugin 'adoy/vim-php-refactoring-toolbox'
+NeoBundle 'adoy/vim-php-refactoring-toolbox'
 
  call neobundle#end()
 
