@@ -89,8 +89,8 @@ map <Leader>d :call PhpDoc()<CR>
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsSnippetsDir="~/.config/bundle/vim-snippets/UltiSnips"
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
 " Do not open split window with doc when using Omnicompletion
 set completeopt-=preview
