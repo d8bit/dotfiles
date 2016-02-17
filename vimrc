@@ -30,6 +30,8 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//
 " to start airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
+" powerline theme
+let g:airline_theme='powerlineish'
 
 "shortcuts
 map <Leader>1 <plug>NERDTreeTabsToggle<CR>
@@ -208,6 +210,7 @@ Plugin 'adoy/vim-php-refactoring-toolbox'
 
 " airline
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " tmux airline
 Bundle 'edkolev/tmuxline.vim'
