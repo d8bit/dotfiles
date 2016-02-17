@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-colorscheme monokai
+" colorscheme monokai
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
@@ -22,19 +22,17 @@ set splitright
 " remove esc delay to return to visual mode quickly
 set timeoutlen=1000 ttimeoutlen=0
 " set font for mvim
-set guifont=Meslo\ LG\ M\ for\ Powerline:h12
+" set guifont=Meslo\ LG\ M\ for\ Powerline:h12
 
 " save temp files in a different path
 set dir=~/.vimswap//,/var/tmp//,/tmp//
 
-" powerline (installed with pip)
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" to start airline
 set laststatus=2
+let g:airline_powerline_fonts = 1
 
 "shortcuts
-map <Leader>1 :NERDTreeToggle<CR>
+map <Leader>1 <plug>NERDTreeTabsToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
 
 " run script to make blockmayus = esc
@@ -139,8 +137,10 @@ Plugin 'gmarik/Vundle.vim'
 " Search files
 Plugin 'https://github.com/kien/ctrlp.vim.git'
 
-" File tree
+" File tree (nerdtree)
 Plugin 'https://github.com/scrooloose/nerdtree.git'
+" nerdtree on all tabs
+Bundle 'jistr/vim-nerdtree-tabs'
 
 " git integration. Show git info on nerdtree
 Plugin 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
@@ -202,6 +202,15 @@ Bundle 'arnaud-lb/vim-php-namespace'
 
 " refactor tool
 Plugin 'adoy/vim-php-refactoring-toolbox'
+
+" airline
+Plugin 'vim-airline/vim-airline'
+
+" tmux airline
+Bundle 'edkolev/tmuxline.vim'
+
+" blade syntax
+Plugin 'jwalton512/vim-blade'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
