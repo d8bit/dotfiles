@@ -38,7 +38,10 @@ nmap <Leader>2 :TagbarToggle<CR>
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
-map <Leader>t :!ctags --languages=PHP -R .<CR>
+" exhuberant-ctags
+" map <Leader>t :!ctags --languages=PHP -R .<CR>
+" patched exhuberant-ctags with PHP namespaces
+map <Leader>t :!ctags -R --fields=+aS --languages=php .<CR>
 map <Leader>c :SyntasticCheck phpcs<CR>
 map <Leader>m :SyntasticCheck phpmd<CR>
 
@@ -198,7 +201,7 @@ Plugin 'https://github.com/jiangmiao/auto-pairs.git'
 Bundle 'vexxor/phpdoc.vim'
 
 " manage namespaces
-Bundle 'arnaud-lb/vim-php-namespace'
+" Bundle 'arnaud-lb/vim-php-namespace'
 
 " refactor tool
 Plugin 'adoy/vim-php-refactoring-toolbox'
