@@ -20,7 +20,7 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//
 
 
 "shortcuts
-map <Leader>1 :NERDTreeToggle<CR>
+map <Leader>1 <plug>NERDTreeTabsToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
 
 " run script to make blockmayus = esc
@@ -66,7 +66,7 @@ let g:tagbar_autoclose = 1
 let g:tagbar_show_linenumbers = 2
 
 " close Nerdtree on open
-let NERDTreeQuitOnOpen = 1
+" let NERDTreeQuitOnOpen = 1
 
 " show line numbers on NerdTree
 let NERDTreeShowLineNumbers=1
@@ -229,6 +229,12 @@ NeoBundle 'arnaud-lb/vim-php-namespace'
 
 " refactor tool
 NeoBundle 'adoy/vim-php-refactoring-toolbox'
+
+" show always nerdtree
+NeoBundle 'jistr/vim-nerdtree-tabs'
+
+" blade template
+NeoBundle 'jwalton512/vim-blade'
 
  call neobundle#end()
 
