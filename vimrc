@@ -200,8 +200,8 @@ Plugin 'https://github.com/jiangmiao/auto-pairs.git'
 " generate phpdoc
 Bundle 'vexxor/phpdoc.vim'
 
-" manage namespaces
-" Bundle 'arnaud-lb/vim-php-namespace'
+" autocomplete namespaces
+Bundle 'arnaud-lb/vim-php-namespace'
 
 " refactor tool
 Plugin 'adoy/vim-php-refactoring-toolbox'
