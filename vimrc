@@ -30,8 +30,9 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//
 " to start airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 " powerline theme
-let g:airline_theme='powerlineish'
+let g:airline_theme='luna'
 
 "shortcuts
 map <Leader>1 <plug>NERDTreeTabsToggle<CR>
@@ -83,7 +84,7 @@ let g:tagbar_autoclose = 1
 let g:tagbar_show_linenumbers = 2
 
 " close Nerdtree on open
-let NERDTreeQuitOnOpen = 1
+" let NERDTreeQuitOnOpen = 1
 
 " show line numbers on NerdTree
 let NERDTreeShowLineNumbers=1
