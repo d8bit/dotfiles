@@ -221,6 +221,9 @@ Bundle 'edkolev/tmuxline.vim'
 " blade syntax
 Plugin 'jwalton512/vim-blade'
 
+" php complete
+Plugin 'shawncplus/phpcomplete.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
