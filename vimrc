@@ -31,6 +31,8 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 " powerline theme
 let g:airline_theme='luna'
 
