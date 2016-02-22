@@ -89,7 +89,8 @@ let g:tagbar_show_linenumbers = 2
 " let NERDTreeQuitOnOpen = 1
 
 " show line numbers on NerdTree
-let NERDTreeShowLineNumbers=1
+let NERDTreeShowLineNumbers = 1
+let NERDTreeShowHidden = 1
 
 " move lines with Control key
 let g:move_key_modifier = 'C'
@@ -102,6 +103,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_match_window = 'max:20,results:20'
+let g:ctrlp_show_hidden = 1
 
 " Syntastic options
 let g:syntastic_always_populate_loc_list = 1
