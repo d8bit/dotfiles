@@ -22,7 +22,7 @@ set splitright
 " remove esc delay to return to visual mode quickly
 set timeoutlen=1000 ttimeoutlen=0
 " set font for mvim
-" set guifont=Meslo\ LG\ M\ for\ Powerline:h12
+set guifont=Meslo\ LG\ M\ for\ Powerline:h12
 
 " save temp files in a different path
 set dir=~/.vimswap//,/var/tmp//,/tmp//
@@ -110,7 +110,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-let g:syntastic_php_checkers = ['php'] " removed phpcs and phpmd to execute manually
+let g:syntastic_php_checkers = ['php', 'phpmd'] " removed phpcs to execute manually
 let g:syntastic_aggregate_errors = 1
 
 " PHPDOC config
