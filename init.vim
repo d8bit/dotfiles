@@ -89,7 +89,7 @@ map <Leader>d :call PhpDoc()<CR>
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsSnippetsDir="~/.config/bundle/vim-snippets/UltiSnips"
-let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsSnippetsDir="~/.config/bundle/vim-snippets/UltiSnips"
@@ -105,6 +105,11 @@ autocmd! BufWritePost * Neomake
 
 " airline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+" powerline theme
+let g:airline_theme='luna'
 
 
 " use namespace plugin with <leader>e
@@ -214,6 +219,8 @@ NeoBundle 'https://github.com/jiangmiao/auto-pairs.git'
 
 " airline
 NeoBundle 'bling/vim-airline'
+" airline themes
+NeoBundle 'vim-airline/vim-airline-themes'
 
 " codelinter
 NeoBundle 'benekastah/neomake'
@@ -235,6 +242,9 @@ NeoBundle 'jistr/vim-nerdtree-tabs'
 
 " blade template
 NeoBundle 'jwalton512/vim-blade'
+
+" youcompleteme
+NeoBundle 'Valloric/YouCompleteMe'
 
  call neobundle#end()
 
