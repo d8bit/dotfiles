@@ -26,7 +26,7 @@ nmap <Leader>2 :TagbarToggle<CR>
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
-map <Leader>t :!ctags --languages=PHP -R .<CR>
+map <Leader>t :!ctags -R .<CR>
 " map <Leader>c :SyntasticCheck phpcs<CR>
 " map <Leader>m :SyntasticCheck phpmd<CR>
 
@@ -98,6 +98,7 @@ set completeopt-=preview
 
 " execute Neomake on save
 autocmd! BufWritePost * Neomake
+let g:neomake_php_enabled_makers = ['phpmd']
 
 " airline
 let g:airline_powerline_fonts = 1
@@ -217,6 +218,9 @@ NeoBundle 'https://github.com/jiangmiao/auto-pairs.git'
 NeoBundle 'bling/vim-airline'
 " airline themes
 NeoBundle 'vim-airline/vim-airline-themes'
+
+" tmux airline
+NeoBundle 'edkolev/tmuxline.vim'
 
 " codelinter
 NeoBundle 'benekastah/neomake'
