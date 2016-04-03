@@ -47,8 +47,12 @@ nmap <Leader>2 :TagbarToggle<CR>
 " map <Leader>t :!ctags --languages=PHP -R .<CR>
 " patched exhuberant-ctags with PHP namespaces
 map <Leader>t :!ctags -R --fields=+aS --languages=php .<CR>
+" codesniffer
 map <Leader>c :SyntasticCheck phpcs<CR>
+" mess detector
 map <Leader>m :SyntasticCheck phpmd<CR>
+" deadcode detector
+map <Leader>n :SyntasticCheck phpdcd<CR>
 
 " hide php variables on Tagbar
 let g:tagbar_type_php  = {
@@ -110,7 +114,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-let g:syntastic_php_checkers = ['php', 'phpmd'] " removed phpcs to execute manually
+let g:syntastic_php_checkers = ['php', 'phpmd', 'phpdcd']
 let g:syntastic_aggregate_errors = 1
 
 " PHPDOC config
@@ -225,6 +229,9 @@ Plugin 'jwalton512/vim-blade'
 
 " php complete
 Plugin 'shawncplus/phpcomplete.vim'
+
+" youCompleteMe
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
