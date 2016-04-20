@@ -99,6 +99,7 @@ set completeopt-=preview
 " execute Neomake on save
 autocmd! BufWritePost * Neomake
 let g:neomake_php_enabled_makers = ['phpmd']
+let g:neomake_open_list = 2
 
 " airline
 let g:airline_powerline_fonts = 1
