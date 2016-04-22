@@ -50,8 +50,8 @@ if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+  " ag is fast enough that CtrlP doesn't need to cache (ñe...)
+  let g:ctrlp_use_caching = 1
 endif
 
 " multicursor shortcuts
@@ -109,7 +109,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 " powerline theme
-let g:airline_theme='luna'
+let g:airline_theme='powerlineish'
 
 
 " use namespace plugin with <leader>e
