@@ -49,9 +49,6 @@ if executable('ag')
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache (ñe...)
-  let g:ctrlp_use_caching = 1
 endif
 
 " multicursor shortcuts
@@ -81,9 +78,10 @@ let g:move_key_modifier = 'C'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_match_window = 'max:20,results:20'
 let g:ctrlp_by_filename = 1
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_use_caching = 1
+let g:ctrlp_regexp = 1
 
 " PHPDOC config
 map <Leader>d :call PhpDoc()<CR>
@@ -100,8 +98,8 @@ set completeopt-=preview
 
 " execute Neomake on save
 autocmd! BufWritePost * Neomake
-let g:neomake_php_enabled_makers = ['phpmd']
-" let g:neomake_open_list = 2
+let g:neomake_php_enabled_makers = ['phpmd', 'php']
+let g:neomake_open_list = 2
 
 " airline
 let g:airline_powerline_fonts = 1
