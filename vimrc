@@ -230,7 +230,7 @@ Plugin 'jwalton512/vim-blade'
 Plugin 'shawncplus/phpcomplete.vim'
 
 " youCompleteMe
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
