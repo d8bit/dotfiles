@@ -26,7 +26,7 @@ nmap <Leader>2 :TagbarToggle<CR>
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
-map <Leader>t :!ctags -R .<CR>
+map <Leader>t :!ctags -R --fields=+aS --languages=php .<CR>
 " map <Leader>c :SyntasticCheck phpcs<CR>
 " map <Leader>m :SyntasticCheck phpmd<CR>
 
@@ -245,7 +245,7 @@ NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'jwalton512/vim-blade'
 
 " youcompleteme
-NeoBundle 'Valloric/YouCompleteMe'
+" NeoBundle 'Valloric/YouCompleteMe'
 
  call neobundle#end()
 
