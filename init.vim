@@ -248,10 +248,10 @@ NeoBundle 'jwalton512/vim-blade'
 " NeoBundle 'Valloric/YouCompleteMe'
 
 " type script
-Plugin 'leafgarland/typescript-vim'
-Plugin 'HerringtonDarkholme/yats.vim'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'clausreinke/typescript-tools.vim'
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'HerringtonDarkholme/yats.vim'
+NeoBundle 'Quramy/tsuquyomi'
+NeoBundle 'clausreinke/typescript-tools.vim'
 
 call neobundle#end()
 
