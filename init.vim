@@ -118,6 +118,10 @@ endfunction
 autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
+" typescript options
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
+
 " end my config
 
 
@@ -249,9 +253,7 @@ NeoBundle 'jwalton512/vim-blade'
 
 " type script
 NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'HerringtonDarkholme/yats.vim'
 NeoBundle 'Quramy/tsuquyomi'
-NeoBundle 'clausreinke/typescript-tools.vim'
 
 call neobundle#end()
 
