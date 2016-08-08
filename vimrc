@@ -232,6 +232,12 @@ Plugin 'shawncplus/phpcomplete.vim'
 " youCompleteMe
 " Plugin 'Valloric/YouCompleteMe'
 
+" type script
+Plugin 'leafgarland/typescript-vim'
+Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'clausreinke/typescript-tools.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

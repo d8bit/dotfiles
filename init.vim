@@ -247,7 +247,13 @@ NeoBundle 'jwalton512/vim-blade'
 " youcompleteme
 " NeoBundle 'Valloric/YouCompleteMe'
 
- call neobundle#end()
+" type script
+Plugin 'leafgarland/typescript-vim'
+Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'clausreinke/typescript-tools.vim'
+
+call neobundle#end()
 
  " Required:
  filetype plugin indent on
