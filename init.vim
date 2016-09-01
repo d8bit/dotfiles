@@ -22,6 +22,8 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//
 "shortcuts
 map <Leader>1 <plug>NERDTreeTabsToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
+map <F2> :lopen<CR>
+map <F3> :lclose<CR>
 
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
@@ -93,13 +95,15 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsSnippetsDir="~/.config/bundle/vim-snippets/UltiSnips"
 
-" Do not open split window with doc when using Omnicompletion
+" do not open split window with doc when using Omnicompletion
 set completeopt-=preview
 
 " execute Neomake on save
 autocmd! BufWritePost * Neomake
 let g:neomake_php_enabled_makers = ['phpmd', 'php']
-let g:neomake_open_list = 2
+let g:neomake_javascript_enabled_makers = ['jshint']
+" do not open error list automatically
+let g:neomake_open_list = 0
 
 " airline
 let g:airline_powerline_fonts = 1
@@ -254,6 +258,9 @@ NeoBundle 'jwalton512/vim-blade'
 " type script
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'Quramy/tsuquyomi'
+
+"vim man
+NeoBundle 'alvan/vim-php-manual'
 
 call neobundle#end()
 
