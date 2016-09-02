@@ -259,7 +259,7 @@ NeoBundle 'jwalton512/vim-blade'
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'Quramy/tsuquyomi'
 
-"vim man
+" php man
 NeoBundle 'alvan/vim-php-manual'
 
 call neobundle#end()
