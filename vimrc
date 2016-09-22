@@ -23,9 +23,10 @@ set splitright
 set timeoutlen=1000 ttimeoutlen=0
 " set font for mvim
 set guifont=Meslo\ LG\ M\ for\ Powerline:h12
-
 " save temp files in a different path
 set dir=~/.vimswap//,/var/tmp//,/tmp//
+" hightlight column 121
+set colorcolumn=121
 
 " to start airline
 set laststatus=2
