@@ -1,5 +1,5 @@
 " my config
-
+set mouse=
 syntax enable
 colorscheme monokai
 " tab to spaces
@@ -17,6 +17,8 @@ set splitbelow
 set splitright
 " save temp files in a different path
 set dir=~/.vimswap//,/var/tmp//,/tmp//
+" show column 121
+set colorcolumn=121
 
 
 "shortcuts
@@ -28,7 +30,7 @@ map <F3> :lclose<CR>
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
-map <Leader>t :!ctags -R --fields=+aS --languages=php .<CR>
+map <Leader>t :!ctags-exuberant -R --fields=+aS --languages=php .<CR>
 " map <Leader>c :SyntasticCheck phpcs<CR>
 " map <Leader>m :SyntasticCheck phpmd<CR>
 
@@ -90,7 +92,7 @@ map <Leader>d :call PhpDoc()<CR>
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsSnippetsDir="~/.config/bundle/vim-snippets/UltiSnips"
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsSnippetsDir="~/.config/bundle/vim-snippets/UltiSnips"
@@ -172,7 +174,7 @@ NeoBundle 'https://github.com/ctrlpvim/ctrlp.vim'
 NeoBundle 'https://github.com/scrooloose/nerdtree.git'
 
 " git integration. Show git info on nerdtree
-NeoBundle 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
+" NeoBundle 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 
 " git integration. Shows line state on margin.
 NeoBundle 'airblade/vim-gitgutter'
@@ -258,6 +260,9 @@ NeoBundle 'jwalton512/vim-blade'
 " type script
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'Quramy/tsuquyomi'
+
+" tern for javascript
+NeoBundle 'ternjs/tern_for_vim'
 
 " php man
 NeoBundle 'alvan/vim-php-manual'
