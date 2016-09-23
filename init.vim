@@ -19,6 +19,9 @@ set splitright
 set dir=~/.vimswap//,/var/tmp//,/tmp//
 " show column 121
 set colorcolumn=121
+" show whitespeces at the end of lines and tabs as an error
+match ErrorMsg '\s\+$'
+2match ErrorMsg '\t'
 
 
 "shortcuts
