@@ -19,9 +19,9 @@ set splitright
 set dir=~/.vimswap//,/var/tmp//,/tmp//
 " show column 121
 set colorcolumn=121
-" show whitespeces at the end of lines and tabs as an error
-match ErrorMsg '\s\+$'
-2match ErrorMsg '\t'
+" show tabs
+set list
+set listchars=tab:▸\ 
 
 
 "shortcuts
@@ -79,7 +79,7 @@ let NERDTreeShowLineNumbers=1
 let g:move_key_modifier = 'C'
 
 " stop at breakpoints on debugging
-" let g:dbgPavimBreakAtEntry = 1
+let g:dbgPavimBreakAtEntry = 1
 
 " Ctrlp options
 let g:ctrlp_map = '<c-p>'
@@ -217,7 +217,7 @@ NeoBundle 'https://github.com/tpope/vim-repeat.git'
 NeoBundle 'https://github.com/rking/ag.vim.git'
 
 " debuger
-" plugin 'https://github.com/joonty/vdebug.git'
+NeoBundle 'https://github.com/joonty/vdebug.git'
 
 " hightlight html tags
 NeoBundle 'https://github.com/gregsexton/MatchTag.git'
@@ -269,6 +269,9 @@ NeoBundle 'ternjs/tern_for_vim'
 
 " php man
 NeoBundle 'alvan/vim-php-manual'
+
+" show whitespaces
+NeoBundle 'ntpeters/vim-better-whitespace'
 
 call neobundle#end()
 

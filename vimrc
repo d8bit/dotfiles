@@ -27,9 +27,9 @@ set guifont=Meslo\ LG\ M\ for\ Powerline:h12
 set dir=~/.vimswap//,/var/tmp//,/tmp//
 " hightlight column 121
 set colorcolumn=121
-" show whitespeces at the end of lines as an error
-match ErrorMsg '\s\+$'
-2match ErrorMsg '\t'
+" show tabs
+set list
+set listchars=tab:▸\ 
 
 " to start airline
 set laststatus=2
@@ -236,6 +236,9 @@ Plugin 'shawncplus/phpcomplete.vim'
 
 " youCompleteMe
 " Plugin 'Valloric/YouCompleteMe'
+
+" show whitespaces at the end of the lines
+Plugin 'ntpeters/vim-better-whitespace'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
