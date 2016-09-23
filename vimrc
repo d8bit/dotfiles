@@ -27,6 +27,9 @@ set guifont=Meslo\ LG\ M\ for\ Powerline:h12
 set dir=~/.vimswap//,/var/tmp//,/tmp//
 " hightlight column 121
 set colorcolumn=121
+" show whitespeces at the end of lines as an error
+match ErrorMsg '\s\+$'
+2match ErrorMsg '\t'
 
 " to start airline
 set laststatus=2
