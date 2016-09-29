@@ -30,6 +30,11 @@ set colorcolumn=121
 " show tabs
 set list
 set listchars=tab:▸\ 
+" autosave and autload views for codefoldings
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+" show autocomplete options on bottom bar
+set wildmenu
 
 " to start airline
 set laststatus=2

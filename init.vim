@@ -1,6 +1,7 @@
 " my config
 set mouse=
 syntax enable
+set background=dark
 colorscheme monokai
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
@@ -22,6 +23,9 @@ set colorcolumn=121
 " show tabs
 set list
 set listchars=tab:▸\ 
+" autosave and autload codefoldings
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 
 
 "shortcuts
