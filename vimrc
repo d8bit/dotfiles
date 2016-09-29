@@ -48,6 +48,9 @@ let g:airline_theme='powerlineish'
 "shortcuts
 map <Leader>1 <plug>NERDTreeTabsToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
+map <F2> :lopen<CR>
+map <F3> :lclose<CR>
+map <tab> za<CR>
 
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
