@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-colorscheme monokai
+set background=dark
+colorscheme solarized
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
@@ -30,7 +31,7 @@ set colorcolumn=121
 " show tabs
 set list
 set listchars=tab:▸\ 
-" autosave and autload views for codefoldings
+" autosave and autoload views to save codefoldings
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 " show autocomplete options on bottom bar

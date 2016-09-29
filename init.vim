@@ -2,7 +2,7 @@
 set mouse=a
 syntax enable
 set background=dark
-colorscheme monokai
+colorscheme solarized
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
 "set autoindent
@@ -23,7 +23,7 @@ set colorcolumn=121
 " show tabs
 set list
 set listchars=tab:▸\ 
-" autosave and autload codefoldings
+" autosave and autoload views to save codefoldings
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
