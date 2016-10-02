@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set background=dark
-colorscheme solarized
+colorscheme monokai
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
