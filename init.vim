@@ -5,7 +5,7 @@ set background=dark
 colorscheme solarized
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
-"set autoindent
+" set autoindent
 set cursorline
 set relativenumber
 set number
