@@ -277,6 +277,9 @@ NeoBundle 'alvan/vim-php-manual'
 " show whitespaces
 NeoBundle 'ntpeters/vim-better-whitespace'
 
+" tabular plugin to format text
+NeoBundle 'godlygeek/tabular'
+
 call neobundle#end()
 
  " Required:

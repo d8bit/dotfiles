@@ -249,6 +249,9 @@ Plugin 'shawncplus/phpcomplete.vim'
 " show whitespaces at the end of the lines
 Plugin 'ntpeters/vim-better-whitespace'
 
+" tabular plugin to format text
+NeoBundle 'godlygeek/tabular'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
