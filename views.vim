@@ -1,5 +1,5 @@
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+autocmd BufWinLeave *.* mkview 1
+autocmd BufWinEnter *.* silent loadview 1
 
 " #########################################################
 " # A way to delete 'mkview'
