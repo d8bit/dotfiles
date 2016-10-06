@@ -24,20 +24,20 @@ set colorcolumn=121
 set list
 set listchars=tab:▸\ 
 " autosave and autoload views to save codefoldings
-source ~/vim/views.vim
+" source ~/vim/views.vim
 
 
 "shortcuts
 map <Leader>1 <plug>NERDTreeTabsToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
-map <F2> :lopen<CR>
-map <F3> :lclose<CR>
+" map <F2> :lopen<CR>
+" map <F3> :lclose<CR>
 map <tab> za<CR>
 
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
-map <Leader>t :!ctags-exuberant -R --fields=+aS --languages=php .<CR>
+map <Leader>t :!ctags -R --fields=+aS --languages=php .<CR>
 " map <Leader>c :SyntasticCheck phpcs<CR>
 " map <Leader>m :SyntasticCheck phpmd<CR>
 
@@ -84,6 +84,23 @@ let g:move_key_modifier = 'C'
 
 " stop at breakpoints on debugging
 let g:dbgPavimBreakAtEntry = 1
+" Xdebug config
+let g:vdebug_options= {
+    \    "port" : 9999,
+    \    "server" : '',
+    \    "timeout" : 20,
+    \    "on_close" : 'detach',
+    \    "break_on_open" : 1,
+    \    "ide_key" : '',
+    \    "path_maps" : {},
+    \    "debug_window_level" : 0,
+    \    "debug_file_level" : 0,
+    \    "debug_file" : "",
+    \    "watch_window_style" : 'expanded',
+    \    "marker_default" : '⬦',
+    \    "marker_closed_tree" : '▸',
+    \    "marker_open_tree" : '▾'
+    \}
 
 " Ctrlp options
 let g:ctrlp_map = '<c-p>'

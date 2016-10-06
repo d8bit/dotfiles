@@ -32,8 +32,8 @@ set colorcolumn=121
 set list
 set listchars=tab:▸\ 
 " autosave and autoload views to save codefoldings
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+" source ~/vim/views.vim
+
 " show autocomplete options on bottom bar
 set wildmenu
 
@@ -49,8 +49,8 @@ let g:airline_theme='powerlineish'
 "shortcuts
 map <Leader>1 <plug>NERDTreeTabsToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
-map <F2> :lopen<CR>
-map <F3> :lclose<CR>
+" map <F2> :lopen<CR>
+" map <F3> :lclose<CR>
 map <tab> za<CR>
 
 " run script to make blockmayus = esc
@@ -110,7 +110,24 @@ let NERDTreeShowHidden = 1
 let g:move_key_modifier = 'C'
 
 " stop at breakpoints on debugging
-" let g:dbgPavimBreakAtEntry = 1
+let g:dbgPavimBreakAtEntry = 1
+" Xdebug config
+let g:vdebug_options= {
+    \    "port" : 9999,
+    \    "server" : '',
+    \    "timeout" : 20,
+    \    "on_close" : 'detach',
+    \    "break_on_open" : 1,
+    \    "ide_key" : '',
+    \    "path_maps" : {},
+    \    "debug_window_level" : 0,
+    \    "debug_file_level" : 0,
+    \    "debug_file" : "",
+    \    "watch_window_style" : 'expanded',
+    \    "marker_default" : '⬦',
+    \    "marker_closed_tree" : '▸',
+    \    "marker_open_tree" : '▾'
+    \}
 
 " Ctrlp options
 let g:ctrlp_map = '<c-p>'
@@ -210,7 +227,7 @@ Plugin 'https://github.com/tpope/vim-repeat.git'
 Plugin 'https://github.com/rking/ag.vim.git'
 
 " debuger
-" plugin 'https://github.com/joonty/vdebug.git'
+Plugin 'https://github.com/joonty/vdebug.git'
 
 " hightlight html tags
 Plugin 'https://github.com/gregsexton/MatchTag.git'
@@ -250,7 +267,7 @@ Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 
 " tabular plugin to format text
-NeoBundle 'godlygeek/tabular'
+Plugin 'godlygeek/tabular'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
