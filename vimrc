@@ -1,12 +1,13 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+
+" enable mouse
+set mouse=a
 set background=dark
 colorscheme monokai
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
-" enable mouse
-set mouse=a
 " hightlight current line
 set cursorline
 set relativenumber
@@ -17,7 +18,7 @@ set incsearch
 set hlsearch
 " show commands
 set showcmd
-" split options
+" split options: create splits below and right by default
 set splitbelow
 set splitright
 " remove esc delay to return to visual mode quickly
@@ -37,8 +38,16 @@ set listchars=tab:▸\
 " show autocomplete options on bottom bar
 set wildmenu
 
+" execute Neomake on save
+autocmd! BufWritePost * Neomake
+let g:neomake_php_enabled_makers = ['phpmd', 'php']
+let g:neomake_javascript_enabled_makers = ['jshint']
+" do not open error list automatically
+let g:neomake_open_list = 0
+
 " to start airline
 set laststatus=2
+" airline options
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -49,25 +58,15 @@ let g:airline_theme='powerlineish'
 "shortcuts
 map <Leader>1 <plug>NERDTreeTabsToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
-" map <F2> :lopen<CR>
-" map <F3> :lclose<CR>
 map <tab> za<CR>
 
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
-" exhuberant-ctags
-" map <Leader>t :!ctags --languages=PHP -R .<CR>
-" patched exhuberant-ctags with PHP namespaces
+" ctags
 map <Leader>t :!ctags -R --fields=+aS --languages=php .<CR>
-" codesniffer
-map <Leader>c :SyntasticCheck phpcs<CR>
-" mess detector
-map <Leader>m :SyntasticCheck phpmd<CR>
-" deadcode detector
-map <Leader>n :SyntasticCheck phpdcd<CR>
 
-" hide php variables on Tagbar
+" hide php variables on tagbar
 let g:tagbar_type_php  = {
   \ 'ctagstype' : 'php',
   \ 'kinds'     : [
@@ -78,6 +77,11 @@ let g:tagbar_type_php  = {
           \ 'j:javascript functions:1'
   \ ]
 \ }
+" tabgar autofocus and close on select
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
+let g:tagbar_show_linenumbers = 2
+
 
 " The Silver Searcher
 if executable('ag')
@@ -93,14 +97,6 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
-
-" tabgar autofocus and close on select
-let g:tagbar_autofocus = 1
-let g:tagbar_autoclose = 1
-let g:tagbar_show_linenumbers = 2
-
-" close Nerdtree on open
-" let NERDTreeQuitOnOpen = 1
 
 " show line numbers on NerdTree
 let NERDTreeShowLineNumbers = 1
@@ -138,15 +134,6 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_use_caching = 1
 let g:ctrlp_regexp = 1
 
-" Syntastic options
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_php_checkers = ['php', 'phpmd', 'phpdcd']
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_aggregate_errors = 1
-
 " PHPDOC config
 map <Leader>d :call PhpDoc()<CR>
 
@@ -179,12 +166,12 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Search files
-Plugin 'https://github.com/kien/ctrlp.vim.git'
+Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
 
 " File tree (nerdtree)
 Plugin 'https://github.com/scrooloose/nerdtree.git'
 " nerdtree on all tabs
-Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 " git integration. Show git info on nerdtree
 Plugin 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
@@ -233,7 +220,7 @@ Plugin 'https://github.com/joonty/vdebug.git'
 Plugin 'https://github.com/gregsexton/MatchTag.git'
 
 " code linter
-Plugin 'https://github.com/scrooloose/syntastic.git'
+Plugin 'benekastah/neomake'
 
 " auto-close
 Plugin 'https://github.com/jiangmiao/auto-pairs.git'
@@ -252,7 +239,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " tmux airline
-Bundle 'edkolev/tmuxline.vim'
+Plugin 'edkolev/tmuxline.vim'
 
 " blade syntax
 Plugin 'jwalton512/vim-blade'
