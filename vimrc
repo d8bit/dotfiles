@@ -3,7 +3,6 @@ filetype off                  " required
 
 " enable mouse
 set mouse=a
-set background=dark
 colorscheme monokai
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
@@ -235,10 +234,10 @@ Plugin 'benekastah/neomake'
 Plugin 'https://github.com/jiangmiao/auto-pairs.git'
 
 " generate phpdoc
-Bundle 'vexxor/phpdoc.vim'
+Plugin 'vexxor/phpdoc.vim'
 
 " autocomplete namespaces
-Bundle 'arnaud-lb/vim-php-namespace'
+Plugin 'arnaud-lb/vim-php-namespace'
 
 " refactor tool
 Plugin 'adoy/vim-php-refactoring-toolbox'
@@ -258,6 +257,15 @@ Plugin 'shawncplus/phpcomplete.vim'
 
 " youCompleteMe
 " Plugin 'Valloric/YouCompleteMe'
+
+" tern for javascript
+Plugin 'ternjs/tern_for_vim'
+Plugin 'pangloss/vim-javascript'
+" reactjs (jsx)
+Plugin 'mxw/vim-jsx'
+
+" php man
+Plugin 'alvan/vim-php-manual'
 
 " show whitespaces at the end of the lines
 Plugin 'ntpeters/vim-better-whitespace'
