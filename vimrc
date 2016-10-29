@@ -247,7 +247,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " tmux airline
-Plugin 'edkolev/tmuxline.vim'
+" Plugin 'edkolev/tmuxline.vim'
 
 " blade syntax
 Plugin 'jwalton512/vim-blade'

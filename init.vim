@@ -1,11 +1,13 @@
 " my config
+" enable mouse
 set mouse=a
 syntax enable
 set background=dark
 colorscheme monokai
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
-" set autoindent
+set autoindent
+" hightlight current line
 set cursorline
 set relativenumber
 set number
@@ -16,6 +18,8 @@ set showcmd
 " split options
 set splitbelow
 set splitright
+" remove esc delay to return to visual mode quickly
+set timeoutlen=1000 ttimeoutlen=0
 " save temp files in a different path
 set dir=~/.vimswap//,/var/tmp//,/tmp//
 " show column 121
@@ -132,6 +136,7 @@ let g:neomake_javascript_enabled_makers = ['jshint']
 let g:neomake_open_list = 0
 
 " airline
+set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -151,6 +156,9 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 " typescript options
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
+
+" jsx option
+let g:jsx_ext_required = 0
 
 " end my config
 
@@ -191,7 +199,6 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 
 " Search files
-" NeoBundle 'https://github.com/kien/ctrlp.vim.git'
 NeoBundle 'https://github.com/ctrlpvim/ctrlp.vim'
 
 " File tree
@@ -287,6 +294,9 @@ NeoBundle 'Quramy/tsuquyomi'
 
 " tern for javascript
 NeoBundle 'ternjs/tern_for_vim'
+NeoBundle 'pangloss/vim-javascript'
+" reactjs (jsx)
+NeoBundle 'mxw/vim-jsx'
 
 " php man
 NeoBundle 'alvan/vim-php-manual'
