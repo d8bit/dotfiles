@@ -63,7 +63,7 @@ map <tab> za<CR>
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
 " ctags
-map <Leader>t :AsyncRun -post=copen ctags-exuberant -R --fields=+aS --languages=php .<CR>
+map <Leader>t :AsyncRun -post=copen ctags -R --exclude=node_modules --exclude=vendor --languages=php,javascript .<CR>
 
 " hide php variables on tagbar
 let g:tagbar_type_php  = {
