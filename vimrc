@@ -63,7 +63,7 @@ map <tab> za<CR>
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
 " ctags
-map <Leader>t :!ctags -R --fields=+aS --languages=php .<CR>
+map <Leader>t :AsyncRun -post=copen ctags-exuberant -R --fields=+aS --languages=php .<CR>
 
 " hide php variables on tagbar
 let g:tagbar_type_php  = {
@@ -272,6 +272,9 @@ Plugin 'ntpeters/vim-better-whitespace'
 
 " tabular plugin to format text
 Plugin 'godlygeek/tabular'
+
+" asyncronous commands
+Plugin 'skywind3000/asyncrun.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
