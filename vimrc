@@ -6,6 +6,8 @@ set mouse=a
 colorscheme monokai
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
+" allow to use backspace always in insert mode
+set backspace=indent,eol,start
 set autoindent
 " hightlight current line
 set cursorline
@@ -26,8 +28,8 @@ set timeoutlen=1000 ttimeoutlen=0
 set guifont=Meslo\ LG\ M\ for\ Powerline:h12
 " save temp files in a different path
 set dir=~/.vimswap//,/var/tmp//,/tmp//
-" hightlight column 121
-set colorcolumn=121
+" hightlight column 81
+set colorcolumn=81
 " show tabs
 set list
 set listchars=tab:▸\ 
@@ -51,18 +53,17 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
-" powerline theme
+" airline theme
 let g:airline_theme='powerlineish'
 
 "shortcuts
 map <Leader>1 <plug>NERDTreeTabsToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
-map <tab> za<CR>
 
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
-" ctags
+" ctags async
 map <Leader>t :AsyncRun -post=copen ctags -R --exclude=node_modules --exclude=vendor --languages=php,javascript .<CR>
 
 " hide php variables on tagbar
@@ -139,7 +140,7 @@ map <Leader>d :call PhpDoc()<CR>
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " Execute 'UltiSnipsAddFiletypes php' if necessary
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-snippets/UltiSnips"
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
@@ -245,9 +246,6 @@ Plugin 'adoy/vim-php-refactoring-toolbox'
 " airline
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
-" tmux airline
-" Plugin 'edkolev/tmuxline.vim'
 
 " blade syntax
 Plugin 'jwalton512/vim-blade'

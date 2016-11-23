@@ -22,8 +22,8 @@ set splitright
 set timeoutlen=1000 ttimeoutlen=0
 " save temp files in a different path
 set dir=~/.vimswap//,/var/tmp//,/tmp//
-" show column 121
-set colorcolumn=121
+" show column 81
+set colorcolumn=81
 " show tabs
 set list
 set listchars=tab:▸\ 
@@ -260,9 +260,6 @@ NeoBundle 'https://github.com/jiangmiao/auto-pairs.git'
 NeoBundle 'bling/vim-airline'
 " airline themes
 NeoBundle 'vim-airline/vim-airline-themes'
-
-" tmux airline
-NeoBundle 'edkolev/tmuxline.vim'
 
 " codelinter
 NeoBundle 'benekastah/neomake'
