@@ -43,6 +43,8 @@ set wildmenu
 autocmd! BufWritePost * Neomake
 let g:neomake_php_enabled_makers = ['phpmd', 'php']
 let g:neomake_javascript_enabled_makers = ['jshint']
+let g:neomake_typescript_enabled_makers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
+
 " do not open error list automatically
 let g:neomake_open_list = 0
 
@@ -157,7 +159,6 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 " typescript options
 let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
 
 " jsx option
 let g:jsx_ext_required = 0
