@@ -26,8 +26,11 @@ set splitright
 set timeoutlen=1000 ttimeoutlen=0
 " set font for mvim
 set guifont=Meslo\ LG\ M\ for\ Powerline:h12
-" save temp files in a different path
-set dir=~/.vimswap//,/var/tmp//,/tmp//
+" do not save swap and tmp files
+set noswapfile
+set nobackup
+set nowritebackup
+
 " hightlight column 81
 set colorcolumn=81
 " show tabs
