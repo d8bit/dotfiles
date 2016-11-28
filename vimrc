@@ -118,7 +118,7 @@ let g:vdebug_options= {
     \    "server" : '',
     \    "timeout" : 20,
     \    "on_close" : 'detach',
-    \    "break_on_open" : 1,
+    \    "break_on_open" : 0,
     \    "ide_key" : '',
     \    "path_maps" : {},
     \    "debug_window_level" : 0,
@@ -274,6 +274,9 @@ Plugin 'ntpeters/vim-better-whitespace'
 
 " tabular plugin to format text
 Plugin 'godlygeek/tabular'
+
+" async grep
+Plugin 'mhinz/vim-grepper'
 
 " asyncronous commands
 Plugin 'skywind3000/asyncrun.vim'
