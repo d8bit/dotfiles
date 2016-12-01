@@ -166,6 +166,10 @@ let g:tsuquyomi_disable_quickfix = 1
 " jsx option
 let g:jsx_ext_required = 0
 
+" toggle quickfixlist and locationlist
+nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
+nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
+
 "end my config
 
 " BUNDLE
@@ -187,7 +191,7 @@ Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'jistr/vim-nerdtree-tabs'
 
 " git integration. Show git info on nerdtree
-Plugin 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
+" Plugin 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 
 " git integration. Shows line state on margin.
 Plugin 'airblade/vim-gitgutter'
@@ -280,6 +284,9 @@ Plugin 'mhinz/vim-grepper'
 
 " asyncronous commands
 Plugin 'skywind3000/asyncrun.vim'
+
+" toggle quickfixlist and locationlist
+Plugin 'milkypostman/vim-togglelist'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
