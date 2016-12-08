@@ -12,7 +12,7 @@
     ("946e871c780b159c4bb9f580537e5d2f7dba1411143194447604ecbaf01bd90c" "73a13a70fd111a6cd47f3d4be2260b1e4b717dbf635a9caee6442c949fad41cd" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default)))
  '(package-selected-packages
    (quote
-    (dumb-jump imenu-anywhere evil-leader neotree autopair flycheck git-gutter evil-search-highlight-persist powerline fiplr flymake-php ctags quickrun auto-complete-exuberant-ctags auto-complete web-mode relative-line-numbers evil))))
+    (php+-mode php-mode dumb-jump imenu-anywhere evil-leader neotree autopair flycheck git-gutter evil-search-highlight-persist powerline fiplr flymake-php ctags quickrun auto-complete-exuberant-ctags auto-complete web-mode relative-line-numbers evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -23,59 +23,14 @@
 (require 'evil)
     (evil-mode 1)
 
-(autoload 'php-mode "php-mode" "Major mode for editing php code." t)
-    (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
-    (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
+;; set web-mode for files
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\.twig\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
-;; info popup
-(add-hook 'php-mode-hook 'my-php-mode-stuff)
-
-(defun my-php-mode-stuff ()
-  (local-set-key (kbd "<f1>") 'my-php-function-lookup)
-  (local-set-key (kbd "C-<f1>") 'my-php-symbol-lookup))
-
-
-(defun my-php-symbol-lookup ()
-  (interactive)
-  (let ((symbol (symbol-at-point)))
-    (if (not symbol)
-        (message "No symbol at point.")
-
-      (browse-url (concat "http://php.net/manual-lookup.php?pattern="
-                          (symbol-name symbol))))))
-
-
-(defun my-php-function-lookup ()
-  (interactive)
-  (let* ((function (symbol-name (or (symbol-at-point)
-                                    (error "No function at point."))))
-         (buf (url-retrieve-synchronously (concat "http://php.net/manual-lookup.php?pattern=" function))))
-    (with-current-buffer buf
-      (goto-char (point-min))
-        (let (desc)
-          (when (re-search-forward "<div class=\"methodsynopsis dc-description\">\\(\\(.\\|\n\\)*?\\)</div>" nil t)
-            (setq desc
-              (replace-regexp-in-string
-                " +" " "
-                (replace-regexp-in-string
-                  "\n" ""
-                  (replace-regexp-in-string "<.*?>" "" (match-string-no-properties 1)))))
-
-            (when (re-search-forward "<p class=\"para rdfs-comment\">\\(\\(.\\|\n\\)*?\\)</p>" nil t)
-              (setq desc
-                    (concat desc "\n\n"
-                            (replace-regexp-in-string
-                             " +" " "
-                             (replace-regexp-in-string
-                              "\n" ""
-                              (replace-regexp-in-string "<.*?>" "" (match-string-no-properties 1))))))))
-
-          (if desc
-              (message desc)
-            (message "Could not extract function info. Press C-F1 to go the description."))))
-    (kill-buffer buf)))
-
-;; end info popup
+;; set php-mode for files
+(add-to-list 'auto-mode-alist '("\\.php?\\'" . php-mode))
 
 ;; Relative number
 (global-relative-line-numbers-mode
@@ -173,3 +128,12 @@
 ;; PHPCS
 (require 'flymake-phpcs)
 (add-hook 'php-mode-hook 'flymake-phpcs-load)
+
+;; CTAGS
+(setq path-to-ctags "/usr/local/bin/ctags") ;; <- your ctags path here
+(defun create-tags (dir-name)
+ "Create tags file."
+ (interactive "DDirectory: ")
+ (shell-command
+  (format "%s -f TAGS -e -R %s" path-to-ctags (directory-file-name dir-name)))
+ )
