@@ -94,7 +94,7 @@ let g:vdebug_options= {
     \    "server" : '',
     \    "timeout" : 20,
     \    "on_close" : 'detach',
-    \    "break_on_open" : 1,
+    \    "break_on_open" : 0,
     \    "ide_key" : '',
     \    "path_maps" : {},
     \    "debug_window_level" : 0,
@@ -159,6 +159,9 @@ let g:tsuquyomi_disable_quickfix = 1
 
 " jsx option
 let g:jsx_ext_required = 0
+
+"move parameters
+map <C-l> :SidewaysRight<CR>
 
 " end my config
 
@@ -312,6 +315,9 @@ NeoBundle 'mhinz/vim-grepper'
 
 " toggle quickfixlist and locationlist
 NeoBundle 'milkypostman/vim-togglelist'
+
+" move parameters
+NeoBundle 'AndrewRadev/sideways.vim'
 
 call neobundle#end()
 
