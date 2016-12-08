@@ -110,6 +110,9 @@ let NERDTreeShowHidden = 1
 " move lines with Control key
 let g:move_key_modifier = 'C'
 
+"move parameters
+map <C-l> :SidewaysRight<CR>
+
 " stop at breakpoints on debugging
 let g:dbgPavimBreakAtEntry = 1
 " Xdebug config
@@ -287,6 +290,9 @@ Plugin 'skywind3000/asyncrun.vim'
 
 " toggle quickfixlist and locationlist
 Plugin 'milkypostman/vim-togglelist'
+
+" move parameters
+Plugin 'AndrewRadev/sideways.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
