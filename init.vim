@@ -41,7 +41,7 @@ map <tab> za<CR>
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
-map <Leader>t :!ctags -R --fields=+aS --languages=php .<CR>
+map <Leader>t :AsyncRun -post=copen ctags-exuberant -R --fields=+aS --languages=php .<CR>
 " map <Leader>c :SyntasticCheck phpcs<CR>
 " map <Leader>m :SyntasticCheck phpmd<CR>
 
@@ -303,6 +303,15 @@ NeoBundle 'ntpeters/vim-better-whitespace'
 
 " tabular plugin to format text
 NeoBundle 'godlygeek/tabular'
+
+" async plugin
+NeoBundle 'skywind3000/asyncrun.vim'
+
+" async grep
+NeoBundle 'mhinz/vim-grepper'
+
+" toggle quickfixlist and locationlist
+NeoBundle 'milkypostman/vim-togglelist'
 
 call neobundle#end()
 
