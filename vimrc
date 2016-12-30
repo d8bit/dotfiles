@@ -3,7 +3,7 @@ filetype off                  " required
 
 " enable mouse
 set mouse=a
-colorscheme monokai
+colorscheme quantum
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
 " allow to use backspace always in insert mode
