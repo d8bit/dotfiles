@@ -3,7 +3,8 @@ filetype off                  " required
 
 " enable mouse
 set mouse=a
-colorscheme quantum
+" colorscheme quantum
+colorscheme monokai
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
 " allow to use backspace always in insert mode
@@ -69,7 +70,7 @@ nmap <Leader>2 :TagbarToggle<CR>
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
 " ctags async
-map <Leader>t :AsyncRun -post=copen ctags-exuberant -R --exclude=node_modules --exclude=jquery --exclude=vendor --languages=php,javascript .<CR>
+map <Leader>t :AsyncRun -post=copen ctags -R --exclude=node_modules --exclude=jquery --exclude=vendor --languages=php,javascript .<CR>
 
 " hide php variables on tagbar
 let g:tagbar_type_php  = {
