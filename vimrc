@@ -47,7 +47,7 @@ source ~/vim/buffers.vim
 set wildmenu
 
 " execute Neomake on save
-autocmd! BufWritePost * Neomake
+autocmd! BufWritePost,BufEnter * Neomake
 let g:neomake_php_enabled_makers = ['phpmd', 'php']
 let g:neomake_javascript_enabled_makers = ['jshint']
 let g:neomake_typescript_enabled_makers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
