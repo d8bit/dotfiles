@@ -34,16 +34,19 @@ set nowritebackup
 " hightlight column 81
 set colorcolumn=81
 " show tabs
+" set nolist " hide special characters
 set list
 set listchars=tab:▸\ 
 " autosave and autoload views to save codefoldings
 " source ~/vim/views.vim
+" Function to close all buffers except the current one
+source ~/vim/buffers.vim
 
 " show autocomplete options on bottom bar
 set wildmenu
 
 " execute Neomake on save
-autocmd! BufWritePost * Neomake
+autocmd! BufWritePost,BufEnter * Neomake
 let g:neomake_php_enabled_makers = ['phpmd', 'php']
 let g:neomake_javascript_enabled_makers = ['jshint']
 let g:neomake_typescript_enabled_makers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
@@ -165,9 +168,6 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 " typescript options
 let g:tsuquyomi_disable_quickfix = 1
-
-" jsx option
-let g:jsx_ext_required = 0
 
 " toggle quickfixlist and locationlist
 nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
