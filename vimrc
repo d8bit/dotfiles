@@ -35,10 +35,13 @@ set nowritebackup
 " hightlight column 81
 set colorcolumn=81
 " show tabs
+" set nolist " hide special characters
 set list
 set listchars=tab:▸\ 
 " autosave and autoload views to save codefoldings
 " source ~/vim/views.vim
+" Function to close all buffers except the current one
+source ~/vim/buffers.vim
 
 " show autocomplete options on bottom bar
 set wildmenu
@@ -166,9 +169,6 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 " typescript options
 let g:tsuquyomi_disable_quickfix = 1
-
-" jsx option
-let g:jsx_ext_required = 0
 
 " toggle quickfixlist and locationlist
 nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
