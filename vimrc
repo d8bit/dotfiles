@@ -7,6 +7,8 @@ set mouse=a
 colorscheme monokai
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
+" tab for ruby
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " allow to use backspace always in insert mode
 set backspace=indent,eol,start
 set autoindent
@@ -294,6 +296,9 @@ Plugin 'milkypostman/vim-togglelist'
 
 " move parameters
 Plugin 'AndrewRadev/sideways.vim'
+
+" twig hightlight
+Plugin 'lumiliet/vim-twig'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
