@@ -177,6 +177,14 @@ let g:tsuquyomi_disable_quickfix = 1
 nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
 nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 
+" Completor config
+" CSS
+let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*)$'
+" PHP
+let g:completor_php_omni_trigger = '([$\w]+|use\s*|->[$\w]*|::[$\w]*|implements\s*|extends\s*|class\s+[$\w]+|new\s*)$'
+" Javascript
+let g:completor_node_binary = '/usr/bin/node'
+
 "end my config
 
 " BUNDLE
