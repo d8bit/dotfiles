@@ -53,6 +53,7 @@ set wildmenu
 autocmd! BufWritePost,BufEnter * Neomake
 let g:neomake_php_enabled_makers = ['phpmd', 'php']
 let g:neomake_javascript_enabled_makers = ['jshint']
+let g:neomake_html_enabled_makers = ['htmlhint']
 let g:neomake_typescript_enabled_makers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
 
 " do not open error list automatically
@@ -177,14 +178,6 @@ let g:tsuquyomi_disable_quickfix = 1
 nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
 nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 
-" Completor config
-" CSS
-let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*)$'
-" PHP
-let g:completor_php_omni_trigger = '([$\w]+|use\s*|->[$\w]*|::[$\w]*|implements\s*|extends\s*|class\s+[$\w]+|new\s*)$'
-" Javascript
-let g:completor_node_binary = '/usr/bin/node'
-
 "end my config
 
 " BUNDLE
@@ -275,9 +268,6 @@ Plugin 'jwalton512/vim-blade'
 
 " php complete
 Plugin 'shawncplus/phpcomplete.vim'
-
-" Completor
-Plugin 'maralla/completor.vim'
 
 " tern for javascript
 Plugin 'ternjs/tern_for_vim'
