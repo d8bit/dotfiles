@@ -8,6 +8,7 @@ colorscheme monokai
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
 " tab for ruby
+autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " allow to use backspace always in insert mode
 set backspace=indent,eol,start
@@ -267,8 +268,8 @@ Plugin 'jwalton512/vim-blade'
 " php complete
 Plugin 'shawncplus/phpcomplete.vim'
 
-" youCompleteMe
-" Plugin 'Valloric/YouCompleteMe'
+" Completor
+Plugin 'maralla/completor.vim'
 
 " tern for javascript
 Plugin 'ternjs/tern_for_vim'
