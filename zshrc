@@ -69,6 +69,8 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
+ export EDITOR='vim'
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -95,3 +97,7 @@ alias gc="git commit"
 alias cdw="cd /var/www"
 
 DISABLE_AUTO_TITLE="true"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export SECRET_KEY_BASE=1157982c668f68b81d54b1b309e0ec5eaa6fd5a93d50aa40bd992c231a858275aed524b8ef69354525f5f8719fb9a5025c1836efbd97ff9e80b45c91525dbeb2
