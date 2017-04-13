@@ -6,6 +6,9 @@ set mouse=a
 colorscheme quantum
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
+" tab for ruby
+autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 " allow to use backspace always in insert mode
 set backspace=indent,eol,start
 set autoindent
@@ -49,6 +52,7 @@ set wildmenu
 autocmd! BufWritePost,BufEnter * Neomake
 let g:neomake_php_enabled_makers = ['phpmd', 'php']
 let g:neomake_javascript_enabled_makers = ['jshint']
+let g:neomake_html_enabled_makers = ['htmlhint']
 let g:neomake_typescript_enabled_makers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
 
 " do not open error list automatically
@@ -97,7 +101,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore-dir=.git -g ""'
 endif
 
 " multicursor shortcuts
@@ -264,9 +268,6 @@ Plugin 'jwalton512/vim-blade'
 " php complete
 Plugin 'shawncplus/phpcomplete.vim'
 
-" youCompleteMe
-" Plugin 'Valloric/YouCompleteMe'
-
 " tern for javascript
 Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript'
@@ -293,6 +294,9 @@ Plugin 'milkypostman/vim-togglelist'
 
 " move parameters
 Plugin 'AndrewRadev/sideways.vim'
+
+" twig hightlight
+Plugin 'lumiliet/vim-twig'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
