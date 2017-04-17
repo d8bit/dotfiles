@@ -76,6 +76,7 @@ let g:airline_theme='powerlineish'
 "shortcuts
 map <Leader>1 <plug>NERDTreeTabsToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
+map <C-p> :Files<CR>
 
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
@@ -104,9 +105,6 @@ let g:tagbar_show_linenumbers = 2
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden --ignore-dir=.git -g ""'
 endif
 
 " multicursor shortcuts
@@ -145,15 +143,6 @@ let g:vdebug_options= {
     \    "marker_open_tree" : '▾'
     \}
 
-" Ctrlp options
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_by_filename = 1
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_use_caching = 1
-let g:ctrlp_regexp = 1
-
 " PHPDOC config
 map <Leader>d :call PhpDoc()<CR>
 
@@ -182,6 +171,8 @@ let g:tsuquyomi_disable_quickfix = 1
 nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
 nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+
 "end my config
 
 " BUNDLE
@@ -193,9 +184,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
-" Search files
-Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
 
 " File tree (nerdtree)
 Plugin 'https://github.com/scrooloose/nerdtree.git'
@@ -302,6 +290,13 @@ Plugin 'AndrewRadev/sideways.vim'
 
 " twig hightlight
 Plugin 'lumiliet/vim-twig'
+
+" editorconfig
+Plugin 'editorconfig/editorconfig-vim'
+
+" fuzzy finder
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
