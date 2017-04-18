@@ -227,9 +227,6 @@ Plugin 'https://github.com/matze/vim-move.git'
 " repeat commands with '.' for surround plugin (among others)
 Plugin 'https://github.com/tpope/vim-repeat.git'
 
-" silver searcher
-Plugin 'https://github.com/rking/ag.vim.git'
-
 " debuger
 Plugin 'https://github.com/joonty/vdebug.git'
 
