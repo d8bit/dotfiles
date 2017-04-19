@@ -171,6 +171,7 @@ let g:tsuquyomi_disable_quickfix = 1
 nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
 nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 
+" fzf options
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
 "end my config
@@ -198,6 +199,7 @@ Plugin 'airblade/vim-gitgutter'
 
 " git integration. Git commands.
 Plugin 'https://github.com/tpope/vim-fugitive.git'
+Plugin 'junegunn/gv.vim'
 
 " emmet plugin for html
 Plugin 'mattn/emmet-vim'
@@ -273,9 +275,6 @@ Plugin 'ntpeters/vim-better-whitespace'
 " tabular plugin to format text
 Plugin 'godlygeek/tabular'
 
-" async grep
-Plugin 'mhinz/vim-grepper'
-
 " asyncronous commands
 Plugin 'skywind3000/asyncrun.vim'
 
@@ -297,6 +296,12 @@ Plugin 'junegunn/fzf.vim'
 
 " typescript hightlight
 Plugin 'leafgarland/typescript-vim'
+
+" smooth motion
+Plugin 'yuttie/comfortable-motion.vim'
+
+" devicons
+" Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
