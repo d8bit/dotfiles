@@ -75,7 +75,6 @@ let g:neomake_typescript_enabled_makers = ['tsuquyomi'] " You shouldn't use 'tsc
 
 " do not open error list automatically
 let g:neomake_open_list = 0
-"""""" End Code linters config """"""
 
 
 " ----------------------------------------------------------------------------
@@ -145,6 +144,8 @@ let g:php_manual_online_search_shortcut = '<F2>'
 "
 " ----------------------------------------------------------------------------
 
+" do not jump on autopairs
+let g:AutoPairsMultilineClose = 0
 " typescript options
 let g:tsuquyomi_disable_quickfix = 1
 " Tagbar
