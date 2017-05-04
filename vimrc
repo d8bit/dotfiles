@@ -1,4 +1,10 @@
-"""""" Vim basics """"""
+" ----------------------------------------------------------------------------
+"
+"                                  Vim basics
+"
+" ----------------------------------------------------------------------------
+
+vim basics
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -50,14 +56,17 @@ set wildmenu
 " Do not open split window with doc when using Omnicompletion
 set completeopt-=preview
 
-"""""" End Vim basics """"""
-
 " autosave and autoload views to save codefoldings
 " source ~/vim/views.vim
 " Function to close all buffers except the current one
 source ~/vim/buffers.vim
 
-"""""" Code linters config """"""
+" ----------------------------------------------------------------------------
+"
+"                              Codelinters config
+"
+" ----------------------------------------------------------------------------
+
 " execute Neomake on save
 autocmd! BufWritePost,BufEnter * Neomake
 let g:neomake_php_enabled_makers = ['phpmd', 'php']
@@ -70,7 +79,12 @@ let g:neomake_open_list = 0
 """""" End Code linters config """"""
 
 
-"""""" Eye candy """"""
+" ----------------------------------------------------------------------------
+"
+"                                   Eyecandy
+"
+" ----------------------------------------------------------------------------
+
 " to start airline
 set laststatus=2
 " airline options
@@ -82,7 +96,12 @@ let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline_theme='powerlineish'
 """""" End Eye candy """"""
 
-"""""" Shortcuts """"""
+" ----------------------------------------------------------------------------
+"
+"                                   Shortcuts
+"
+" ----------------------------------------------------------------------------
+"
 " nerdtree
 map <Leader>1 <plug>NERDTreeTabsToggle<CR>
 " tagbar
@@ -117,13 +136,16 @@ nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 " phpmanual
 let g:php_manual_online_search_shortcut = '<F2>'
 
-"""""" End Shortcuts """"""
-
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
 
-"""""" Configs """"""
+" ----------------------------------------------------------------------------
+"
+"                                    Configs
+"
+" ----------------------------------------------------------------------------
+
 " typescript options
 let g:tsuquyomi_disable_quickfix = 1
 " Tagbar
@@ -186,12 +208,15 @@ endfunction
 " fzf options
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
-"""""" End Configs """""""
-
 
 "end my config
 
-" BUNDLE
+" ----------------------------------------------------------------------------
+"
+"                                    Bundle
+"
+" ----------------------------------------------------------------------------
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -317,6 +342,9 @@ Plugin 'leafgarland/typescript-vim'
 
 " grep integration
 Plugin 'grep.vim'
+
+" comments
+Plugin 'jeanguyomarch/vim-metacomment'
 
 " devicons
 " Plugin 'ryanoasis/vim-devicons'
