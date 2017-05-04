@@ -1,3 +1,4 @@
+"""""" Vim basics """"""
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -38,21 +39,25 @@ set guifont=Meslo\ LG\ M\ for\ Powerline:h12
 set noswapfile
 set nobackup
 set nowritebackup
-
 " hightlight column 81
 set colorcolumn=81
 " show tabs
 " set nolist " hide special characters
 set list
 set listchars=tab:▸\ 
+" show autocomplete options on bottom bar
+set wildmenu
+" Do not open split window with doc when using Omnicompletion
+set completeopt-=preview
+
+"""""" End Vim basics """"""
+
 " autosave and autoload views to save codefoldings
 " source ~/vim/views.vim
 " Function to close all buffers except the current one
 source ~/vim/buffers.vim
 
-" show autocomplete options on bottom bar
-set wildmenu
-
+"""""" Code linters config """"""
 " execute Neomake on save
 autocmd! BufWritePost,BufEnter * Neomake
 let g:neomake_php_enabled_makers = ['phpmd', 'php']
@@ -62,7 +67,10 @@ let g:neomake_typescript_enabled_makers = ['tsuquyomi'] " You shouldn't use 'tsc
 
 " do not open error list automatically
 let g:neomake_open_list = 0
+"""""" End Code linters config """"""
 
+
+"""""" Eye candy """"""
 " to start airline
 set laststatus=2
 " airline options
@@ -72,18 +80,53 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 " airline theme
 let g:airline_theme='powerlineish'
+"""""" End Eye candy """"""
 
-"shortcuts
+"""""" Shortcuts """"""
+" nerdtree
 map <Leader>1 <plug>NERDTreeTabsToggle<CR>
+" tagbar
 nmap <Leader>2 :TagbarToggle<CR>
+" fzf files
 map <C-p> :Files<CR>
+" ctags async
+map <Leader>t :AsyncRun -post=copen ctags -R --exclude=node_modules --exclude=jquery --exclude=vendor --languages=php,javascript .<CR>
+" multicursor shortcuts
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+" move lines with Control key
+let g:move_key_modifier = 'C'
+" move parameters
+map <C-h> <Nop>
+map <C-h> :SidewaysLeft<CR>
+map <C-l> :SidewaysRight<CR>
+" PHPDOC config
+map <Leader>d :call PhpDoc()<CR>
+" ultisnips
+let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+" use namespace plugin with <leader>e
+autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+" toggle quickfixlist and locationlist
+nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
+nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
+" phpmanual
+let g:php_manual_online_search_shortcut = '<F2>'
+
+"""""" End Shortcuts """"""
 
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
-" ctags async
-map <Leader>t :AsyncRun -post=copen ctags-exuberant -R --exclude=node_modules --exclude=jquery --exclude=vendor --languages=php,javascript .<CR>
 
+"""""" Configs """"""
+" typescript options
+let g:tsuquyomi_disable_quickfix = 1
+" Tagbar
 " hide php variables on tagbar
 let g:tagbar_type_php  = {
   \ 'ctagstype' : 'php',
@@ -100,29 +143,17 @@ let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
 let g:tagbar_show_linenumbers = 2
 
-
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-" multicursor shortcuts
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
+" Nerdtree
 " show line numbers on NerdTree
 let NERDTreeShowLineNumbers = 1
 let NERDTreeShowHidden = 1
-
-" move lines with Control key
-let g:move_key_modifier = 'C'
-
-"move parameters
-map <C-l> :SidewaysRight<CR>
-
+" xdebug
 " stop at breakpoints on debugging
 let g:dbgPavimBreakAtEntry = 1
 " Xdebug config
@@ -143,36 +174,20 @@ let g:vdebug_options= {
     \    "marker_open_tree" : '▾'
     \}
 
-" PHPDOC config
-map <Leader>d :call PhpDoc()<CR>
-
+" ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " Execute 'UltiSnipsAddFiletypes php' if necessary
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-snippets/UltiSnips"
-let g:UltiSnipsExpandTrigger="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-
-" Do not open split window with doc when using Omnicompletion
-set completeopt-=preview
-
-" use namespace plugin with <leader>e
+" namespace
 function! IPhpExpandClass()
     call PhpExpandClass()
     call feedkeys('a', 'n')
 endfunction
-autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
-autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
-
-" typescript options
-let g:tsuquyomi_disable_quickfix = 1
-
-" toggle quickfixlist and locationlist
-nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
-nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
-
 " fzf options
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+
+"""""" End Configs """""""
+
 
 "end my config
 
@@ -266,8 +281,11 @@ Plugin 'pangloss/vim-javascript'
 " reactjs (jsx)
 Plugin 'mxw/vim-jsx'
 
-" php man
+" php man (Ctrl-h for online manual, Shift-k for vim explanation)
 Plugin 'alvan/vim-php-manual'
+
+" python doc
+Plugin 'fs111/pydoc.vim'
 
 " show whitespaces at the end of the lines
 Plugin 'ntpeters/vim-better-whitespace'
@@ -297,8 +315,8 @@ Plugin 'junegunn/fzf.vim'
 " typescript hightlight
 Plugin 'leafgarland/typescript-vim'
 
-" smooth motion
-Plugin 'yuttie/comfortable-motion.vim'
+" grep integration
+Plugin 'grep.vim'
 
 " devicons
 " Plugin 'ryanoasis/vim-devicons'
