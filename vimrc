@@ -346,6 +346,9 @@ Plugin 'grep.vim'
 " comments
 Plugin 'jeanguyomarch/vim-metacomment'
 
+" startify
+Plugin 'mhinz/vim-startify'
+
 " devicons
 " Plugin 'ryanoasis/vim-devicons'
 
