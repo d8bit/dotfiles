@@ -56,9 +56,9 @@ set wildmenu
 set completeopt-=preview
 
 " autosave and autoload views to save codefoldings
-" source ~/vim/views.vim
+" source ~/dotfiles/views.vim
 " Function to close all buffers except the current one
-source ~/vim/buffers.vim
+source ~/dotfiles/buffers.vim
 
 " ----------------------------------------------------------------------------
 "
