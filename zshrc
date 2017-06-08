@@ -87,8 +87,8 @@ export EDITOR="$VISUAL"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vime="vim ~/vim/vimrc"
-alias nvime="nvim ~/vim/init.vim"
+alias vime="vim ~/dotfiles/vimrc"
+alias nvime="vim ~/dotfiles/init.vim"
 alias ze="vim ~/.zshrc"
 alias zu="source ~/.zshrc"
 alias ga="git add"
@@ -105,3 +105,5 @@ DISABLE_AUTO_TITLE="true"
 export PATH="$PATH:$HOME/.rvm/bin"
 export SECRET_KEY_BASE=1157982c668f68b81d54b1b309e0ec5eaa6fd5a93d50aa40bd992c231a858275aed524b8ef69354525f5f8719fb9a5025c1836efbd97ff9e80b45c91525dbeb2
 PATH=$PATH:/usr/local/sbin
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
