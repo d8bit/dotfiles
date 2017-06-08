@@ -140,6 +140,9 @@ nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 " phpmanual
 let g:php_manual_online_search_shortcut = '<F1>'
 
+" undotree
+nnoremap <leader>u :UndotreeToggle<cr>
+
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
@@ -205,7 +208,7 @@ let g:vdebug_options= {
 " ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " Execute 'UltiSnipsAddFiletypes php' if necessary
-let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-snippets/UltiSnips"
+let g:UltiSnipsSnippetsDir="~/.vim/plugged/vim-snippets/UltiSnips"
 " namespace
 function! IPhpExpandClass()
     call PhpExpandClass()
@@ -343,7 +346,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'leafgarland/typescript-vim'
 
 " grep integration
-Plug 'grep.vim'
+" Plug 'grep.vim'
 
 " comments
 Plug 'jeanguyomarch/vim-metacomment'
