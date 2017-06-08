@@ -20,6 +20,7 @@ set tabstop=4 shiftwidth=4 expandtab
 " tab for ruby
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " allow to use backspace always in insert mode
 set backspace=indent,eol,start
 set autoindent
@@ -59,6 +60,11 @@ set completeopt-=preview
 " source ~/dotfiles/views.vim
 " Function to close all buffers except the current one
 source ~/dotfiles/buffers.vim
+
+if has("persistent_undo")
+    set undodir=/tmp/
+    set undofile
+endif
 
 " ----------------------------------------------------------------------------
 "
@@ -132,7 +138,7 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
 nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 " phpmanual
-let g:php_manual_online_search_shortcut = '<F2>'
+let g:php_manual_online_search_shortcut = '<F1>'
 
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
@@ -180,7 +186,7 @@ let NERDTreeShowHidden = 1
 let g:dbgPavimBreakAtEntry = 1
 " Xdebug config
 let g:vdebug_options= {
-    \    "port" : 9999,
+    \    "port" : 9000,
     \    "server" : '',
     \    "timeout" : 20,
     \    "on_close" : 'detach',
@@ -217,143 +223,142 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 "
 " ----------------------------------------------------------------------------
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Make sure you use single quotes
 
 " File tree (nerdtree)
-Plugin 'https://github.com/scrooloose/nerdtree.git'
+Plug 'https://github.com/scrooloose/nerdtree.git'
 " nerdtree on all tabs
-Plugin 'jistr/vim-nerdtree-tabs'
+Plug 'jistr/vim-nerdtree-tabs'
 
 " git integration. Show git info on nerdtree
-" Plugin 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
+" Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 
 " git integration. Shows line state on margin.
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " git integration. Git commands.
-Plugin 'https://github.com/tpope/vim-fugitive.git'
-Plugin 'junegunn/gv.vim'
+Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'junegunn/gv.vim'
 
 " emmet plugin for html
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
 " multiple cursors
-Plugin 'https://github.com/terryma/vim-multiple-cursors.git'
+Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 
 " show functions and vars on current file
-Plugin 'https://github.com/majutsushi/tagbar.git'
+Plug 'https://github.com/majutsushi/tagbar.git'
 
 " plugins for snippets
-Plugin 'https://github.com/SirVer/ultisnips.git'
-Plugin 'honza/vim-snippets'
+Plug 'https://github.com/SirVer/ultisnips.git'
+Plug 'honza/vim-snippets'
 
 " comment lines with gcc command
-Plugin 'https://github.com/tomtom/tcomment_vim.git'
+Plug 'https://github.com/tomtom/tcomment_vim.git'
 
 " match tags with %
-Plugin 'https://github.com/tmhedberg/matchit.git'
+Plug 'https://github.com/tmhedberg/matchit.git'
 
 " surround text objects
-Plugin 'https://github.com/tpope/vim-surround.git'
+Plug 'https://github.com/tpope/vim-surround.git'
 
 " move line with ctrl[j,k]
-Plugin 'https://github.com/matze/vim-move.git'
+Plug 'https://github.com/matze/vim-move.git'
 
 " repeat commands with '.' for surround plugin (among others)
-Plugin 'https://github.com/tpope/vim-repeat.git'
+Plug 'https://github.com/tpope/vim-repeat.git'
 
 " debuger
-Plugin 'https://github.com/joonty/vdebug.git'
+" Plug 'https://github.com/joonty/vdebug.git'
 
 " hightlight html tags
-Plugin 'https://github.com/gregsexton/MatchTag.git'
+Plug 'https://github.com/gregsexton/MatchTag.git'
 
 " code linter
-Plugin 'benekastah/neomake'
+Plug 'benekastah/neomake'
 
 " auto-close
-Plugin 'https://github.com/jiangmiao/auto-pairs.git'
+Plug 'https://github.com/jiangmiao/auto-pairs.git'
 
 " generate phpdoc
-Plugin 'vexxor/phpdoc.vim'
+Plug 'vexxor/phpdoc.vim'
 
 " autocomplete namespaces
-Plugin 'arnaud-lb/vim-php-namespace'
+Plug 'arnaud-lb/vim-php-namespace'
 
 " refactor tool
-Plugin 'adoy/vim-php-refactoring-toolbox'
+Plug 'adoy/vim-php-refactoring-toolbox'
 
 " airline
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " blade syntax
-Plugin 'jwalton512/vim-blade'
+Plug 'jwalton512/vim-blade'
 
 " php complete
-Plugin 'shawncplus/phpcomplete.vim'
+Plug 'shawncplus/phpcomplete.vim'
 
 " tern for javascript
-Plugin 'ternjs/tern_for_vim'
-Plugin 'pangloss/vim-javascript'
+Plug 'ternjs/tern_for_vim'
+Plug 'pangloss/vim-javascript'
 " reactjs (jsx)
-Plugin 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx'
 
 " php man (Ctrl-h for online manual, Shift-k for vim explanation)
-Plugin 'alvan/vim-php-manual'
+Plug 'alvan/vim-php-manual'
 
 " python doc
-Plugin 'fs111/pydoc.vim'
+Plug 'fs111/pydoc.vim'
 
 " show whitespaces at the end of the lines
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 
 " tabular plugin to format text
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 
 " asyncronous commands
-Plugin 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asyncrun.vim'
 
 " toggle quickfixlist and locationlist
-Plugin 'milkypostman/vim-togglelist'
+Plug 'milkypostman/vim-togglelist'
 
 " move parameters
-Plugin 'AndrewRadev/sideways.vim'
+Plug 'AndrewRadev/sideways.vim'
 
 " twig hightlight
-Plugin 'lumiliet/vim-twig'
+Plug 'lumiliet/vim-twig'
 
 " editorconfig
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " fuzzy finder
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 " typescript hightlight
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 
 " grep integration
-Plugin 'grep.vim'
+Plug 'grep.vim'
 
 " comments
-Plugin 'jeanguyomarch/vim-metacomment'
+Plug 'jeanguyomarch/vim-metacomment'
 
 " startify
-Plugin 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
+
+" undo tree
+Plug 'mbbill/undotree'
 
 " devicons
-" Plugin 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+" Initialize plugin system
+call plug#end()
 filetype plugin indent on    " required
 syntax enable
 :
