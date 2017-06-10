@@ -357,6 +357,9 @@ Plug 'mhinz/vim-startify'
 " undo tree
 Plug 'mbbill/undotree'
 
+" VueJS
+Plug 'posva/vim-vue'
+
 " devicons
 " Plug 'ryanoasis/vim-devicons'
 
