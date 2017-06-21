@@ -66,6 +66,9 @@ if has("persistent_undo")
     set undofile
 endif
 
+" tree view
+let g:netrw_liststyle = 3
+
 " ----------------------------------------------------------------------------
 "
 "                              Codelinters config
@@ -237,7 +240,7 @@ Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'jistr/vim-nerdtree-tabs'
 
 " git integration. Show git info on nerdtree
-" Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
+Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 
 " git integration. Shows line state on margin.
 Plug 'airblade/vim-gitgutter'
@@ -287,7 +290,7 @@ Plug 'benekastah/neomake'
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
 
 " generate phpdoc
-Plug 'vexxor/phpdoc.vim'
+Plug 'sumpygump/php-documentor-vim'
 
 " autocomplete namespaces
 Plug 'arnaud-lb/vim-php-namespace'
