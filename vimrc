@@ -82,8 +82,8 @@ let g:neomake_javascript_enabled_makers = ['jshint']
 let g:neomake_html_enabled_makers = ['htmlhint']
 let g:neomake_typescript_enabled_makers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
 
-" do not open error list automatically
-let g:neomake_open_list = 0
+" open error list (quickfix) automatically without focus
+let g:neomake_open_list = 2
 
 
 " ----------------------------------------------------------------------------
@@ -329,10 +329,7 @@ Plug 'godlygeek/tabular'
 " asyncronous commands
 Plug 'skywind3000/asyncrun.vim'
 
-" toggle quickfixlist and locationlist
-Plug 'milkypostman/vim-togglelist'
-
-" move parameters
+" switch parameters
 Plug 'AndrewRadev/sideways.vim'
 
 " twig hightlight
