@@ -75,15 +75,17 @@ let g:netrw_liststyle = 3
 "
 " ----------------------------------------------------------------------------
 
-" execute Neomake on save
-autocmd! BufWritePost,BufEnter * Neomake
-let g:neomake_php_enabled_makers = ['phpmd', 'php']
-let g:neomake_javascript_enabled_makers = ['jshint']
-let g:neomake_html_enabled_makers = ['htmlhint']
-let g:neomake_typescript_enabled_makers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
+let g:ale_linters = {
+\   'php': ['phpmd', 'php'],
+\   'javascript': ['jshint'],
+\   'html': ['htmlhint'],
+\   'typescript': ['tsuquyomi'],
+\}
+let g:ale_sign_error = '!'
+let g:ale_sign_warning = '⚠'
+let g:airline#extensions#ale#enabled = 1
+let g:ale_open_list = 1
 
-" open error list (quickfix) automatically without focus
-let g:neomake_open_list = 2
 
 
 " ----------------------------------------------------------------------------
@@ -284,7 +286,7 @@ Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/gregsexton/MatchTag.git'
 
 " code linter
-Plug 'benekastah/neomake'
+Plug 'w0rp/ale'
 
 " auto-close
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
