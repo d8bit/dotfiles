@@ -77,7 +77,8 @@ let g:netrw_liststyle = 3
 
 let g:ale_linters = {
 \   'php': ['phpmd', 'php'],
-\   'javascript': ['jshint'],
+\   'javascript': ['eslint'],
+\   'vue': ['eslint'],
 \   'html': ['htmlhint'],
 \   'typescript': ['tsuquyomi'],
 \}
@@ -85,6 +86,7 @@ let g:ale_sign_error = '!'
 let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
 let g:ale_open_list = 1
+let g:ale_lint_on_text_changed = 'never'
 
 
 
