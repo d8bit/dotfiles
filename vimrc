@@ -69,6 +69,22 @@ endif
 " tree view
 let g:netrw_liststyle = 3
 
+" fit quickfix height
+au FileType qf call AdjustWindowHeight(1, 10)
+function! AdjustWindowHeight(minheight, maxheight)
+    let l = 1
+    let n_lines = 0
+    let w_width = winwidth(0)
+    while l <= line('$')
+        " number to float for division
+        let l_len = strlen(getline(l)) + 0.0
+        let line_width = l_len/w_width
+        let n_lines += float2nr(ceil(line_width))
+        let l += 1
+    endw
+    exe max([min([n_lines, a:maxheight]), a:minheight]) . "wincmd _"
+endfunction
+
 " ----------------------------------------------------------------------------
 "
 "                              Codelinters config
@@ -224,6 +240,8 @@ endfunction
 " fzf options
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 "end my config
 
