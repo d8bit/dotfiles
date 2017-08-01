@@ -101,10 +101,8 @@ let g:ale_linters = {
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
-let g:ale_open_list = 1
+let g:ale_open_list = 0
 let g:ale_lint_on_text_changed = 'never'
-
-
 
 " ----------------------------------------------------------------------------
 "
@@ -166,9 +164,14 @@ let g:php_manual_online_search_shortcut = '<F1>'
 " undotree
 nnoremap <leader>u :UndotreeToggle<cr>
 
+" noh
+nnoremap <F3> :noh<cr>
+
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
+set wildignore+=vendor/**,node_modules/**
+command Todo noautocmd vimgrep /TODO\|FIXME\|XXX/j ** | cw
 
 " ----------------------------------------------------------------------------
 "
@@ -242,6 +245,20 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+
+" Use neocomplete.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#omni#input_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
 "end my config
 
@@ -384,6 +401,9 @@ Plug 'posva/vim-vue'
 
 " devicons
 " Plug 'ryanoasis/vim-devicons'
+
+" autocomplete
+Plug 'Shougo/neocomplete.vim'
 
 " Initialize plugin system
 call plug#end()
