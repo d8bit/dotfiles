@@ -98,7 +98,7 @@ let g:ale_linters = {
 \   'html': ['htmlhint'],
 \   'typescript': ['tsuquyomi'],
 \}
-let g:ale_sign_error = '!'
+let g:ale_sign_error = 'x'
 let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
 let g:ale_open_list = 0
@@ -246,20 +246,6 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
-" Use neocomplete.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#omni#input_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-
 "end my config
 
 " ----------------------------------------------------------------------------
@@ -401,9 +387,6 @@ Plug 'posva/vim-vue'
 
 " devicons
 " Plug 'ryanoasis/vim-devicons'
-
-" autocomplete
-Plug 'Shougo/neocomplete.vim'
 
 " Initialize plugin system
 call plug#end()
