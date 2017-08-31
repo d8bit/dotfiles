@@ -385,6 +385,9 @@ Plug 'mbbill/undotree'
 " VueJS
 Plug 'posva/vim-vue'
 
+" show colors in code
+Plug 'ap/vim-css-color'
+
 " devicons
 " Plug 'ryanoasis/vim-devicons'
 
