@@ -98,6 +98,7 @@ alias gc="git commit"
 alias cdw="cd /var/www"
 alias fcd="cd \$(ls -l|fzf)"
 alias cb="git checkout \$(git branch|fzf)"
+alias sgit="ga . && gc && git push"
 
 DISABLE_AUTO_TITLE="true"
 
