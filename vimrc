@@ -20,7 +20,6 @@ set tabstop=4 shiftwidth=4 expandtab
 " tab for ruby
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
 " allow to use backspace always in insert mode
 set backspace=indent,eol,start
 set autoindent
@@ -171,7 +170,11 @@ nnoremap <F3> :noh<cr>
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
 set wildignore+=vendor/**,node_modules/**
-command Todo noautocmd vimgrep /TODO\|FIXME\|XXX/j ** | cw
+" command Todo noautocmd vimgrep /TODO\|FIXME\|XXX/j ** | cw
+command Todo noautocmd Ag \/\/.TODO|\\/\/.FIXME|\/\/.XXX
+command JS set filetype=javascript
+command PHP set filetype=php
+command HTML set filetype=html
 
 " ----------------------------------------------------------------------------
 "
@@ -387,6 +390,9 @@ Plug 'posva/vim-vue'
 
 " show colors in code
 Plug 'ap/vim-css-color'
+
+" Unit Testing
+Plug 'janko-m/vim-test'
 
 " devicons
 " Plug 'ryanoasis/vim-devicons'
