@@ -69,7 +69,7 @@ endif
 let g:netrw_liststyle = 3
 
 " fit quickfix height
-au FileType qf call AdjustWindowHeight(1, 10)
+au FileType qf call AdjustWindowHeight(1, 3)
 function! AdjustWindowHeight(minheight, maxheight)
     let l = 1
     let n_lines = 0
@@ -117,7 +117,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 " airline theme
-let g:airline_theme='powerlineish'
+let g:airline_theme='murmur'
 """""" End Eye candy """"""
 
 " ----------------------------------------------------------------------------
@@ -337,8 +337,8 @@ Plug 'jwalton512/vim-blade'
 Plug 'shawncplus/phpcomplete.vim'
 
 " tern for javascript
-Plug 'ternjs/tern_for_vim'
-Plug 'pangloss/vim-javascript'
+" Plug 'ternjs/tern_for_vim'
+" Plug 'pangloss/vim-javascript'
 " reactjs (jsx)
 Plug 'mxw/vim-jsx'
 
@@ -393,6 +393,9 @@ Plug 'ap/vim-css-color'
 
 " Unit Testing
 Plug 'janko-m/vim-test'
+
+" Camelcase motion
+Plug 'vim-scripts/camelcasemotion'
 
 " devicons
 " Plug 'ryanoasis/vim-devicons'
