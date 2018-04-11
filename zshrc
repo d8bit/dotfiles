@@ -54,7 +54,7 @@ plugins=(git vi-mode)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/share/virtualenvwrapper/:/opt/sonar-scanner-3.0.3.778-linux/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -92,13 +92,16 @@ alias nvime="vim ~/dotfiles/init.vim"
 alias ze="vim ~/.zshrc"
 alias zu="source ~/.zshrc"
 alias ga="git add"
-alias gA="git add --all"
 alias gs="git status"
 alias gc="git commit"
-alias cdw="cd /var/www"
+alias gac="git add . && git commit"
+alias cdw="cd /var/www/html"
 alias fcd="cd \$(ls -l|fzf)"
 alias cb="git checkout \$(git branch|fzf)"
-alias sgit="ga . && gc && git push"
+alias morning="sudo apt update && sudo apt upgrade"
+alias gpush="git checkout develop && git push && git push --tags && git checkout master && git push && git push --tags && git checkout develop"
+alias setphp5="sudo a2dismod php7.0 && sudo a2enmod php5.6 && sudo service apache2 restart"
+alias setphp7="sudo a2dismod php5.6 && sudo a2enmod php7.0 && sudo service apache2 restart"
 
 DISABLE_AUTO_TITLE="true"
 
@@ -108,3 +111,8 @@ export SECRET_KEY_BASE=1157982c668f68b81d54b1b309e0ec5eaa6fd5a93d50aa40bd992c231
 PATH=$PATH:/usr/local/sbin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PYDEV="/var/www/python"
+export WORKON_HOME=$PYDEV/.virtualenvs
+export PROJECT_HOME=$PYDEV
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
