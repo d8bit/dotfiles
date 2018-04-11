@@ -338,7 +338,7 @@ Plug 'shawncplus/phpcomplete.vim'
 
 " tern for javascript
 " Plug 'ternjs/tern_for_vim'
-" Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 " reactjs (jsx)
 Plug 'mxw/vim-jsx'
 
