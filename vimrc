@@ -147,6 +147,8 @@ map <C-h> :SidewaysLeft<CR>
 map <C-l> :SidewaysRight<CR>
 " PHPDOC config
 map <Leader>d :call PhpDoc()<CR>
+" JSDOC config
+map <Leader>j :JsDoc<CR>
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
@@ -320,6 +322,9 @@ Plug 'https://github.com/jiangmiao/auto-pairs.git'
 " generate phpdoc
 Plug 'sumpygump/php-documentor-vim'
 
+" generate jsdoc
+Plug 'heavenshell/vim-jsdoc'
+
 " autocomplete namespaces
 Plug 'arnaud-lb/vim-php-namespace'
 
@@ -337,7 +342,7 @@ Plug 'jwalton512/vim-blade'
 Plug 'shawncplus/phpcomplete.vim'
 
 " tern for javascript
-" Plug 'ternjs/tern_for_vim'
+Plug 'ternjs/tern_for_vim'
 Plug 'pangloss/vim-javascript'
 " reactjs (jsx)
 Plug 'mxw/vim-jsx'
