@@ -52,6 +52,7 @@ set list
 set listchars=tab:▸\ 
 " show autocomplete options on bottom bar
 set wildmenu
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 " Do not open split window with doc when using Omnicompletion
 set completeopt-=preview
 
@@ -91,7 +92,7 @@ endfunction
 " ----------------------------------------------------------------------------
 
 let g:ale_linters = {
-\   'php': ['phpmd', 'php'],
+\   'php': ['phpcs', 'phpmd', 'php'],
 \   'javascript': ['eslint'],
 \   'vue': ['eslint'],
 \   'html': ['htmlhint'],
@@ -102,6 +103,7 @@ let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
 let g:ale_open_list = 1
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_php_phpcs_standard = "PSR2"
 
 " ----------------------------------------------------------------------------
 "
@@ -293,7 +295,7 @@ Plug 'https://github.com/SirVer/ultisnips.git'
 Plug 'honza/vim-snippets'
 
 " comment lines with gcc command
-Plug 'https://github.com/tomtom/tcomment_vim.git'
+Plug 'tomtom/tcomment_vim'
 
 " match tags with %
 Plug 'https://github.com/tmhedberg/matchit.git'
