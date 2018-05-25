@@ -28,7 +28,7 @@
         "consistent-this": 2,
         "constructor-super": 2,
         "curly": 2,
-        "default-case": 2,
+        "default-case": 0,
         "dot-location": 2,
         "dot-notation": 2,
         "eol-last": 2,
