@@ -404,6 +404,9 @@ Plug 'janko-m/vim-test'
 " Camelcase motion
 Plug 'vim-scripts/camelcasemotion'
 
+" Jenkinsfile syntax
+Plug 'martinda/Jenkinsfile-vim-syntax'
+
 " devicons
 " Plug 'ryanoasis/vim-devicons'
 
