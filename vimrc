@@ -105,21 +105,49 @@ let g:ale_open_list = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_php_phpcs_standard = "PSR2"
 
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [[ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+      \           ],
+      \   'right': [['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+      \              ['percent'],
+      \              ['fileformat', 'fileencoding', 'filetype'],
+      \            ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head',
+      \   'filename': 'LightLineFilename'
+      \ },
+      \ }
+function! LightLineFilename()
+  return expand('%')
+endfunction
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
+
 " ----------------------------------------------------------------------------
 "
 "                                   Eyecandy
 "
 " ----------------------------------------------------------------------------
 
-" to start airline
+" to start lightline
 set laststatus=2
-" airline options
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
-" airline theme
-let g:airline_theme='murmur'
+
 """""" End Eye candy """"""
 
 " ----------------------------------------------------------------------------
@@ -317,6 +345,7 @@ Plug 'https://github.com/gregsexton/MatchTag.git'
 
 " code linter
 Plug 'w0rp/ale'
+Plug 'maximbaz/lightline-ale'
 
 " auto-close
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
@@ -333,9 +362,8 @@ Plug 'arnaud-lb/vim-php-namespace'
 " refactor tool
 Plug 'adoy/vim-php-refactoring-toolbox'
 
-" airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" lightline
+Plug 'itchyny/lightline.vim'
 
 " blade syntax
 Plug 'jwalton512/vim-blade'
