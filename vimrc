@@ -7,6 +7,9 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" performance options
+set ttyfast
+set lazyredraw
 " enable mouse
 set mouse=a
 set termguicolors
@@ -104,6 +107,9 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_open_list = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_php_phpcs_standard = "PSR2"
+let g:ale_echo_cursor = 0
+
+nnoremap <leader>a :ALEDetail<cr>
 
 let g:lightline = {
       \ 'colorscheme': 'powerline',
@@ -213,6 +219,12 @@ command HTML set filetype=html
 "                                    Configs
 "
 " ----------------------------------------------------------------------------
+
+" close quickfix on close window
+aug QFClose
+    au!
+    au WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&buftype") == "quickfix"|q|endif
+aug END
 
 " do not jump on autopairs
 let g:AutoPairsMultilineClose = 0
