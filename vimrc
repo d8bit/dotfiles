@@ -108,6 +108,8 @@ let g:ale_open_list = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_php_phpcs_standard = "PSR2"
 let g:ale_echo_cursor = 0
+" let g:ale_set_loclist = 0
+" let g:ale_set_quickfix = 1
 
 nnoremap <leader>a :ALEDetail<cr>
 
@@ -247,10 +249,22 @@ let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
 let g:tagbar_show_linenumbers = 2
 
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+" RipGrep
+" --column: Show column number
+" --line-number: Show line number
+" --no-heading: Do not show file headings in results
+" --fixed-strings: Search term as a literal string
+" --ignore-case: Case insensitive search
+" --no-ignore: Do not respect .gitignore, etc...
+" --hidden: Search hidden files and folders
+" --follow: Follow symlinks
+" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+" --color: Search color options
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
+if executable('rg')
+  " Use rg over grep
+  set grepprg=rg\ --vimgrep
 endif
 
 " Nerdtree
@@ -288,7 +302,7 @@ function! IPhpExpandClass()
     call feedkeys('a', 'n')
 endfunction
 " fzf options
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
@@ -446,6 +460,9 @@ Plug 'vim-scripts/camelcasemotion'
 
 " Jenkinsfile syntax
 Plug 'martinda/Jenkinsfile-vim-syntax'
+
+" Ferret
+Plug 'wincent/ferret'
 
 " devicons
 " Plug 'ryanoasis/vim-devicons'
