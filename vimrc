@@ -73,20 +73,20 @@ endif
 let g:netrw_liststyle = 3
 
 " fit quickfix height
-au FileType qf call AdjustWindowHeight(1, 3)
-function! AdjustWindowHeight(minheight, maxheight)
-    let l = 1
-    let n_lines = 0
-    let w_width = winwidth(0)
-    while l <= line('$')
-        " number to float for division
-        let l_len = strlen(getline(l)) + 0.0
-        let line_width = l_len/w_width
-        let n_lines += float2nr(ceil(line_width))
-        let l += 1
-    endw
-    exe max([min([n_lines, a:maxheight]), a:minheight]) . "wincmd _"
-endfunction
+" au FileType qf call AdjustWindowHeight(1, 3)
+" function! AdjustWindowHeight(minheight, maxheight)
+"     let l = 1
+"     let n_lines = 0
+"     let w_width = winwidth(0)
+"     while l <= line('$')
+"         " number to float for division
+"         let l_len = strlen(getline(l)) + 0.0
+"         let line_width = l_len/w_width
+"         let n_lines += float2nr(ceil(line_width))
+"         let l += 1
+"     endw
+"     exe max([min([n_lines, a:maxheight]), a:minheight]) . "wincmd _"
+" endfunction
 
 " ----------------------------------------------------------------------------
 "
@@ -104,7 +104,7 @@ let g:ale_linters = {
 let g:ale_sign_error = 'x'
 let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
-let g:ale_open_list = 1
+let g:ale_open_list = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_php_phpcs_standard = "PSR2"
 let g:ale_echo_cursor = 0
@@ -307,6 +307,20 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.g
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
+" gtags config
+
+" enable gtags module
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+
+" config project root markers.
+let g:gutentags_project_root = ['.root', '.git']
+
+" generate datebases in my cache directory, prevent gtags files polluting my project
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+
+" forbid gutentags adding gtags databases
+let g:gutentags_auto_add_gtags_cscope = 0
+
 "end my config
 
 " ----------------------------------------------------------------------------
@@ -463,6 +477,13 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 
 " Ferret
 Plug 'wincent/ferret'
+
+" Generate ctags
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
+
+" Gnu Tags
+Plug 'vim-scripts/gtags.vim'
 
 " devicons
 " Plug 'ryanoasis/vim-devicons'
