@@ -103,7 +103,6 @@ let g:ale_linters = {
 \}
 let g:ale_sign_error = 'x'
 let g:ale_sign_warning = '⚠'
-let g:airline#extensions#ale#enabled = 1
 let g:ale_open_list = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_php_phpcs_standard = "PSR2"
@@ -121,12 +120,13 @@ let g:lightline = {
       \           ],
       \   'right': [['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
       \              ['percent'],
-      \              ['fileformat', 'fileencoding', 'filetype'],
+      \              ['fileformat', 'fileencoding', 'filetype', 'gtags'],
       \            ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
-      \   'filename': 'LightLineFilename'
+      \   'filename': 'LightLineFilename',
+      \   'gtags': 'gutentags#statusline'
       \ },
       \ }
 function! LightLineFilename()
