@@ -106,7 +106,7 @@ let g:ale_sign_warning = '⚠'
 let g:ale_open_list = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_php_phpcs_standard = "PSR2"
-let g:ale_echo_cursor = 0
+let g:ale_echo_cursor = 1
 " let g:ale_set_loclist = 0
 " let g:ale_set_quickfix = 1
 
@@ -147,6 +147,19 @@ let g:lightline.component_type = {
       \     'linter_ok': 'left',
       \ }
 
+" Update lightline when linters ends
+augroup UpdateAleLightLine
+    autocmd!
+    autocmd User ALELint call lightline#update()
+augroup END
+
+" Update lightline when gtags ends
+augroup MyGutentagsStatusLineRefresher
+    autocmd!
+    autocmd User GutentagsUpdating call lightline#update()
+    autocmd User GutentagsUpdated call lightline#update()
+augroup END
+
 " ----------------------------------------------------------------------------
 "
 "                                   Eyecandy
@@ -171,7 +184,7 @@ nmap <Leader>2 :TagbarToggle<CR>
 " fzf files
 map <C-p> :Files<CR>
 " ctags async
-map <Leader>t :AsyncRun -post=copen ctags -R --exclude=node_modules --exclude=jquery --exclude=vendor --languages=php,javascript .<CR>
+" map <Leader>t :AsyncRun -post=copen ctags -R --exclude=node_modules --exclude=jquery --exclude=vendor --languages=php,javascript .<CR>
 " multicursor shortcuts
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
