@@ -54,7 +54,7 @@ plugins=(git vi-mode)
 
 # User configuration
 
-# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/share/virtualenvwrapper/:/opt/sonar-scanner-3.0.3.778-linux/bin/"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/share/virtualenvwrapper/:/opt/sonar-scanner-3.0.3.778-linux/bin/:/opt/node-v8.11.2-linux-x64/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -117,13 +117,5 @@ export COMPOSER_MEMORY_LIMIT=-1
 export PYDEV="/var/www/python"
 # export WORKON_HOME=$PYDEV/.virtualenvs
 export PROJECT_HOME=$PYDEV
-# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-
-export GIT_EDITOR=vim
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+export JENKINSPASS="Hosting1985!_Rau1"
