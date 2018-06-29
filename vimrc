@@ -168,6 +168,14 @@ augroup END
 
 " to start lightline
 set laststatus=2
+" tags hightlight
+let g:mta_use_matchparen_group = 1
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'php' : 1,
+    \}
 
 """""" End Eye candy """"""
 
@@ -183,8 +191,6 @@ map <Leader>1 <plug>NERDTreeTabsToggle<CR>
 nmap <Leader>2 :TagbarToggle<CR>
 " fzf files
 map <C-p> :Files<CR>
-" ctags async
-" map <Leader>t :AsyncRun -post=copen ctags -R --exclude=node_modules --exclude=jquery --exclude=vendor --languages=php,javascript .<CR>
 " multicursor shortcuts
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
@@ -394,7 +400,7 @@ Plug 'https://github.com/tpope/vim-repeat.git'
 " Plug 'https://github.com/joonty/vdebug.git'
 
 " hightlight html tags
-Plug 'https://github.com/gregsexton/MatchTag.git'
+Plug 'Valloric/MatchTagAlways'
 
 " code linter
 Plug 'w0rp/ale'
@@ -442,9 +448,6 @@ Plug 'ntpeters/vim-better-whitespace'
 " tabular plugin to format text
 Plug 'godlygeek/tabular'
 
-" asyncronous commands
-Plug 'skywind3000/asyncrun.vim'
-
 " switch parameters
 Plug 'AndrewRadev/sideways.vim'
 
@@ -468,7 +471,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'jeanguyomarch/vim-metacomment'
 
 " startify
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 
 " undo tree
 Plug 'mbbill/undotree'
