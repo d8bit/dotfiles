@@ -88,6 +88,9 @@ let g:netrw_liststyle = 3
 "     exe max([min([n_lines, a:maxheight]), a:minheight]) . "wincmd _"
 " endfunction
 
+" open quickfix results in a new tab
+set switchbuf+=usetab,newtab
+
 " ----------------------------------------------------------------------------
 "
 "                              Codelinters config
@@ -500,6 +503,9 @@ Plug 'skywind3000/gutentags_plus'
 
 " Gnu Tags
 Plug 'vim-scripts/gtags.vim'
+
+" PHP
+Plug 'StanAngeloff/php.vim'
 
 " devicons
 " Plug 'ryanoasis/vim-devicons'
