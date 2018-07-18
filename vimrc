@@ -343,6 +343,10 @@ let g:gutentags_cache_dir = expand('~/.cache/tags')
 " forbid gutentags adding gtags databases
 let g:gutentags_auto_add_gtags_cscope = 0
 
+" vim sessions
+let g:session_autoload = 'no' " prompt
+let g:session_autosave = 'yes'
+
 "end my config
 
 " ----------------------------------------------------------------------------
@@ -506,6 +510,10 @@ Plug 'vim-scripts/gtags.vim'
 
 " PHP
 Plug 'StanAngeloff/php.vim'
+
+" Vim sessions
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
 
 " devicons
 " Plug 'ryanoasis/vim-devicons'
