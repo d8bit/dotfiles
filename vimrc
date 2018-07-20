@@ -216,9 +216,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 " use namespace plugin with <leader>e
 autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
-" toggle quickfixlist and locationlist
-nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
-nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 " phpmanual
 let g:php_manual_online_search_shortcut = '<F1>'
 
@@ -237,6 +234,9 @@ command Todo noautocmd Ag \/\/.TODO|\\/\/.FIXME|\/\/.XXX
 command JS set filetype=javascript
 command PHP set filetype=php
 command HTML set filetype=html
+
+" Fzf for buffers
+nnoremap <C-@> :Buffers<CR>
 
 " ----------------------------------------------------------------------------
 "
@@ -514,6 +514,9 @@ Plug 'StanAngeloff/php.vim'
 " Vim sessions
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
+
+" Latex for Vim
+Plug 'lervag/vimtex'
 
 " devicons
 " Plug 'ryanoasis/vim-devicons'
