@@ -1,8 +1,8 @@
 #!/bin/sh
 
-session="brokerBack"
+session="sessionName"
 
-cd /var/www/html/brokercoin/backend/
+cd /var/www/html/projectName
 # set up tmux
 tmux start-server
 
@@ -10,11 +10,11 @@ tmux start-server
 tmux new-session -d -s $session -n vim
 
 # open vim with session
-tmux send-keys "vim -S ~/.vim/sessions/brokerBack.vim" C-m
+tmux send-keys "vim -S ~/.vim/sessions/sessionName.vim" C-m
 
 session="brokerFront"
 
-cd /var/www/html/brokercoin/frontend/
+cd /var/www/html/projectName
 
 # create a new tmux session, starting vim from a saved session in the new window
 tmux new-session -d -s $session -n vim
@@ -35,7 +35,7 @@ tmux send-keys "cd ~/test/tor/" C-m
 tmux select-window -t $session:1
 
 # open vim with session
-tmux send-keys "vim -S ~/.vim/sessions/brokerFront.vim" C-m
+tmux send-keys "vim -S ~/.vim/sessions/sessionName.vim" C-m
 
 # Finished setup, attach to the tmux session!
 tmux attach-session -t $session
