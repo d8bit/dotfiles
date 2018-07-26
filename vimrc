@@ -99,6 +99,7 @@ set switchbuf+=usetab,newtab
 
 let g:ale_linters = {
 \   'php': ['phpcs', 'phpmd', 'php'],
+\   'tex': ['chktex'],
 \   'javascript': ['eslint'],
 \   'vue': ['eslint'],
 \   'html': ['htmlhint'],
@@ -115,53 +116,9 @@ let g:ale_echo_cursor = 1
 
 nnoremap <leader>a :ALEDetail<cr>
 
-let g:lightline = {
-      \ 'colorscheme': 'powerline',
-      \ 'active': {
-      \   'left': [[ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ]
-      \           ],
-      \   'right': [['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
-      \              ['percent'],
-      \              ['fileformat', 'fileencoding', 'filetype', 'gtags'],
-      \            ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head',
-      \   'filename': 'LightLineFilename',
-      \   'gtags': 'gutentags#statusline'
-      \ },
-      \ }
-function! LightLineFilename()
-  return expand('%')
-endfunction
-
-let g:lightline.component_expand = {
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok',
-      \ }
-
-let g:lightline.component_type = {
-      \     'linter_checking': 'left',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \     'linter_ok': 'left',
-      \ }
-
-" Update lightline when linters ends
-augroup UpdateAleLightLine
-    autocmd!
-    autocmd User ALELint call lightline#update()
-augroup END
-
-" Update lightline when gtags ends
-augroup MyGutentagsStatusLineRefresher
-    autocmd!
-    autocmd User GutentagsUpdating call lightline#update()
-    autocmd User GutentagsUpdated call lightline#update()
-augroup END
+let g:airline_theme='powerlineish'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " ----------------------------------------------------------------------------
 "
@@ -169,16 +126,16 @@ augroup END
 "
 " ----------------------------------------------------------------------------
 
-" to start lightline
+" to start airline
 set laststatus=2
 " tags hightlight
-let g:mta_use_matchparen_group = 1
-let g:mta_filetypes = {
-    \ 'html' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \ 'php' : 1,
-    \}
+" let g:mta_use_matchparen_group = 1
+" let g:mta_filetypes = {
+"     \ 'html' : 1,
+"     \ 'xhtml' : 1,
+"     \ 'xml' : 1,
+"     \ 'php' : 1,
+"     \}
 
 """""" End Eye candy """"""
 
@@ -411,7 +368,6 @@ Plug 'Valloric/MatchTagAlways'
 
 " code linter
 Plug 'w0rp/ale'
-Plug 'maximbaz/lightline-ale'
 
 " auto-close
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
@@ -428,8 +384,9 @@ Plug 'arnaud-lb/vim-php-namespace'
 " refactor tool
 Plug 'adoy/vim-php-refactoring-toolbox'
 
-" lightline
-Plug 'itchyny/lightline.vim'
+" vim airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " blade syntax
 Plug 'jwalton512/vim-blade'
