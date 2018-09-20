@@ -128,14 +128,6 @@ let g:airline_powerline_fonts = 1
 
 " to start airline
 set laststatus=2
-" tags hightlight
-" let g:mta_use_matchparen_group = 1
-" let g:mta_filetypes = {
-"     \ 'html' : 1,
-"     \ 'xhtml' : 1,
-"     \ 'xml' : 1,
-"     \ 'php' : 1,
-"     \}
 
 """""" End Eye candy """"""
 
@@ -180,7 +172,8 @@ let g:php_manual_online_search_shortcut = '<F1>'
 nnoremap <leader>u :UndotreeToggle<cr>
 
 " noh
-nnoremap <F3> :noh<cr>
+nnoremap <F2> :Buffo<cr>
+nnoremap <F3> :%!python -m json.tool<cr>
 
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
@@ -194,6 +187,10 @@ command HTML set filetype=html
 
 " Fzf for buffers
 nnoremap <C-@> :Buffers<CR>
+
+" spell check
+nnoremap <leader>c :set spell<cr> :highlight SpellBad ctermfg=red<cr>
+nnoremap <leader>C :set nospell<cr>
 
 " ----------------------------------------------------------------------------
 "
@@ -304,6 +301,9 @@ let g:gutentags_auto_add_gtags_cscope = 0
 let g:session_autoload = 'no' " prompt
 let g:session_autosave = 'yes'
 
+" YouCompleteMe config
+let g:ycm_min_num_of_chars_for_completion = 3
+
 "end my config
 
 " ----------------------------------------------------------------------------
@@ -342,7 +342,7 @@ Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 Plug 'https://github.com/majutsushi/tagbar.git'
 
 " plugins for snippets
-Plug 'https://github.com/SirVer/ultisnips.git'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " comment lines with gcc command
