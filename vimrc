@@ -173,8 +173,14 @@ nnoremap <leader>u :UndotreeToggle<cr>
 
 " noh
 nnoremap <F2> :Buffo<cr>
-nnoremap <F3> :%!python -m json.tool<cr>
 
+" show in nerdtree the current file
+command Show NERDTreeFind
+
+" remove blank spaces
+
+" format json
+command JsonBeautify %!python -m json.tool
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
