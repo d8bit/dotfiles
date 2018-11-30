@@ -151,9 +151,8 @@ let g:multi_cursor_quit_key='<Esc>'
 " move lines with Control key
 let g:move_key_modifier = 'C'
 " move parameters
-map <C-h> <Nop>
-map <C-h> :SidewaysLeft<CR>
-map <C-l> :SidewaysRight<CR>
+map <S-h> :SidewaysLeft<CR>
+map <S-l> :SidewaysRight<CR>
 " PHPDOC config
 map <Leader>d :call PhpDoc()<CR>
 " JSDOC config
