@@ -105,6 +105,7 @@ let g:ale_linters = {
 \   'html': ['htmlhint'],
 \   'typescript': ['tsuquyomi'],
 \}
+let g:phpcs_max_output=50
 let g:ale_sign_error = 'x'
 let g:ale_sign_warning = '⚠'
 let g:ale_open_list = 0
@@ -170,8 +171,9 @@ let g:php_manual_online_search_shortcut = '<F1>'
 " undotree
 nnoremap <leader>u :UndotreeToggle<cr>
 
-" noh
+" Close remaining buffers
 nnoremap <F2> :Buffo<cr>
+nnoremap <F3> :noh<cr>
 
 " show in nerdtree the current file
 command Show NERDTreeFind
@@ -185,7 +187,7 @@ command JsonBeautify %!python -m json.tool
 
 set wildignore+=vendor/**,node_modules/**
 " command Todo noautocmd vimgrep /TODO\|FIXME\|XXX/j ** | cw
-command Todo noautocmd Ag \/\/.TODO|\\/\/.FIXME|\/\/.XXX
+command Todo noautocmd Ack //.TODO|//.FIXME|//.XXX
 command JS set filetype=javascript
 command PHP set filetype=php
 command HTML set filetype=html
@@ -196,6 +198,9 @@ nnoremap <C-@> :Buffers<CR>
 " spell check
 nnoremap <leader>c :set spell<cr> :highlight SpellBad ctermfg=red<cr>
 nnoremap <leader>C :set nospell<cr>
+
+" Distraction free
+map <Leader>f :Goyo<CR>
 
 " ----------------------------------------------------------------------------
 "
@@ -285,9 +290,6 @@ endfunction
 " fzf options
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
-
 " gtags config
 
 " enable gtags module
@@ -308,6 +310,12 @@ let g:session_autosave = 'yes'
 
 " YouCompleteMe config
 let g:ycm_min_num_of_chars_for_completion = 3
+
+" Twitter
+let twitvim_enable_python=1
+let twitvim_browser_cmd='opera'
+let twitvim_count = 100
+
 
 "end my config
 
@@ -479,6 +487,15 @@ Plug 'xolox/vim-misc'
 
 " Latex for Vim
 Plug 'lervag/vimtex'
+
+" Yaml
+Plug 'chase/vim-ansible-yaml'
+
+" Twitter
+Plug 'twitvim/twitvim'
+
+" Vim eunuch
+Plug 'tpope/vim-eunuch'
 
 " devicons
 " Plug 'ryanoasis/vim-devicons'
