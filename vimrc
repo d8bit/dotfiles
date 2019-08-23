@@ -7,9 +7,10 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+set background=dark
 " performance options
 set ttyfast
-set lazyredraw
+" set lazyredraw
 " enable mouse
 set mouse=a
 set termguicolors
@@ -18,11 +19,16 @@ if &term =~# '^screen'
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 colorscheme srcery
+" colorscheme gruvbox
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
 " tab for ruby
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype yml setlocal ts=2 sts=2 sw=2
+autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype blade setlocal ts=2 sts=2 sw=2
 " allow to use backspace always in insert mode
 set backspace=indent,eol,start
 set autoindent
@@ -174,6 +180,7 @@ nnoremap <leader>u :UndotreeToggle<cr>
 " Close remaining buffers
 nnoremap <F2> :Buffo<cr>
 nnoremap <F3> :noh<cr>
+nnoremap <F4> :ALEDisable<cr>
 
 " show in nerdtree the current file
 command Show NERDTreeFind
@@ -339,7 +346,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 
 " git integration. Shows line state on margin.
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 
 " git integration. Git commands.
 Plug 'https://github.com/tpope/vim-fugitive.git'
