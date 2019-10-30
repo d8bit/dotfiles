@@ -27,4 +27,10 @@ set dir=~/.vimswap//,/var/tmp//,/tmp//
 " Do not open split window with doc when using Omnicompletion
 set completeopt-=preview
 
+set path+=**
+set wildmenu
+
+set termguicolors
+colorscheme srcery
+
 syntax enable
