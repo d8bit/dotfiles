@@ -69,6 +69,7 @@ set completeopt-=preview
 " source ~/dotfiles/views.vim
 " Function to close all buffers except the current one
 source ~/dotfiles/buffers.vim
+source ~/dotfiles/coc.vim
 
 if has("persistent_undo")
     set undodir=/tmp/
@@ -103,25 +104,31 @@ set switchbuf+=usetab,newtab
 "
 " ----------------------------------------------------------------------------
 
-let g:ale_linters = {
-\   'php': ['phpcs', 'phpmd', 'php'],
-\   'tex': ['chktex'],
-\   'javascript': ['eslint'],
-\   'vue': ['eslint'],
-\   'html': ['htmlhint'],
-\   'typescript': ['tsuquyomi'],
-\}
-let g:phpcs_max_output=50
-let g:ale_sign_error = 'x'
-let g:ale_sign_warning = '⚠'
-let g:ale_open_list = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_php_phpcs_standard = "PSR2"
-let g:ale_echo_cursor = 1
+" let g:ycm_python_interpreter_path = '/usr/bin/python3'
+" let g:ycm_python_binary_path = '/usr/bin/python3'
+" let g:ale_python_pylint_executable = 'pylint3'
+
+" let g:ale_linters = {
+" \   'php': ['phpcs', 'phpmd', 'php'],
+" \   'python': ['pylint'],
+" \   'tex': ['chktex'],
+" \   'javascript': ['eslint'],
+" \   'vue': ['eslint'],
+" \   'html': ['htmlhint'],
+" \   'typescript': ['tsuquyomi'],
+" \}
+" let g:phpcs_max_output=50
+" let g:ale_sign_error = 'x'
+" let g:ale_sign_warning = '⚠'
+" let g:ale_open_list = 0
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_php_phpcs_standard = "PSR2"
+" let g:ale_echo_cursor = 1
+" let g:ale_lint_on_enter = 0
 " let g:ale_set_loclist = 0
 " let g:ale_set_quickfix = 1
 
-nnoremap <leader>a :ALEDetail<cr>
+" nnoremap <leader>a :ALEDetail<cr>
 
 let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled = 1
@@ -146,6 +153,7 @@ set laststatus=2
 "
 " nerdtree
 map <Leader>1 <plug>NERDTreeTabsToggle<CR>
+
 " tagbar
 nmap <Leader>2 :TagbarToggle<CR>
 " fzf files
@@ -165,9 +173,9 @@ map <Leader>d :call PhpDoc()<CR>
 " JSDOC config
 map <Leader>j :JsDoc<CR>
 " ultisnips
-let g:UltiSnipsExpandTrigger="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+" let g:UltiSnipsExpandTrigger="<c-l>"
+" let g:UltiSnipsJumpForwardTrigger="<c-n>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 " use namespace plugin with <leader>e
 autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
@@ -180,7 +188,7 @@ nnoremap <leader>u :UndotreeToggle<cr>
 " Close remaining buffers
 nnoremap <F2> :Buffo<cr>
 nnoremap <F3> :noh<cr>
-nnoremap <F4> :ALEDisable<cr>
+" nnoremap <F4> :ALEDisable<cr>
 
 " show in nerdtree the current file
 command Show NERDTreeFind
@@ -288,7 +296,7 @@ let g:vdebug_options= {
 " ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " Execute 'UltiSnipsAddFiletypes php' if necessary
-let g:UltiSnipsSnippetsDir="~/.vim/plugged/vim-snippets/UltiSnips"
+" let g:UltiSnipsSnippetsDir="~/.vim/plugged/vim-snippets/UltiSnips"
 " namespace
 function! IPhpExpandClass()
     call PhpExpandClass()
@@ -310,6 +318,7 @@ let g:gutentags_cache_dir = expand('~/.cache/tags')
 
 " forbid gutentags adding gtags databases
 let g:gutentags_auto_add_gtags_cscope = 0
+" let g:gutentags_trace = 1
 
 " vim sessions
 let g:session_autoload = 'no' " prompt
@@ -362,7 +371,7 @@ Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 Plug 'https://github.com/majutsushi/tagbar.git'
 
 " plugins for snippets
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " comment lines with gcc command
@@ -387,7 +396,7 @@ Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'Valloric/MatchTagAlways'
 
 " code linter
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 " auto-close
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
@@ -503,6 +512,9 @@ Plug 'twitvim/twitvim'
 
 " Vim eunuch
 Plug 'tpope/vim-eunuch'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 " devicons
 " Plug 'ryanoasis/vim-devicons'
