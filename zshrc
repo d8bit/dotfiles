@@ -50,11 +50,11 @@ ZSH_THEME="geoffgarside"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode)
+plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/share/virtualenvwrapper/:/opt/sonar-scanner-3.0.3.778-linux/bin/:/opt/node-v8.11.2-linux-x64/bin/"
+# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/share/virtualenvwrapper/:/opt/sonar-scanner-3.0.3.778-linux/bin/:/opt/node-v8.11.2-linux-x64/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -87,8 +87,10 @@ export EDITOR="$VISUAL"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# alias vim="vim.athena"
 alias vime="vim ~/dotfiles/vimrc"
 alias nvime="vim ~/dotfiles/init.vim"
+alias bim="vim.athena -u ~/dotfiles/basic_vimrc"
 alias ze="vim ~/.zshrc"
 alias zu="source ~/.zshrc"
 alias ga="git add"
@@ -99,9 +101,11 @@ alias cdw="cd /var/www/html"
 alias fcd="cd \$(ls -l|fzf)"
 alias cb="git checkout \$(git branch|fzf)"
 alias morning="sudo apt update && sudo apt upgrade"
-alias gpush="git checkout develop && git push && git push --tags && git checkout master && git push && git push --tags && git checkout develop"
+alias gpush="git add . && git commit && git push"
+alias gpush_all="git checkout develop && git push && git push --tags && git checkout master && git push && git push --tags && git checkout develop"
 alias setphp5="sudo a2dismod php7.0 && sudo a2enmod php5.6 && sudo service apache2 restart"
 alias setphp7="sudo a2dismod php5.6 && sudo a2enmod php7.0 && sudo service apache2 restart"
+alias activate="source venv/bin/activate"
 
 DISABLE_AUTO_TITLE="true"
 
@@ -110,6 +114,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export SECRET_KEY_BASE=1157982c668f68b81d54b1b309e0ec5eaa6fd5a93d50aa40bd992c231a858275aed524b8ef69354525f5f8719fb9a5025c1836efbd97ff9e80b45c91525dbeb2
 PATH=$PATH:/usr/local/sbin
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+export PATH="$PATH:/opt/"
 export COMPOSER_MEMORY_LIMIT=-1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -117,5 +122,32 @@ export COMPOSER_MEMORY_LIMIT=-1
 export PYDEV="/var/www/python"
 # export WORKON_HOME=$PYDEV/.virtualenvs
 export PROJECT_HOME=$PYDEV
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 export JENKINSPASS="Hosting1985!_Rau1"
+export FLASK_APP=app
+export FLASK_ENV=development
+
+export BIMONT_DB="bimontbi_web"
+export BIMONT_DB_USER="bimontbi_web"
+export BIMONT_DB_PASSWORD="hKE6yO3h6hia"
+# export BIMONT_DB_USER="root"
+# export BIMONT_DB_PASSWORD="Hosting1985!_Rau1"
+
+# Rwdesarrollos
+export OKRENT_DB_USER="okrentacar"
+export OKRENT_DB_PASSWORD="0F7ey7y$"
+export OKRENT_DB="rwdesarr_okrentacar"
+
+export P_OKRENT_DB="REFINERIA"
+export P_OKRENT_DB_USER="refineria"
+export P_OKRENT_DB_PASSWORD="21f9d340dd9a6c115d"
+
+
+# export DOCKER_HOST=127.0.0.1:2376
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+source /opt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+FIREBASE_DATABASE_EMULATOR_HOST=localhost:9000
