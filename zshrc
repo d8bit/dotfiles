@@ -87,7 +87,11 @@ export EDITOR="$VISUAL"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+<<<<<<< HEAD
 # alias vim="vim.athena"
+=======
+alias bim="vim -u ~/dotfiles/basic_vimrc"
+>>>>>>> 934374602be5a19dc76761a135bcc4f4affac4d6
 alias vime="vim ~/dotfiles/vimrc"
 alias nvime="vim ~/dotfiles/init.vim"
 alias bim="vim.athena -u ~/dotfiles/basic_vimrc"
