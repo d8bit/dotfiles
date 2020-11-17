@@ -18,8 +18,8 @@ if &term =~# '^screen'
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-" colorscheme srcery
-colorscheme gruvbox
+colorscheme srcery
+" colorscheme gruvbox
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
 " tab for ruby
@@ -74,7 +74,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " source ~/dotfiles/views.vim
 " Function to close all buffers except the current one
 source ~/dotfiles/buffers.vim
-source ~/dotfiles/coc.vim
+" source ~/dotfiles/coc.vim
 
 if has("persistent_undo")
     set undodir=/tmp/
@@ -137,7 +137,7 @@ nnoremap <leader>a :ALEDetail<cr>
 
 let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
 " ----------------------------------------------------------------------------
 "
@@ -157,8 +157,8 @@ set laststatus=2
 " ----------------------------------------------------------------------------
 "
 " nerdtree
-" map <Leader>1 <plug>NERDTreeTabsToggle<CR>
-:nmap <Leader>1 :CocCommand explorer<CR>
+map <Leader>1 <plug>NERDTreeTabsToggle<CR>
+" nmap <Leader>1 :CocCommand explorer<CR>
 
 " tagbar
 nmap <Leader>2 :TagbarToggle<CR>
@@ -333,10 +333,12 @@ let g:session_autoload = 'no' " prompt
 let g:session_autosave = 'no'
 
 " vim autosave
-let g:auto_save = 1
+let g:auto_save = 0
 
 " GitGutter
 let g:gitgutter_max_signs = 200  " default value
+
+let g:tex_flavor = 'latex'
 
 "end my config
 
@@ -520,7 +522,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'quramy/tsuquyomi'
 
 " Autocomplete like an IDE
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Autosave
 Plug '907th/vim-auto-save'
