@@ -87,14 +87,11 @@ export EDITOR="$VISUAL"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-<<<<<<< HEAD
 # alias vim="vim.athena"
-=======
 alias bim="vim -u ~/dotfiles/basic_vimrc"
->>>>>>> 934374602be5a19dc76761a135bcc4f4affac4d6
 alias vime="vim ~/dotfiles/vimrc"
 alias nvime="vim ~/dotfiles/init.vim"
-alias bim="vim.athena -u ~/dotfiles/basic_vimrc"
+# alias bim="vim.athena -u ~/dotfiles/basic_vimrc"
 alias ze="vim ~/.zshrc"
 alias zu="source ~/.zshrc"
 alias ga="git add"
@@ -107,8 +104,6 @@ alias cb="git checkout \$(git branch|fzf)"
 alias morning="sudo apt update && sudo apt upgrade"
 alias gpush="git add . && git commit && git push"
 alias gpush_all="git checkout develop && git push && git push --tags && git checkout master && git push && git push --tags && git checkout develop"
-alias setphp5="sudo a2dismod php7.0 && sudo a2enmod php5.6 && sudo service apache2 restart"
-alias setphp7="sudo a2dismod php5.6 && sudo a2enmod php7.0 && sudo service apache2 restart"
 alias activate="source venv/bin/activate"
 
 DISABLE_AUTO_TITLE="true"
@@ -127,31 +122,13 @@ export PYDEV="/var/www/python"
 # export WORKON_HOME=$PYDEV/.virtualenvs
 export PROJECT_HOME=$PYDEV
 # source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-export JENKINSPASS="Hosting1985!_Rau1"
 export FLASK_APP=app
 export FLASK_ENV=development
-
-export BIMONT_DB="bimontbi_web"
-export BIMONT_DB_USER="bimontbi_web"
-export BIMONT_DB_PASSWORD="hKE6yO3h6hia"
-# export BIMONT_DB_USER="root"
-# export BIMONT_DB_PASSWORD="Hosting1985!_Rau1"
-
-# Rwdesarrollos
-export OKRENT_DB_USER="okrentacar"
-export OKRENT_DB_PASSWORD="0F7ey7y$"
-export OKRENT_DB="rwdesarr_okrentacar"
-
-export P_OKRENT_DB="REFINERIA"
-export P_OKRENT_DB_USER="refineria"
-export P_OKRENT_DB_PASSWORD="21f9d340dd9a6c115d"
-
 
 # export DOCKER_HOST=127.0.0.1:2376
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-source /opt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-FIREBASE_DATABASE_EMULATOR_HOST=localhost:9000
