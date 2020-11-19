@@ -29,6 +29,7 @@ autocmd Filetype yml setlocal ts=2 sts=2 sw=2
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype blade setlocal ts=2 sts=2 sw=2
+autocmd Filetype json setlocal ts=2 sts=2 sw=2
 " allow to use backspace always in insert mode
 set backspace=indent,eol,start
 set autoindent
@@ -526,6 +527,9 @@ Plug 'quramy/tsuquyomi'
 
 " Autosave
 Plug '907th/vim-auto-save'
+
+" Terraform
+Plug 'hashivim/vim-terraform'
 
 " TabNine
 " Plug 'zxqfl/tabnine-vim'

@@ -105,6 +105,7 @@ alias morning="sudo apt update && sudo apt upgrade"
 alias gpush="git add . && git commit && git push"
 alias gpush_all="git checkout develop && git push && git push --tags && git checkout master && git push && git push --tags && git checkout develop"
 alias activate="source venv/bin/activate"
+alias trash="gio trash"
 
 DISABLE_AUTO_TITLE="true"
 
@@ -131,4 +132,3 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
