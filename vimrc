@@ -12,6 +12,7 @@ set background=dark
 set ttyfast
 " set lazyredraw
 " enable mouse
+set ttymouse=xterm2
 set mouse=a
 set termguicolors
 if &term =~# '^screen'
@@ -30,6 +31,9 @@ autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype blade setlocal ts=2 sts=2 sw=2
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
+
+autocmd BufNewFile,BufRead *.hcl set ft=terraform
+
 " allow to use backspace always in insert mode
 set backspace=indent,eol,start
 set autoindent
