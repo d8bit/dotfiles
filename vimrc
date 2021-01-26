@@ -23,7 +23,7 @@ colorscheme srcery
 " colorscheme gruvbox
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
-" tab for ruby
+" tab format
 autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype yml setlocal ts=2 sts=2 sw=2
@@ -31,8 +31,11 @@ autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype blade setlocal ts=2 sts=2 sw=2
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript.jsx setlocal ts=2 sts=2 sw=2
 
 autocmd BufNewFile,BufRead *.hcl set ft=terraform
+autocmd BufNewFile,BufRead *.DockerFile set ft=dockerfile
+autocmd BufNewFile,BufRead *.es.conf set ft=nginx
 
 " allow to use backspace always in insert mode
 set backspace=indent,eol,start
@@ -116,7 +119,7 @@ set switchbuf+=usetab,newtab
 
 let g:ycm_python_interpreter_path = '/usr/bin/python3'
 let g:ycm_python_binary_path = '/usr/bin/python3'
-let g:ale_python_pylint_executable = 'pylint3'
+let g:ale_python_pylint_executable = 'pylint'
 
 let g:ale_linters = {
 \   'php': ['phpcs', 'phpmd', 'php'],
@@ -134,7 +137,7 @@ let g:ale_open_list = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_php_phpcs_standard = "PSR12"
 let g:ale_echo_cursor = 1
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 
@@ -142,7 +145,7 @@ nnoremap <leader>a :ALEDetail<cr>
 
 let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 
 " ----------------------------------------------------------------------------
 "
@@ -408,7 +411,7 @@ Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'Valloric/MatchTagAlways'
 
 " code linter
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " auto-close
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
@@ -534,6 +537,14 @@ Plug '907th/vim-auto-save'
 
 " Terraform
 Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion'
+Plug 'yorinasub17/vim-terragrunt'
+
+" Dockerfile
+Plug 'ekalinin/dockerfile.vim'
+
+" Nginx
+Plug 'chr4/nginx.vim'
 
 " TabNine
 " Plug 'zxqfl/tabnine-vim'
