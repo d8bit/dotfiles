@@ -43,11 +43,20 @@ set wildmenu
 set wildignore+=**/node_modules/**
 set wildignore+=**/vendor/**
 
+set termguicolors
+colorscheme srcery
+colorscheme gruvbox
+
+source ~/dotfiles/buffers.vim
+nnoremap <F2> :Buffo<cr>
 nnoremap <F3> :noh<cr>
 
 " Navigate through buffers
 nnoremap <tab> :bn<cr>
 nnoremap <S-tab> :bp<cr>
 nnoremap <C-@> :buffers<cr>
+
+" multi-change
+nnoremap <C-n> yiw/<C-r>"<cr><S-n>cgn
 
 syntax enable
