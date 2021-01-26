@@ -50,7 +50,7 @@ ZSH_THEME="geoffgarside"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git vi-mode)
 
 # User configuration
 
@@ -107,7 +107,21 @@ alias gpush_all="git checkout develop && git push && git push --tags && git chec
 alias activate="source venv/bin/activate"
 alias trash="gio trash"
 
+# Terragrunt
+alias tgp="terragrunt plan"
+alias cdt="cd ~/Documentos/dominion/terraform-modules/"
+alias dev="source ~/environments/dev"
+alias tphstage="source ~/environments/tph/stage"
+alias tphproduction="source ~/environments/tph/production"
+alias alternastage="source ~/environments/alterna/stage"
+alias alternaproduction="source ~/environments/alterna/production"
+alias venv="python3 -m venv"
+alias ngrok="/opt/ngrok/ngrok"
+
 DISABLE_AUTO_TITLE="true"
+
+NPM_STORE="${HOME}/.npm-packages"
+export PATH="$PATH:$NPM_STORE/bin"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -132,3 +146,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
