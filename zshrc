@@ -51,6 +51,7 @@ ZSH_THEME="geoffgarside"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git vi-mode)
+# plugins=(git)
 
 # User configuration
 
@@ -90,7 +91,7 @@ export EDITOR="$VISUAL"
 # alias vim="vim.athena"
 alias bim="vim -u ~/dotfiles/basic_vimrc"
 alias vime="vim ~/dotfiles/vimrc"
-alias nvime="vim ~/dotfiles/init.vim"
+alias nvime="nvim ~/dotfiles/init.vim"
 # alias bim="vim.athena -u ~/dotfiles/basic_vimrc"
 alias ze="vim ~/.zshrc"
 alias zu="source ~/.zshrc"
@@ -117,6 +118,7 @@ alias alternastage="source ~/environments/alterna/stage"
 alias alternaproduction="source ~/environments/alterna/production"
 alias venv="python3 -m venv"
 alias ngrok="/opt/ngrok/ngrok"
+alias python3="/usr/bin/python3.7"
 
 DISABLE_AUTO_TITLE="true"
 

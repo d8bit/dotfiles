@@ -19,8 +19,8 @@ if &term =~# '^screen'
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-colorscheme srcery
-" colorscheme gruvbox
+" colorscheme srcery
+colorscheme gruvbox
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
 " tab format
@@ -31,11 +31,16 @@ autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype blade setlocal ts=2 sts=2 sw=2
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
+autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript.jsx setlocal ts=2 sts=2 sw=2
 
 autocmd BufNewFile,BufRead *.hcl set ft=terraform
 autocmd BufNewFile,BufRead *.DockerFile set ft=dockerfile
 autocmd BufNewFile,BufRead *.es.conf set ft=nginx
+
+augroup filetypedetect
+au BufNewFile,BufRead *.xt  setf xt
+augroup END
 
 " allow to use backspace always in insert mode
 set backspace=indent,eol,start
@@ -70,7 +75,8 @@ set listchars=tab:▸\
 " show autocomplete options on bottom bar
 set wildmenu
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
+autocmd FileType php setlocal omnifunc=phpactor#Complete
 " Do not open split window with doc when using Omnicompletion
 set completeopt-=preview
 
@@ -128,7 +134,7 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'vue': ['eslint'],
 \   'html': ['htmlhint'],
-\   'typescript': ['tsuquyomi'],
+\   'typescript': ['tsserver'],
 \}
 let g:phpcs_max_output=50
 let g:ale_sign_error = 'x'
@@ -167,6 +173,9 @@ set laststatus=2
 " nerdtree
 map <Leader>1 <plug>NERDTreeTabsToggle<CR>
 " nmap <Leader>1 :CocCommand explorer<CR>
+
+" close buffer avoiding nerdtree bug
+nnoremap <leader>q :bp<cr>:bd #<cr>
 
 " tagbar
 nmap <Leader>2 :TagbarToggle<CR>
@@ -208,6 +217,12 @@ nnoremap <F4> :ALEDisable<cr>
 nnoremap <tab> :bn<cr>
 nnoremap <S-tab> :bp<cr>
 
+
+" User Alt-] to execute PhpactorGotoDefinition
+execute "set <M-]>=\e]"
+nnoremap <M-]> :PhpactorGotoDefinition<cr>
+nnoremap <S-F12> :PhpactorFindReferences<cr>
+
 " show in nerdtree the current file
 command Show NERDTreeFind
 
@@ -215,6 +230,7 @@ command Show NERDTreeFind
 
 " format json
 command JsonBeautify %!python -m json.tool
+command XMLBeautify %!xmllint --format %
 " run script to make blockmayus = esc
 " map <Leader>e :!xmodmap ~/.speedswapper<CR>
 
@@ -249,17 +265,17 @@ let g:AutoPairsMultilineClose = 0
 " typescript options
 let g:tsuquyomi_disable_quickfix = 1
 " Tagbar
-" hide php variables on tagbar
-let g:tagbar_type_php  = {
-  \ 'ctagstype' : 'php',
-  \ 'kinds'     : [
-          \ 'i:interfaces',
-          \ 'c:classes',
-          \ 'd:constant definitions',
-          \ 'f:functions',
-          \ 'j:javascript functions:1'
-  \ ]
-\ }
+" " hide php variables on tagbar
+" let g:tagbar_type_php  = {
+"   \ 'ctagstype' : 'php',
+"   \ 'kinds'     : [
+"           \ 'i:interfaces',
+"           \ 'c:classes',
+"           \ 'd:constant definitions',
+"           \ 'f:functions',
+"           \ 'j:javascript functions:1'
+"   \ ]
+" \ }
 " tabgar autofocus and close on select
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
@@ -291,14 +307,30 @@ let NERDTreeShowHidden = 1
 " stop at breakpoints on debugging
 let g:dbgPavimBreakAtEntry = 1
 " Xdebug config
+let g:vdebug_keymap = {
+    \    "run" : "<F5>",
+    \    "run_to_cursor" : "<F9>",
+    \    "step_over" : "<F8>",
+    \    "step_into" : "<F7>",
+    \    "step_out" : "<F4>",
+    \    "close" : "<F6>",
+    \    "detach" : "",
+    \    "set_breakpoint" : "<F10>",
+    \    "get_context" : "<F11>",
+    \    "eval_under_cursor" : "<F12>",
+    \    "eval_visual" : "<Leader>e",
+    \}
+
 let g:vdebug_options= {
     \    "port" : 9000,
-    \    "server" : '',
+    \    "server" : '172.20.0.1',
     \    "timeout" : 20,
     \    "on_close" : 'detach',
     \    "break_on_open" : 0,
     \    "ide_key" : '',
-    \    "path_maps" : {},
+    \    "path_maps" : {
+    \        "/var/www/html/flip-webapp":"/home/david/dev/alterna/flip-webapp"
+    \    },
     \    "debug_window_level" : 0,
     \    "debug_file_level" : 0,
     \    "debug_file" : "",
@@ -326,11 +358,11 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
 
 " config project root markers.
-let g:gutentags_project_root = ['.root', '.git']
+let g:gutentags_project_root = ['.git', '.root']
 
 " generate datebases in my cache directory, prevent gtags files polluting my project
 let g:gutentags_cache_dir = expand('~/.cache/tags')
-let g:gutentags_generate_on_write=0
+let g:gutentags_generate_on_write=1
 
 " forbid gutentags adding gtags databases
 let g:gutentags_auto_add_gtags_cscope = 0
@@ -383,7 +415,8 @@ Plug 'mattn/emmet-vim'
 Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 
 " show functions and vars on current file
-Plug 'https://github.com/majutsushi/tagbar.git'
+Plug 'preservim/tagbar'
+Plug 'liuchengxu/vista.vim'
 
 " plugins for snippets
 Plug 'SirVer/ultisnips'
@@ -405,7 +438,7 @@ Plug 'https://github.com/matze/vim-move.git'
 Plug 'https://github.com/tpope/vim-repeat.git'
 
 " debuger
-" Plug 'https://github.com/joonty/vdebug.git'
+Plug 'https://github.com/vim-vdebug/vdebug'
 
 " hightlight html tags
 Plug 'Valloric/MatchTagAlways'
@@ -420,7 +453,10 @@ Plug 'https://github.com/jiangmiao/auto-pairs.git'
 Plug 'sumpygump/php-documentor-vim'
 
 " generate jsdoc
-Plug 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
 
 " autocomplete namespaces
 Plug 'arnaud-lb/vim-php-namespace'
@@ -506,6 +542,7 @@ Plug 'wincent/ferret'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 " Plug 'jsfaint/gen_tags.vim'
+" Plug 'universal-ctags/ctags'
 
 " Gnu Tags
 " Plug 'vim-scripts/gtags.vim'
@@ -545,6 +582,9 @@ Plug 'ekalinin/dockerfile.vim'
 
 " Nginx
 Plug 'chr4/nginx.vim'
+
+" PhpActor
+Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
 
 " TabNine
 " Plug 'zxqfl/tabnine-vim'
