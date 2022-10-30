@@ -118,7 +118,8 @@ alias alternastage="source ~/environments/alterna/stage"
 alias alternaproduction="source ~/environments/alterna/production"
 alias venv="python3 -m venv"
 alias ngrok="/opt/ngrok/ngrok"
-alias python3="/usr/bin/python3.7"
+# alias python3="/usr/bin/python3.7"
+alias vpnui="/opt/cisco/anyconnect/bin/vpnui &"
 
 DISABLE_AUTO_TITLE="true"
 

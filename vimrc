@@ -32,6 +32,7 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype blade setlocal ts=2 sts=2 sw=2
 autocmd Filetype json setlocal ts=2 sts=2 sw=2
 autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
+autocmd Filetype xml setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript.jsx setlocal ts=2 sts=2 sw=2
 
 autocmd BufNewFile,BufRead *.hcl set ft=terraform
@@ -115,7 +116,7 @@ let g:netrw_liststyle = 3
 " endfunction
 
 " open quickfix results in a new tab
-set switchbuf+=usetab,newtab
+" set switchbuf+=usetab,newtab
 
 " ----------------------------------------------------------------------------
 "
@@ -146,6 +147,7 @@ let g:ale_echo_cursor = 1
 let g:ale_lint_on_enter = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
+let g:ale_enabled = 0
 
 nnoremap <leader>a :ALEDetail<cr>
 
@@ -211,7 +213,7 @@ nnoremap <leader>u :UndotreeToggle<cr>
 " Close remaining buffers
 nnoremap <F2> :Buffo<cr>
 nnoremap <F3> :noh<cr>
-nnoremap <F4> :ALEDisable<cr>
+vnoremap <F4> :Tabular /=<cr>
 
 " Navigate through buffers
 nnoremap <tab> :bn<cr>
@@ -222,6 +224,9 @@ nnoremap <S-tab> :bp<cr>
 execute "set <M-]>=\e]"
 nnoremap <M-]> :PhpactorGotoDefinition<cr>
 nnoremap <S-F12> :PhpactorFindReferences<cr>
+
+"Remove all trailing whitespace by pressing F5
+nnoremap <leader>r :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " show in nerdtree the current file
 command Show NERDTreeFind
