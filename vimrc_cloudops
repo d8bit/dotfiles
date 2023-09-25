@@ -19,8 +19,8 @@ if &term =~# '^screen'
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-colorscheme srcery
-" colorscheme gruvbox
+" colorscheme srcery
+colorscheme gruvbox
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
 " tab format
@@ -77,7 +77,7 @@ set listchars=tab:▸\
 set wildmenu
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 " set omnifunc=syntaxcomplete#Complete
-" autocmd FileType php setlocal omnifunc=phpactor#Complete
+autocmd FileType php setlocal omnifunc=phpactor#Complete
 " Do not open split window with doc when using Omnicompletion
 set completeopt-=preview
 
@@ -117,39 +117,6 @@ let g:netrw_liststyle = 3
 
 " open quickfix results in a new tab
 " set switchbuf+=usetab,newtab
-
-" ----------------------------------------------------------------------------
-"
-"                              Codelinters config
-"
-" ----------------------------------------------------------------------------
-
-let g:ycm_python_interpreter_path = '/usr/bin/python3'
-let g:ycm_python_binary_path = '/usr/bin/python3'
-let g:ale_python_pylint_executable = 'pylint'
-
-let g:ale_linters = {
-\   'php': ['phpcs', 'phpmd', 'php'],
-\   'python': ['pylint'],
-\   'tex': ['chktex'],
-\   'javascript': ['eslint'],
-\   'vue': ['eslint'],
-\   'html': ['htmlhint'],
-\   'typescript': ['tsserver'],
-\}
-let g:phpcs_max_output=50
-let g:ale_sign_error = 'x'
-let g:ale_sign_warning = '⚠'
-let g:ale_open_list = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_php_phpcs_standard = "PSR12"
-let g:ale_echo_cursor = 1
-let g:ale_lint_on_enter = 1
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-let g:ale_enabled = 1
-
-nnoremap <leader>a :ALEDetail<cr>
 
 let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#enabled = 1
@@ -193,19 +160,6 @@ let g:move_key_modifier = 'C'
 " move parameters
 map <S-h> :SidewaysLeft<CR>
 map <S-l> :SidewaysRight<CR>
-" PHPDOC config
-map <Leader>d :call PhpDoc()<CR>
-" JSDOC config
-map <Leader>j :JsDoc<CR>
-" ultisnips
-let g:UltiSnipsExpandTrigger="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-" use namespace plugin with <leader>e
-autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
-autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
-" phpmanual
-let g:php_manual_online_search_shortcut = '<F1>'
 
 " undotree
 nnoremap <leader>u :UndotreeToggle<cr>
@@ -214,25 +168,19 @@ nnoremap <leader>u :UndotreeToggle<cr>
 nnoremap <F2> :Buffo<cr>
 nnoremap <F3> :noh<cr>
 vnoremap <F4> :Tabular /=<cr>
-nnoremap <F5> :Git pull<cr>
 
 " Navigate through buffers
 nnoremap <tab> :bn<cr>
 nnoremap <S-tab> :bp<cr>
 
 
-" User Alt-] to execute PhpactorGotoDefinition
-" execute "set <M-]>=\e]"
-" nnoremap <M-]> :PhpactorGotoDefinition<cr>
-" nnoremap <S-F12> :PhpactorFindReferences<cr>
-
-"Remove all trailing whitespace by pressing F5
+"Remove all trailing whitespace by pressing \r
 nnoremap <leader>r :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+command Mimi %s/[a|e|o|u]/i/g
 
 " show in nerdtree the current file
 command Show NERDTreeFind
-
-" remove blank spaces
 
 " format json
 command JsonBeautify %!python -m json.tool
@@ -243,9 +191,6 @@ command XMLBeautify %!xmllint --format %
 set wildignore+=vendor/**,node_modules/**
 " command Todo noautocmd vimgrep /TODO\|FIXME\|XXX/j ** | cw
 command Todo noautocmd Ack //.TODO|//.FIXME|//.XXX
-command JS set filetype=javascript
-command PHP set filetype=php
-command HTML set filetype=html
 
 " Fzf for buffers
 nnoremap <C-@> :Buffers<CR>
@@ -268,24 +213,6 @@ aug END
 
 " do not jump on autopairs
 let g:AutoPairsMultilineClose = 0
-" typescript options
-let g:tsuquyomi_disable_quickfix = 1
-" Tagbar
-" " hide php variables on tagbar
-" let g:tagbar_type_php  = {
-"   \ 'ctagstype' : 'php',
-"   \ 'kinds'     : [
-"           \ 'i:interfaces',
-"           \ 'c:classes',
-"           \ 'd:constant definitions',
-"           \ 'f:functions',
-"           \ 'j:javascript functions:1'
-"   \ ]
-" \ }
-" tabgar autofocus and close on select
-let g:tagbar_autofocus = 1
-let g:tagbar_autoclose = 1
-let g:tagbar_show_linenumbers = 2
 
 " RipGrep
 " --column: Show column number
@@ -309,70 +236,9 @@ endif
 " show line numbers on NerdTree
 let NERDTreeShowLineNumbers = 1
 let NERDTreeShowHidden = 1
-" xdebug
-" stop at breakpoints on debugging
-" let g:dbgPavimBreakAtEntry = 1
-" Xdebug config
-" let g:vdebug_keymap = {
-"     \    "run" : "<F5>",
-"     \    "run_to_cursor" : "<F9>",
-"     \    "step_over" : "<F8>",
-"     \    "step_into" : "<F7>",
-"     \    "step_out" : "<F4>",
-"     \    "close" : "<F6>",
-"     \    "detach" : "",
-"     \    "set_breakpoint" : "<F10>",
-"     \    "get_context" : "<F11>",
-"     \    "eval_under_cursor" : "<F12>",
-"     \    "eval_visual" : "<Leader>e",
-"     \}
 
-" let g:vdebug_options= {
-"     \    "port" : 9000,
-"     \    "server" : '172.20.0.1',
-"     \    "timeout" : 20,
-"     \    "on_close" : 'detach',
-"     \    "break_on_open" : 0,
-"     \    "ide_key" : '',
-"     \    "path_maps" : {
-"     \        "/var/www/html/flip-webapp":"/home/david/dev/alterna/flip-webapp"
-"     \    },
-"     \    "debug_window_level" : 0,
-"     \    "debug_file_level" : 0,
-"     \    "debug_file" : "",
-"     \    "watch_window_style" : 'expanded',
-"     \    "marker_default" : '⬦',
-"     \    "marker_closed_tree" : '▸',
-"     \    "marker_open_tree" : '▾'
-"     \}
-
-" ultisnips
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" Execute 'UltiSnipsAddFiletypes php' if necessary
-let g:UltiSnipsSnippetsDir="~/.vim/plugged/vim-snippets/UltiSnips"
-" namespace
-function! IPhpExpandClass()
-    call PhpExpandClass()
-    call feedkeys('a', 'n')
-endfunction
 " fzf options
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-
-" Guttentags config
-
-" enable universal ctags module
-let g:gutentags_modules = ['ctags', 'gtags_cscope']
-
-" config project root markers.
-let g:gutentags_project_root = ['.git', '.root']
-
-" generate datebases in my cache directory, prevent gtags files polluting my project
-let g:gutentags_cache_dir = expand('~/.cache/tags')
-let g:gutentags_generate_on_write=1
-
-" forbid gutentags adding gtags databases
-let g:gutentags_auto_add_gtags_cscope = 0
-let g:gutentags_trace = 0
 
 " vim sessions
 let g:session_autoload = 'no' " prompt
@@ -414,19 +280,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'junegunn/gv.vim'
 
-" emmet plugin for html
-Plug 'mattn/emmet-vim'
-
 " multiple cursors
 Plug 'https://github.com/terryma/vim-multiple-cursors.git'
-
-" show functions and vars on current file
-Plug 'preservim/tagbar'
-Plug 'liuchengxu/vista.vim'
-
-" plugins for snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " comment lines with gcc command
 Plug 'tomtom/tcomment_vim'
@@ -443,32 +298,8 @@ Plug 'https://github.com/matze/vim-move.git'
 " repeat commands with '.' for surround plugin (among others)
 Plug 'https://github.com/tpope/vim-repeat.git'
 
-" debuger
-" Plug 'https://github.com/vim-vdebug/vdebug'
-
-" hightlight html tags
-Plug 'Valloric/MatchTagAlways'
-
-" code linter
-Plug 'dense-analysis/ale'
-
 " auto-close
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
-
-" generate phpdoc
-Plug 'sumpygump/php-documentor-vim'
-
-" generate jsdoc
-Plug 'heavenshell/vim-jsdoc', {
-  \ 'for': ['javascript', 'javascript.jsx','typescript'],
-  \ 'do': 'make install'
-\}
-
-" autocomplete namespaces
-Plug 'arnaud-lb/vim-php-namespace'
-
-" refactor tool
-Plug 'adoy/vim-php-refactoring-toolbox'
 
 " vim airline
 Plug 'vim-airline/vim-airline'
@@ -476,24 +307,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 " blade syntax
 Plug 'jwalton512/vim-blade'
-
-" php complete
-Plug 'shawncplus/phpcomplete.vim'
-
-" tern for javascript
-" Plug 'ternjs/tern_for_vim'
-Plug 'pangloss/vim-javascript'
-" reactjs (jsx)
-Plug 'mxw/vim-jsx'
-
-" php man (Ctrl-h for online manual, Shift-k for vim explanation)
-Plug 'alvan/vim-php-manual'
-
-" python doc
-Plug 'fs111/pydoc.vim'
-
-" python autocomplete
-" Plug 'davidhalter/jedi-vim'
 
 " show whitespaces at the end of the lines
 Plug 'ntpeters/vim-better-whitespace'
@@ -523,41 +336,17 @@ Plug 'leafgarland/typescript-vim'
 " comments
 Plug 'jeanguyomarch/vim-metacomment'
 
-" startify
-" Plug 'mhinz/vim-startify'
-
 " undo tree
 Plug 'mbbill/undotree'
 
-" VueJS
-Plug 'posva/vim-vue'
-
 " show colors in code
 Plug 'ap/vim-css-color'
-
-" Unit Testing
-Plug 'janko-m/vim-test'
-
-" Camelcase motion
-Plug 'vim-scripts/camelcasemotion'
 
 " Jenkinsfile syntax
 Plug 'martinda/Jenkinsfile-vim-syntax'
 
 " Ferret
 Plug 'wincent/ferret'
-
-" Generate ctags. Univsersal ctags needed
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
-" Plug 'jsfaint/gen_tags.vim'
-" Plug 'universal-ctags/ctags'
-
-" Gnu Tags
-" Plug 'vim-scripts/gtags.vim'
-
-" PHP
-Plug 'StanAngeloff/php.vim'
 
 " Vim sessions
 Plug 'xolox/vim-session'
@@ -572,15 +361,6 @@ Plug 'chase/vim-ansible-yaml'
 " Vim eunuch
 Plug 'tpope/vim-eunuch'
 
-" Typescript
-Plug 'quramy/tsuquyomi'
-
-" Autocomplete like an IDE
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Autosave
-Plug '907th/vim-auto-save'
-
 " Terraform
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
@@ -592,14 +372,6 @@ Plug 'ekalinin/dockerfile.vim'
 " Nginx
 Plug 'chr4/nginx.vim'
 
-" PhpActor
-" Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
-
-" TabNine
-" Plug 'zxqfl/tabnine-vim'
-
-" devicons
-" Plug 'ryanoasis/vim-devicons'
 
 " Initialize plugin system
 call plug#end()

@@ -90,6 +90,7 @@ export EDITOR="$VISUAL"
 
 # alias vim="vim.athena"
 alias bim="vim -u ~/dotfiles/basic_vimrc"
+alias clim="vim ~/dotfiles/vimrc_cloudops"
 alias vime="vim ~/dotfiles/vimrc"
 alias nvime="nvim ~/dotfiles/init.vim"
 # alias bim="vim.athena -u ~/dotfiles/basic_vimrc"
@@ -104,22 +105,23 @@ alias fcd="cd \$(ls -l|fzf)"
 alias cb="git checkout \$(git branch|fzf)"
 alias morning="sudo apt update && sudo apt upgrade"
 alias gpush="git add . && git commit && git push"
+alias gtest="git add . && git commit -m 'Test' && git push"
+alias gref="git add . && git commit -m 'Refactor' && git push"
 alias gpush_all="git checkout develop && git push && git push --tags && git checkout master && git push && git push --tags && git checkout develop"
 alias activate="source venv/bin/activate"
 alias trash="gio trash"
+alias cdk="cdktf"
 
-# Terragrunt
-alias tgp="terragrunt plan"
-alias cdt="cd ~/Documentos/dominion/terraform-modules/"
-alias dev="source ~/environments/dev"
-alias tphstage="source ~/environments/tph/stage"
-alias tphproduction="source ~/environments/tph/production"
-alias alternastage="source ~/environments/alterna/stage"
-alias alternaproduction="source ~/environments/alterna/production"
 alias venv="python3 -m venv"
 alias ngrok="/opt/ngrok/ngrok"
 # alias python3="/usr/bin/python3.7"
 alias vpnui="/opt/cisco/anyconnect/bin/vpnui &"
+# Terraform
+alias tftemplate="touch main.tf locals.tf README.md outputs.tf variables.tf && mkdir examples"
+alias tfrm="rm -rf .terraform .terraform.lock.hcl"
+
+alias monitor="pactl load-module module-loopback"
+alias unmonitor="pactl unload-module module-loopback"
 
 DISABLE_AUTO_TITLE="true"
 
@@ -142,6 +144,8 @@ export PROJECT_HOME=$PYDEV
 # source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 export FLASK_APP=app
 export FLASK_ENV=development
+
+export confluence_password=hgtiF!f0
 
 # export DOCKER_HOST=127.0.0.1:2376
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
