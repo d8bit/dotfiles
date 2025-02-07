@@ -50,7 +50,7 @@ ZSH_THEME="geoffgarside"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode)
+plugins=(git vi-mode git kubectl kube-ps1 kubectx)
 # plugins=(git)
 
 # User configuration
@@ -106,13 +106,14 @@ alias cb="git checkout \$(git branch|fzf)"
 alias morning="sudo apt update && sudo apt upgrade"
 alias gpush="git add . && git commit && git push"
 alias gtest="git add . && git commit -m 'Test' && git push"
+alias gupdate="git add . && git commit -m 'Update' && git push"
 alias gref="git add . && git commit -m 'Refactor' && git push"
-alias gpush_all="git checkout develop && git push && git push --tags && git checkout master && git push && git push --tags && git checkout develop"
+alias gpush_all="git checkout develop && git push && git checkout master && git push && git push --tags && git checkout develop"
 alias activate="source venv/bin/activate"
 alias trash="gio trash"
 alias cdk="cdktf"
 
-alias venv="python3 -m venv"
+alias venv="python3 -m venv ."
 alias ngrok="/opt/ngrok/ngrok"
 # alias python3="/usr/bin/python3.7"
 alias vpnui="/opt/cisco/anyconnect/bin/vpnui &"
@@ -136,8 +137,6 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="$PATH:/opt/"
 export COMPOSER_MEMORY_LIMIT=-1
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export PYDEV="/var/www/python"
 # export WORKON_HOME=$PYDEV/.virtualenvs
 export PROJECT_HOME=$PYDEV
@@ -145,15 +144,48 @@ export PROJECT_HOME=$PYDEV
 export FLASK_APP=app
 export FLASK_ENV=development
 
+# cookiecutter requirement
+# Add ~/.local/ to PATH
+export PATH=$HOME/.local/bin:$PATH
+
+
 export confluence_password=hgtiF!f0
 
 # export DOCKER_HOST=127.0.0.1:2376
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+export PATH="$PATH:/opt/nvim-linux64/bin"
+
+source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+# FZF
+source ~/.fzf/shell/key-bindings.zsh
+source ~/.fzf/shell/completion.zsh
+
+fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+export KUBECONFIG=/home/david/Documents/k8s/kubeconfig-doliva.yaml
+
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# alias para hacer login en TUI
+load-token(){
+  export AWS_PROFILE=$1
+  rm -rf ~/.aws/sso/cache/
+  aws sso login --profile $AWS_PROFILE
+  file=$(ls ~/.aws/sso/cache/ | head -n1)
+  cp ~/.aws/sso/cache/$file ~/.aws/sso/cache/8ff2bb760cd406ebba55e4d5dd92a49eeb3cdf1c.json
+}
+
+save-obsidian(){
+  git -C ~/Documents/tui/obsidian/ add . && git -C ~/Documents/tui/obsidian/ commit -m "Update"
+  git -C ~/Documents/tui/obsidian/ archive --format=zip --output=/media/david/F5EE-16E5/work/obsidian.zip master
+}
