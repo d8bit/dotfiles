@@ -14,11 +14,12 @@ set ttyfast
 " enable mouse
 set ttymouse=xterm2
 set mouse=a
-set termguicolors
+" set termguicolors
 if &term =~# '^screen'
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
+packadd! srcery-vim
 colorscheme srcery
 " colorscheme gruvbox
 " tab to spaces
@@ -152,6 +153,7 @@ let g:ale_enabled = 1
 nnoremap <leader>a :ALEDetail<cr>
 
 let g:airline_theme='powerlineish'
+" let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 

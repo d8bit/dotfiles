@@ -9,8 +9,8 @@ set mouse=a
 "     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 "     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " endif
-" colorscheme srcery
-colorscheme gruvbox
+colorscheme srcery
+" colorscheme gruvbox
 " tab to spaces
 set tabstop=4 shiftwidth=4 expandtab
 " tab format
@@ -165,8 +165,10 @@ map <Leader>1 <plug>NERDTreeTabsToggle<CR>
 
 " tagbar
 nmap <Leader>2 :TagbarToggle<CR>
+" Telescope files
+nnoremap <C-p> :Telescope find_files<CR>
 " fzf files
-map <C-p> :Files<CR>
+" map <C-p> :Files<CR>
 " multicursor shortcuts
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
@@ -197,7 +199,7 @@ nnoremap <leader>u :UndotreeToggle<cr>
 " Close remaining buffers
 nnoremap <F2> :Buffo<cr>
 nnoremap <F3> :noh<cr>
-nnoremap <F4> :ALEDisable<cr>
+vnoremap <F4> :Tabular /=<cr>
 
 " Navigate through buffers
 nnoremap <tab> :bn<cr>
@@ -228,7 +230,10 @@ command PHP set filetype=php
 command HTML set filetype=html
 
 " Fzf for buffers
-nnoremap <C-space> :Buffers<CR>
+" nnoremap <C-space> :Buffers<CR>
+
+" Telescope for buffers
+nnoremap <C-space> :Telescope buffers<CR>
 
 " spell check
 nnoremap <leader>c :set spell<cr> :highlight SpellBad ctermfg=red<cr>
@@ -511,6 +516,9 @@ NeoBundle 'leafgarland/typescript-vim'
 " grep integration
 " NeoBundle 'grep.vim'
 
+" Srcery theme
+NeoBundle 'srcery-colors/srcery-vim'
+
 " comments
 NeoBundle 'jeanguyomarch/vim-metacomment'
 
@@ -582,6 +590,9 @@ NeoBundle 'ekalinin/dockerfile.vim'
 
 " Nginx
 NeoBundle 'chr4/nginx.vim'
+
+NeoBundle 'nvim-lua/plenary.nvim'
+NeoBundle 'nvim-telescope/telescope.nvim'
 
 " PhpActor
 NeoBundle 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
