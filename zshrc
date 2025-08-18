@@ -120,9 +120,15 @@ alias vpnui="/opt/cisco/anyconnect/bin/vpnui &"
 # Terraform
 alias tftemplate="touch main.tf locals.tf README.md outputs.tf variables.tf && mkdir examples"
 alias tfrm="rm -rf .terraform .terraform.lock.hcl"
+alias tftest="rm -rf .terraform .terraform.lock.hcl && terraform init -backend-config=../config/backend/test.tfbackend && terraform plan -var-file=../config/variables/test.tfvars"
+alias tfpre="rm -rf .terraform .terraform.lock.hcl && terraform init -backend-config=../config/backend/pre.tfbackend && terraform plan -var-file=../config/variables/pre.tfvars"
 
 alias monitor="pactl load-module module-loopback"
 alias unmonitor="pactl unload-module module-loopback"
+alias visualvm="/opt/visualvm_2110/bin/visualvm &&"
+
+alias cdoffer="cd /home/david/dev/tui/Destination\ Experiences/cloud/Offer/"
+alias cdobsidian="cd /home/david/Documents/tui/obsidian/"
 
 DISABLE_AUTO_TITLE="true"
 
@@ -185,7 +191,16 @@ load-token(){
   cp ~/.aws/sso/cache/$file ~/.aws/sso/cache/8ff2bb760cd406ebba55e4d5dd92a49eeb3cdf1c.json
 }
 
-save-obsidian(){
+obsidian-save-automation(){
   git -C ~/Documents/tui/obsidian/ add . && git -C ~/Documents/tui/obsidian/ commit -m "Update"
   git -C ~/Documents/tui/obsidian/ archive --format=zip --output=/media/david/F5EE-16E5/work/obsidian.zip master
 }
+
+obsidian-clear-cache(){
+  rm -rf ~/.config/obsidian/Cache/
+  rm -rf ~/.config/obsidian/Code Cache/
+  rm -rf ~/.config/obsidian/DawnCache/
+  rm -rf ~/.config/obsidian/GPUCache/
+  rm -rf ~/.config/obsidian/IndexedDB/
+}
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
