@@ -90,6 +90,7 @@ export EDITOR="$VISUAL"
 
 # alias vim="vim.athena"
 alias bim="vim -u ~/dotfiles/basic_vimrc"
+alias fim="vim -u ~/dotfiles/vimrc"
 alias clim="vim ~/dotfiles/vimrc_cloudops"
 alias vime="vim ~/dotfiles/vimrc"
 alias nvime="nvim ~/dotfiles/init.vim"
@@ -111,9 +112,11 @@ alias gref="git add . && git commit -m 'Refactor' && git push"
 alias gpush_all="git checkout develop && git push && git checkout master && git push && git push --tags && git checkout develop"
 alias activate="source venv/bin/activate"
 alias trash="gio trash"
+alias cat="batcat"
 alias cdk="cdktf"
 
 alias venv="python3 -m venv ."
+alias python="python3"
 alias ngrok="/opt/ngrok/ngrok"
 # alias python3="/usr/bin/python3.7"
 alias vpnui="/opt/cisco/anyconnect/bin/vpnui &"
@@ -155,8 +158,6 @@ export FLASK_ENV=development
 export PATH=$HOME/.local/bin:$PATH
 
 
-export confluence_password=hgtiF!f0
-
 # export DOCKER_HOST=127.0.0.1:2376
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -182,25 +183,43 @@ export KUBECONFIG=/home/david/Documents/k8s/kubeconfig-doliva.yaml
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# alias para hacer login en TUI
+
+# Alias to login TUI
+
+DEFAULT_PROMPT=${PROMPT}
 load-token(){
+
   export AWS_PROFILE=$1
   rm -rf ~/.aws/sso/cache/
   aws sso login --profile $AWS_PROFILE
   file=$(ls ~/.aws/sso/cache/ | head -n1)
   cp ~/.aws/sso/cache/$file ~/.aws/sso/cache/8ff2bb760cd406ebba55e4d5dd92a49eeb3cdf1c.json
+
+  # Add color
+  autoload -U colors && colors
+  local color_reset="%f"
+  local color_test="%F{green}"
+  local color_pre="%F{yellow}"
+  local color_prod="%F{red}"
+
+  case "$1" in
+      *test*)
+          PROMPT_PREFIX="${color_test}[$1]${color_reset}"
+          ;;
+      *pre*|*stage*)
+          PROMPT_PREFIX="${color_pre}[$1]${color_reset}"
+          ;;
+      *prod*)
+          PROMPT_PREFIX="${color_prod}[$1]${color_reset}"
+          ;;
+      *)
+          PROMPT_PREFIX=""
+          ;;
+  esac
+
+  PROMPT="${PROMPT_PREFIX}${DEFAULT_PROMPT}"
 }
 
-obsidian-save-automation(){
-  git -C ~/Documents/tui/obsidian/ add . && git -C ~/Documents/tui/obsidian/ commit -m "Update"
-  git -C ~/Documents/tui/obsidian/ archive --format=zip --output=/media/david/F5EE-16E5/work/obsidian.zip master
-}
-
-obsidian-clear-cache(){
-  rm -rf ~/.config/obsidian/Cache/
-  rm -rf ~/.config/obsidian/Code Cache/
-  rm -rf ~/.config/obsidian/DawnCache/
-  rm -rf ~/.config/obsidian/GPUCache/
-  rm -rf ~/.config/obsidian/IndexedDB/
-}
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source ~/dotfiles/utils.rc
