@@ -1,0 +1,27 @@
+obsidian-save-automation(){
+  zsh ~/dotfiles/cron-scripts/obsidian-save-automation.zsh
+}
+
+obsidian-clear-cache(){
+  ~/dotfiles/cron-scripts/obsidian-clear-cache.zsh
+}
+
+keepass-backup() {
+  ~/dotfiles/cron-scripts/keepass-backup.zsh
+}
+
+# i-06703bfbf57b7d91a
+# i-06ef8ac9b6ee6baaa
+# i-056dede4e085b7fba
+
+mx-relay-1() {
+    aws ssm start-session --target i-06703bfbf57b7d91a --profile orig-prod
+}
+
+mx-relay-2() {
+    aws ssm start-session --target i-06ef8ac9b6ee6baaa --profile orig-prod
+}
+
+mx-relay-3() {
+    aws ssm start-session --target i-056dede4e085b7fba --profile orig-prod
+}
