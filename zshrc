@@ -112,7 +112,7 @@ alias gref="git add . && git commit -m 'Refactor' && git push"
 alias gpush_all="git checkout develop && git push && git checkout master && git push && git push --tags && git checkout develop"
 alias activate="source venv/bin/activate"
 alias trash="gio trash"
-alias cat="batcat"
+alias bcat="batcat"
 alias cdk="cdktf"
 
 alias venv="python3 -m venv ."
@@ -223,3 +223,7 @@ load-token(){
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source ~/dotfiles/utils.rc
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+nvm use node > /dev/null
