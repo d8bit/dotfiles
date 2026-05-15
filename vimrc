@@ -128,6 +128,8 @@ let g:netrw_liststyle = 3
 let g:ycm_python_interpreter_path = '/usr/bin/python3'
 let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ale_python_pylint_executable = 'pylint'
+# Disable long lines finding
+let g:ale_markdown_markdownlint_options = '--disable MD013'
 
 let g:ale_linters = {
 \   'php': ['phpcs', 'phpmd', 'php'],
