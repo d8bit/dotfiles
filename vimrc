@@ -12,8 +12,14 @@ set background=dark
 set ttyfast
 " set lazyredraw
 " enable mouse
-set ttymouse=xterm2
+" set ttymouse=xterm2
+" set mouse=a
 set mouse=a
+if has('mouse_sgr')
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+endif
 " set termguicolors
 if &term =~# '^screen'
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -128,7 +134,7 @@ let g:netrw_liststyle = 3
 let g:ycm_python_interpreter_path = '/usr/bin/python3'
 let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ale_python_pylint_executable = 'pylint'
-# Disable long lines finding
+" Disable long lines finding
 let g:ale_markdown_markdownlint_options = '--disable MD013'
 
 let g:ale_linters = {
