@@ -132,6 +132,7 @@ alias visualvm="/opt/visualvm_2110/bin/visualvm &&"
 
 alias cdoffer="cd /home/david/dev/tui/Destination\ Experiences/cloud/Offer/"
 alias cdobsidian="cd /home/david/Documents/tui/obsidian/"
+
 alias kiro-del='kiro-cli chat --list-sessions && echo "Run: kiro-cli chat --delete-session <ID>"'
 
 DISABLE_AUTO_TITLE="true"
@@ -157,7 +158,6 @@ export FLASK_ENV=development
 # cookiecutter requirement
 # Add ~/.local/ to PATH
 export PATH=$HOME/.local/bin:$PATH
-
 
 # export DOCKER_HOST=127.0.0.1:2376
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -200,4 +200,3 @@ source ~/dotfiles/utils.rc
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 nvm use node > /dev/null
-
