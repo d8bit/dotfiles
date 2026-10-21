@@ -10,6 +10,18 @@ keepass-backup() {
   ~/dotfiles/cron-scripts/keepass-backup.zsh
 }
 
+encripted_backup() {
+  git -C ~/Documents/tui/obsidian_tui/ add . && git -C ~/Documents/tui/obsidian_tui/ commit -m "Update"
+  git -C ~/Documents/barcelo/obsidian_barcelo/ add . && git -C ~/Documents/barcelo/obsidian_barcelo/ commit -m "Update"
+  git -C ~/Documents/virtualCave/obsidian_vc/ add . && git -C ~/Documents/virtualCave/obsidian_vc/ commit -m "Update"
+  git -C ~/Documents/estabanell/obsidian_estabanell/ add . && git -C ~/Documents/estabanell/obsidian_estabanell/ commit -m "Update"
+
+  git -C ~/Documents/tui/obsidian_tui/ archive --format=zip --output=/media/veracrypt1/work/vaults/obsidian_tui.zip master
+  git -C ~/Documents/barcelo/obsidian_barcelo/ archive --format=zip --output=/media/veracrypt1/work/vaults/obsidian_barcelo.zip main
+  git -C ~/Documents/virtualCave/obsidian_vc/ archive --format=zip --output=/media/veracrypt1/work/vaults/obsidian_vc.zip main
+  git -C ~/Documents/estabanell/obsidian_estabanell/ archive --format=zip --output=/media/veracrypt1/work/vaults/obsidian_estabanell.zip main
+}
+
 # i-06703bfbf57b7d91a
 # i-06ef8ac9b6ee6baaa
 # i-056dede4e085b7fba
