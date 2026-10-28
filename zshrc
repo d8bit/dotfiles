@@ -114,28 +114,23 @@ alias activate="source venv/bin/activate"
 alias trash="gio trash"
 alias bcat="batcat"
 alias cdk="cdktf"
+alias ls="eza"
 
 alias venv="python3 -m venv ."
-alias python="python3"
 alias ngrok="/opt/ngrok/ngrok"
-# alias python3="/usr/bin/python3.7"
-alias vpnui="/opt/cisco/anyconnect/bin/vpnui &"
-# Terraform
-alias tftemplate="touch main.tf locals.tf README.md outputs.tf variables.tf && mkdir examples"
-alias tfrm="rm -rf .terraform .terraform.lock.hcl"
-alias tftest="rm -rf .terraform .terraform.lock.hcl && terraform init -backend-config=../config/backend/test.tfbackend && terraform plan -var-file=../config/variables/test.tfvars"
-alias tfpre="rm -rf .terraform .terraform.lock.hcl && terraform init -backend-config=../config/backend/pre.tfbackend && terraform plan -var-file=../config/variables/pre.tfvars"
 
 alias monitor="pactl load-module module-loopback"
 alias unmonitor="pactl unload-module module-loopback"
 alias visualvm="/opt/visualvm_2110/bin/visualvm &&"
 
-alias cdoffer="cd /home/david/dev/tui/Destination\ Experiences/cloud/Offer/"
-alias cdobsidian="cd /home/david/Documents/tui/obsidian/"
+alias env-dev="envload ~/Documents/barcelo/config/huawei_creds_test_auto"
+alias env-prod="envload ~/Documents/barcelo/config/huawei_creds_prod_auto"
+alias env-admin="envload ~/Documents/barcelo/config/huawei_creds_admin_auto"
+alias gitbarcelo="source ~/Documents/barcelo/config/git_credentials"
 
-alias kiro-del='kiro-cli chat --list-sessions && echo "Run: kiro-cli chat --delete-session <ID>"'
 
 DISABLE_AUTO_TITLE="true"
+AWS_PROFILE_STATE_ENABLED=true
 
 NPM_STORE="${HOME}/.npm-packages"
 export PATH="$PATH:$NPM_STORE/bin"
@@ -159,14 +154,16 @@ export FLASK_ENV=development
 # Add ~/.local/ to PATH
 export PATH=$HOME/.local/bin:$PATH
 
+
 # export DOCKER_HOST=127.0.0.1:2376
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
-source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.oh-my-zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source ~/.oh-my-zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+
 
 # tabtab source for packages
 # uninstall by removing these lines
@@ -187,6 +184,7 @@ export KUBECONFIG=/home/david/Documents/k8s/kubeconfig-doliva.yaml
 
 # Alias to login TUI
 load-token(){
+  export AWS_PROFILE=$1
   rm -rf ~/.aws/sso/cache/
   aws sso login --profile $AWS_PROFILE
   file=$(ls ~/.aws/sso/cache/ | head -n1)
@@ -196,7 +194,9 @@ load-token(){
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source ~/dotfiles/utils.rc
+source ~/dotfiles/scripts/env_indicator.sh
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 nvm use node > /dev/null
+
