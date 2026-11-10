@@ -19,7 +19,7 @@ if &term =~# '^screen'
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-packadd! srcery-vim
+" packadd! srcery-vim
 colorscheme srcery
 " colorscheme gruvbox
 " tab to spaces
@@ -128,7 +128,7 @@ let g:netrw_liststyle = 3
 let g:ycm_python_interpreter_path = '/usr/bin/python3'
 let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ale_python_pylint_executable = 'pylint'
-# Disable long lines finding
+" Disable long lines finding
 let g:ale_markdown_markdownlint_options = '--disable MD013'
 
 let g:ale_linters = {
