@@ -133,6 +133,8 @@ alias visualvm="/opt/visualvm_2110/bin/visualvm &&"
 alias cdoffer="cd /home/david/dev/tui/Destination\ Experiences/cloud/Offer/"
 alias cdobsidian="cd /home/david/Documents/tui/obsidian/"
 
+alias kiro-del='kiro-cli chat --list-sessions && echo "Run: kiro-cli chat --delete-session <ID>"'
+
 DISABLE_AUTO_TITLE="true"
 
 NPM_STORE="${HOME}/.npm-packages"
@@ -156,7 +158,6 @@ export FLASK_ENV=development
 # cookiecutter requirement
 # Add ~/.local/ to PATH
 export PATH=$HOME/.local/bin:$PATH
-
 
 # export DOCKER_HOST=127.0.0.1:2376
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -185,39 +186,11 @@ export KUBECONFIG=/home/david/Documents/k8s/kubeconfig-doliva.yaml
 
 
 # Alias to login TUI
-
-DEFAULT_PROMPT=${PROMPT}
 load-token(){
-
-  export AWS_PROFILE=$1
   rm -rf ~/.aws/sso/cache/
   aws sso login --profile $AWS_PROFILE
   file=$(ls ~/.aws/sso/cache/ | head -n1)
   cp ~/.aws/sso/cache/$file ~/.aws/sso/cache/8ff2bb760cd406ebba55e4d5dd92a49eeb3cdf1c.json
-
-  # Add color
-  autoload -U colors && colors
-  local color_reset="%f"
-  local color_test="%F{green}"
-  local color_pre="%F{yellow}"
-  local color_prod="%F{red}"
-
-  case "$1" in
-      *test*)
-          PROMPT_PREFIX="${color_test}[$1]${color_reset}"
-          ;;
-      *pre*|*stage*)
-          PROMPT_PREFIX="${color_pre}[$1]${color_reset}"
-          ;;
-      *prod*)
-          PROMPT_PREFIX="${color_prod}[$1]${color_reset}"
-          ;;
-      *)
-          PROMPT_PREFIX=""
-          ;;
-  esac
-
-  PROMPT="${PROMPT_PREFIX}${DEFAULT_PROMPT}"
 }
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

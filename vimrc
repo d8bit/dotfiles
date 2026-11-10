@@ -12,8 +12,14 @@ set background=dark
 set ttyfast
 " set lazyredraw
 " enable mouse
-set ttymouse=xterm2
+" set ttymouse=xterm2
+" set mouse=a
 set mouse=a
+if has('mouse_sgr')
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+endif
 " set termguicolors
 if &term =~# '^screen'
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
