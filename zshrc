@@ -50,7 +50,7 @@ ZSH_THEME="geoffgarside"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode git kubectl kube-ps1 kubectx aws fzf git-flow nvm pip)
+plugins=(git vi-mode fzf zsh-autosuggestions zsh-syntax-highlighting pip virtualenv kubectl kube-ps1 kubectx aws terraform direnv)
 # plugins=(git)
 
 # User configuration
@@ -164,14 +164,13 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source ~/.oh-my-zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
-
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
 # FZF
-source ~/.fzf/shell/key-bindings.zsh
-source ~/.fzf/shell/completion.zsh
+# source ~/.fzf/shell/key-bindings.zsh
+# source ~/.fzf/shell/completion.zsh
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
