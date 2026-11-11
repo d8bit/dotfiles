@@ -15,11 +15,13 @@ encripted_backup() {
   git -C ~/Documents/barcelo/obsidian_barcelo/ add . && git -C ~/Documents/barcelo/obsidian_barcelo/ commit -m "Update"
   git -C ~/Documents/virtualCave/obsidian_vc/ add . && git -C ~/Documents/virtualCave/obsidian_vc/ commit -m "Update"
   git -C ~/Documents/estabanell/obsidian_estabanell/ add . && git -C ~/Documents/estabanell/obsidian_estabanell/ commit -m "Update"
+  git -C ~/Documents/veci/obsidian_veci/ add . && git -C ~/Documents/veci/obsidian_veci/ commit -m "Update"
 
   git -C ~/Documents/tui/obsidian_tui/ archive --format=zip --output=/media/veracrypt1/work/vaults/obsidian_tui.zip master
   git -C ~/Documents/barcelo/obsidian_barcelo/ archive --format=zip --output=/media/veracrypt1/work/vaults/obsidian_barcelo.zip main
   git -C ~/Documents/virtualCave/obsidian_vc/ archive --format=zip --output=/media/veracrypt1/work/vaults/obsidian_vc.zip main
   git -C ~/Documents/estabanell/obsidian_estabanell/ archive --format=zip --output=/media/veracrypt1/work/vaults/obsidian_estabanell.zip main
+  git -C ~/Documents/veci/obsidian_veci/ archive --format=zip --output=/media/veracrypt1/work/vaults/obsidian_veci.zip main
 }
 
 # i-06703bfbf57b7d91a
