@@ -24,6 +24,7 @@ opt.switchbuf:append({ 'usetab', 'newtab' })
 
 opt.timeoutlen = 1000
 opt.ttimeoutlen = 0
+opt.updatetime = 250 -- CursorHold sooner (default 4000ms), e.g. gitsigns updates
 
 opt.swapfile = false
 opt.backup = false
@@ -37,7 +38,7 @@ opt.completeopt = { 'menuone', 'noselect', 'popup', 'fuzzy' }
 vim.api.nvim_create_autocmd('FileType', {
   pattern = {
     'eruby', 'ruby', 'yaml', 'html', 'blade', 'json', 'javascript',
-    'javascriptreact', 'typescript', 'typescriptreact', 'vue', 'terraform', 'hcl', 'lua',
+    'javascriptreact', 'typescript', 'typescriptreact', 'vue', 'terraform', 'terraform-vars', 'hcl', 'lua',
   },
   callback = function()
     vim.opt_local.tabstop = 2
@@ -47,7 +48,8 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.filetype.add({
-  extension = { hcl = 'terraform', xt = 'xt' },
+  extension = { hcl = 'terraform', xt = 'xt', tfstate = 'json' },
+  filename = { ['.terraform.lock.hcl'] = 'hcl', ['.tflint.hcl'] = 'hcl' },
   pattern = {
     ['.*%.DockerFile'] = 'dockerfile',
     ['.*%.es%.conf'] = 'nginx',

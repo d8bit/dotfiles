@@ -95,7 +95,7 @@ alias clim="vim ~/dotfiles/vimrc_cloudops"
 alias vime="vim ~/dotfiles/vimrc"
 alias nvime="nvim ~/dotfiles/init.vim"
 # alias bim="vim.athena -u ~/dotfiles/basic_vimrc"
-alias ze="vim ~/.zshrc"
+alias ze="nvim ~/.zshrc"
 alias zu="source ~/.zshrc"
 alias ga="git add"
 alias gs="git status"
@@ -123,10 +123,12 @@ alias monitor="pactl load-module module-loopback"
 alias unmonitor="pactl unload-module module-loopback"
 alias visualvm="/opt/visualvm_2110/bin/visualvm &&"
 
-alias env-dev="envload ~/Documents/barcelo/config/huawei_creds_test_auto"
+alias env-test="envload ~/Documents/barcelo/config/huawei_creds_test_auto"
 alias env-prod="envload ~/Documents/barcelo/config/huawei_creds_prod_auto"
 alias env-admin="envload ~/Documents/barcelo/config/huawei_creds_admin_auto"
 alias gitbarcelo="source ~/Documents/barcelo/config/git_credentials"
+
+alias env-d8bit="envload ~/d8bit/github.txt"
 
 
 DISABLE_AUTO_TITLE="true"

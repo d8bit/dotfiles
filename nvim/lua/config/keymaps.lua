@@ -62,7 +62,7 @@ map('n', '<leader>c', '<cmd>setlocal spell<cr>')
 map('n', '<leader>C', '<cmd>setlocal nospell<cr>')
 
 -- Formatting / filetype helpers
-cmd('JsonBeautify', '%!python3 -m json.tool', {})
+cmd('JsonBeautify', '%!jq .', {})
 cmd('XMLBeautify', '%!xmllint --format -', {})
 cmd('JS', 'set filetype=javascript', {})
 cmd('PHP', 'set filetype=php', {})

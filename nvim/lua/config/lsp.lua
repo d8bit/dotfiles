@@ -1,9 +1,6 @@
 -- Built-in LSP client; server definitions come from nvim-lspconfig's lsp/ dir.
--- A server is enabled only if its executable is installed:
---   npm i -g intelephense pyright typescript @vtsls/language-server \
---     @vue/language-server yaml-language-server bash-language-server \
---     dockerfile-language-server-nodejs
---   brew install terraform-ls lua-language-server texlab
+-- A server is enabled only if its executable is on $PATH. Mason installs them
+-- (see config/mason.lua); a global or project install works too.
 local servers = {
   'intelephense', -- PHP (preferred)
   'phpactor',     -- PHP (fallback if intelephense isn't installed)
@@ -14,22 +11,28 @@ local servers = {
   'terraformls',
   'lua_ls',
   'yamlls',
+  'jsonls',
   'bashls',
   'dockerls',
   'texlab',
 }
 
--- Some lspconfig servers define `cmd` as a function; name their binary here.
+-- Some lspconfig servers define `cmd` as a function; name their binaries here.
+-- `tsc` runs either `tsc` or `tsgo` (Mason's TypeScript 7 package).
 local binaries = {
-  tsc = 'tsc',
-  yamlls = 'yaml-language-server',
+  tsc = { 'tsc', 'tsgo' },
+  yamlls = { 'yaml-language-server' },
+  jsonls = { 'vscode-json-language-server' },
 }
 
 local function installed(name)
   local cfg = vim.lsp.config[name]
   if not cfg then return false end
-  local bin = binaries[name] or (type(cfg.cmd) == 'table' and cfg.cmd[1])
-  return bin and vim.fn.executable(bin) == 1
+  local bins = binaries[name] or { type(cfg.cmd) == 'table' and cfg.cmd[1] or nil }
+  for _, bin in ipairs(bins) do
+    if vim.fn.executable(bin) == 1 then return true end
+  end
+  return false
 end
 
 -- Vue: vue_ls handles HTML/CSS and delegates TypeScript to vtsls through
@@ -66,12 +69,48 @@ for _, name in ipairs(servers) do
   end
 end
 
+vim.lsp.config('terraformls', {
+  init_options = {
+    experimentalFeatures = {
+      prefillRequiredFields = true, -- completing a resource fills required args
+      validateOnSave = true,        -- `terraform validate` diagnostics on save
+    },
+  },
+})
+
+-- JSON/YAML schemas from SchemaStore (GitHub Actions, docker-compose,
+-- buildspec, IAM-ish JSON, ...), matched by file name.
+local schemastore = require('schemastore')
+vim.lsp.config('jsonls', {
+  settings = { json = { schemas = schemastore.json.schemas(), validate = { enable = true } } },
+})
+
+-- CloudFormation intrinsic functions as YAML tags (otherwise "Unresolved tag")
+local cfn_tags = {}
+for _, tag in ipairs({
+  'And', 'Base64', 'Cidr', 'Condition', 'Equals', 'FindInMap', 'GetAZs', 'GetAtt',
+  'If', 'ImportValue', 'Join', 'Not', 'Or', 'Ref', 'Select', 'Split', 'Sub',
+}) do
+  vim.list_extend(cfn_tags, { '!' .. tag, '!' .. tag .. ' sequence', '!' .. tag .. ' mapping' })
+end
+vim.lsp.config('yamlls', {
+  settings = {
+    yaml = {
+      schemaStore = { enable = false, url = '' }, -- SchemaStore.nvim provides them
+      schemas = schemastore.yaml.schemas(),
+      customTags = cfn_tags,
+    },
+  },
+})
+
 vim.lsp.config('lua_ls', {
   settings = { Lua = { workspace = { library = { vim.env.VIMRUNTIME } } } },
 })
 
 vim.diagnostic.config({
-  virtual_text = true,
+  -- full message as lines below the cursor's line only; other lines keep
+  -- just the sign (virtual_text would repeat the same message on that line)
+  virtual_lines = { current_line = true },
   severity_sort = true,
   float = { border = 'rounded', source = true },
   signs = {

@@ -19,6 +19,8 @@ vim.pack.add({
   -- core / libs
   gh('nvim-lua/plenary.nvim'),
   gh('neovim/nvim-lspconfig'),
+  gh('mason-org/mason.nvim'),
+  gh('b0o/SchemaStore.nvim'),
   { src = gh('nvim-treesitter/nvim-treesitter'), version = 'main' },
 
   -- navigation
@@ -55,14 +57,17 @@ vim.pack.add({
   gh('lervag/vimtex'),
 }, { confirm = false })
 
+-- Puts Mason's bin/ on $PATH; must run before any executable() checks
+require('config.mason')
+
 pcall(vim.cmd.colorscheme, 'srcery')
 
 -- Built-in optional packages (Neovim 0.12)
 vim.cmd.packadd('nvim.undotree')
 
--- Treesitter: parsers are compiled with the `tree-sitter` CLI
--- (brew install tree-sitter-cli). Without it only the bundled parsers
--- (lua, vim, vimdoc, markdown, query, c) are available.
+-- Treesitter: parsers are compiled with the `tree-sitter` CLI (installed by
+-- Mason). Without it only the bundled parsers (lua, vim, vimdoc, markdown,
+-- query, c) are available.
 local ts_langs = {
   'bash', 'blade', 'css', 'dockerfile', 'hcl', 'html', 'javascript', 'json', 'lua',
   'markdown', 'markdown_inline', 'php', 'phpdoc', 'python', 'terraform', 'tsx',
@@ -80,13 +85,19 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 require('telescope').setup({
-  defaults = { file_ignore_patterns = { '^.git/', 'node_modules/', 'vendor/' } },
+  defaults = {
+    file_ignore_patterns = { '^.git/', 'node_modules/', 'vendor/', '%.terraform/' },
+  },
   pickers = { find_files = { hidden = true } },
 })
 
 require('nvim-tree').setup({
   view = { number = true, relativenumber = true },
   filters = { dotfiles = false },
+  -- keep the tree open/closed consistently across all tabpages
+  tab = { sync = { open = true, close = true } },
+  -- highlight the current buffer's file in the tree
+  update_focused_file = { enable = true },
   -- icons need a Nerd Font in the terminal (MesloLGM Nerd Font in Alacritty)
   renderer = { icons = { show = { file = true, folder = true, folder_arrow = true, git = true } } },
 })
@@ -100,8 +111,13 @@ require('aerial').setup({
 require('gitsigns').setup()
 
 require('lualine').setup({
-  options = { theme = 'auto', icons_enabled = false },
+  options = { theme = 'auto', icons_enabled = true },
   tabline = { lualine_a = { { 'buffers', mode = 2 } } },
+  sections = {
+    lualine_x = {
+      require('config.devops').lualine, 'encoding', 'fileformat', 'filetype',
+    },
+  },
 })
 
 require('nvim-autopairs').setup()

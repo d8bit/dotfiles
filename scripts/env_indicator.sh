@@ -3,7 +3,7 @@
 #
 # SETUP
 #   1. In each variables file, declare which environment it belongs to:
-#        export DEPLOY_ENV="prod"        # or pre, staging, dev...
+#        export DEPLOY_ENV="prod"        # or pre, staging, test...
 #      (always use `export`, not `typeset -x`)
 #
 #   2. At the end of ~/.zshrc (after your theme / oh-my-zsh):
@@ -11,7 +11,7 @@
 #
 #   3. Change your aliases to use envload instead of source:
 #        alias env-prod='envload ~/envs/prod.env'
-#        alias env-dev='envload ~/envs/dev.env'
+#        alias env-test='envload ~/envs/test.env'
 #
 # COMMANDS
 #   envload <file>   Unload the current environment (if any) and load the new one
@@ -31,7 +31,7 @@ typeset -gA ENV_INDICATOR_COLORS=(
   admin       magenta
   pre         yellow
   staging     yellow
-  dev         green
+  test         green
 )
 typeset -g ENV_INDICATOR_DEFAULT_COLOR=blue
 
