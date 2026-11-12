@@ -12,6 +12,7 @@ local servers = {
   'lua_ls',
   'yamlls',
   'jsonls',
+  'helm_ls',
   'bashls',
   'dockerls',
   'texlab',
@@ -23,6 +24,7 @@ local binaries = {
   tsc = { 'tsc', 'tsgo' },
   yamlls = { 'yaml-language-server' },
   jsonls = { 'vscode-json-language-server' },
+  helm_ls = { 'helm_ls' },
 }
 
 local function installed(name)

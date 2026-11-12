@@ -15,6 +15,7 @@ local ensure_installed = {
   'terraform-ls',
   'lua-language-server',
   'yaml-language-server',
+  'helm-ls',
   'json-lsp',
   'bash-language-server',
   'dockerfile-language-server',

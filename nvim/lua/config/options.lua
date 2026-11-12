@@ -38,7 +38,7 @@ opt.completeopt = { 'menuone', 'noselect', 'popup', 'fuzzy' }
 vim.api.nvim_create_autocmd('FileType', {
   pattern = {
     'eruby', 'ruby', 'yaml', 'html', 'blade', 'json', 'javascript',
-    'javascriptreact', 'typescript', 'typescriptreact', 'vue', 'terraform', 'terraform-vars', 'hcl', 'lua',
+    'javascriptreact', 'typescript', 'typescriptreact', 'vue', 'terraform', 'terraform-vars', 'hcl', 'lua', 'helm', 'yaml.helm-values',
   },
   callback = function()
     vim.opt_local.tabstop = 2
@@ -47,10 +47,23 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Helm charts: templates/ and values*.yaml of a dir that has a Chart.yaml
+local function is_chart(dir) return dir and vim.uv.fs_stat(dir .. '/Chart.yaml') ~= nil end
+local function helm_template(path)
+  if is_chart(path:match('^(.*)/templates/')) then return 'helm' end
+end
+
 vim.filetype.add({
   extension = { hcl = 'terraform', xt = 'xt', tfstate = 'json' },
   filename = { ['.terraform.lock.hcl'] = 'hcl', ['.tflint.hcl'] = 'hcl' },
   pattern = {
+    ['.*/templates/.*%.ya?ml'] = { helm_template, { priority = 10 } },
+    ['.*/templates/.*%.tpl'] = { helm_template, { priority = 10 } },
+    ['.*/templates/NOTES%.txt'] = { helm_template, { priority = 10 } },
+    ['.*/values.*%.ya?ml'] = {
+      function(path) if is_chart(vim.fs.dirname(path)) then return 'yaml.helm-values' end end,
+      { priority = 10 },
+    },
     ['.*%.DockerFile'] = 'dockerfile',
     ['.*%.es%.conf'] = 'nginx',
   },

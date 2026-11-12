@@ -70,7 +70,7 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # Compilation flags
@@ -93,7 +93,7 @@ alias bim="vim -u ~/dotfiles/basic_vimrc"
 alias fim="vim -u ~/dotfiles/vimrc"
 alias clim="vim ~/dotfiles/vimrc_cloudops"
 alias vime="vim ~/dotfiles/vimrc"
-alias nvime="nvim ~/dotfiles/init.vim"
+alias nvime="nvim ~/dotfiles/nvim/init.lua"
 # alias bim="vim.athena -u ~/dotfiles/basic_vimrc"
 alias ze="nvim ~/.zshrc"
 alias zu="source ~/.zshrc"
@@ -127,8 +127,6 @@ alias env-test="envload ~/Documents/barcelo/config/huawei_creds_test_auto"
 alias env-prod="envload ~/Documents/barcelo/config/huawei_creds_prod_auto"
 alias env-admin="envload ~/Documents/barcelo/config/huawei_creds_admin_auto"
 alias gitbarcelo="source ~/Documents/barcelo/config/git_credentials"
-
-alias env-d8bit="envload ~/d8bit/github.txt"
 
 
 DISABLE_AUTO_TITLE="true"
