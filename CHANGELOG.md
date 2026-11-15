@@ -16,6 +16,9 @@ All notable changes to these dotfiles, newest first. Built from the git history
 - **Statusline**: `k8s:<current-context>` in YAML/Helm buffers, read from
   `$KUBECONFIG`; turns red when the context name contains a protected
   environment (`prod`, `production`, `pro`, `admin`).
+- **nvim-tree**: closes together with the last file — `:q` on the last
+  editing window no longer leaves the tree behind, and `:bd` of the last file
+  buffer closes the tree.
 
 ### Changed
 - zsh: `VISUAL`/`EDITOR` set to `nvim`; `nvime` opens `nvim/init.lua`; removed

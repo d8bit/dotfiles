@@ -103,6 +103,46 @@ require('nvim-tree').setup({
   renderer = { icons = { show = { file = true, folder = true, folder_arrow = true, git = true } } },
 })
 
+-- Close the tree together with the last file it accompanies
+local tree_api = require('nvim-tree.api')
+local is_tree_buf = function(buf) return vim.bo[buf].filetype == 'NvimTree' end
+
+-- :q on the last regular window of a tab also closes the tree, instead of
+-- leaving the tree as the only window (so :q quits nvim as expected)
+vim.api.nvim_create_autocmd('QuitPre', {
+  callback = function()
+    local wins, trees = 0, {}
+    for _, w in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+      if vim.api.nvim_win_get_config(w).relative == '' then
+        if is_tree_buf(vim.api.nvim_win_get_buf(w)) then
+          table.insert(trees, w)
+        else
+          wins = wins + 1
+        end
+      end
+    end
+    if wins == 1 then
+      for _, w in ipairs(trees) do pcall(vim.api.nvim_win_close, w, true) end
+    end
+  end,
+})
+
+-- :bd of the last file buffer closes the tree too
+vim.api.nvim_create_autocmd('BufDelete', {
+  callback = function(ev)
+    if is_tree_buf(ev.buf) or vim.bo[ev.buf].buftype ~= '' then return end
+    vim.schedule(function()
+      for _, b in ipairs(vim.api.nvim_list_bufs()) do
+        if b ~= ev.buf and vim.bo[b].buflisted and vim.bo[b].buftype == ''
+          and vim.api.nvim_buf_get_name(b) ~= '' then
+          return
+        end
+      end
+      if tree_api.tree.is_visible() then tree_api.tree.close() end
+    end)
+  end,
+})
+
 require('aerial').setup({
   backends = { 'lsp', 'treesitter', 'markdown', 'man' },
   close_on_select = true,
