@@ -154,9 +154,13 @@ export FLASK_ENV=development
 # Add ~/.local/ to PATH
 export PATH=$HOME/.local/bin:$PATH
 
-# Java (Homebrew latest JDK, keg-only; jdtls in Neovim needs Java 25+)
+# Java 25+ (jdtls in Neovim needs it): Homebrew keg-only JDK on macOS,
+# apt's openjdk-25-jdk on Ubuntu
 if [ -d /opt/homebrew/opt/openjdk ]; then
   export JAVA_HOME=/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home
+  export PATH="$JAVA_HOME/bin:$PATH"
+elif [ -d /usr/lib/jvm/java-25-openjdk-amd64 ]; then
+  export JAVA_HOME=/usr/lib/jvm/java-25-openjdk-amd64
   export PATH="$JAVA_HOME/bin:$PATH"
 fi
 
