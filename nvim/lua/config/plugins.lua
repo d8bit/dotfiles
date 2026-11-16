@@ -69,7 +69,7 @@ vim.cmd.packadd('nvim.undotree')
 -- Mason). Without it only the bundled parsers (lua, vim, vimdoc, markdown,
 -- query, c) are available.
 local ts_langs = {
-  'bash', 'blade', 'css', 'dockerfile', 'hcl', 'helm', 'html', 'javascript', 'json', 'lua',
+  'bash', 'blade', 'css', 'dockerfile', 'hcl', 'helm', 'html', 'java', 'javascript', 'json', 'lua',
   'markdown', 'markdown_inline', 'php', 'phpdoc', 'python', 'terraform', 'tsx',
   'twig', 'typescript', 'vim', 'vimdoc', 'vue', 'yaml',
 }

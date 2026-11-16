@@ -16,6 +16,7 @@ local servers = {
   'bashls',
   'dockerls',
   'texlab',
+  'jdtls',        -- Java (needs a JDK 25+ on $PATH / JAVA_HOME)
 }
 
 -- Some lspconfig servers define `cmd` as a function; name their binaries here.
@@ -25,6 +26,7 @@ local binaries = {
   yamlls = { 'yaml-language-server' },
   jsonls = { 'vscode-json-language-server' },
   helm_ls = { 'helm_ls' },
+  jdtls = { 'jdtls' },
 }
 
 local function installed(name)

@@ -154,6 +154,12 @@ export FLASK_ENV=development
 # Add ~/.local/ to PATH
 export PATH=$HOME/.local/bin:$PATH
 
+# Java (Homebrew latest JDK, keg-only; jdtls in Neovim needs Java 25+)
+if [ -d /opt/homebrew/opt/openjdk ]; then
+  export JAVA_HOME=/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home
+  export PATH="$JAVA_HOME/bin:$PATH"
+fi
+
 
 # export DOCKER_HOST=127.0.0.1:2376
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"

@@ -20,6 +20,7 @@ local ensure_installed = {
   'bash-language-server',
   'dockerfile-language-server',
   'texlab',
+  'jdtls',
   -- linters (nvim-lint)
   'phpcs',
   'phpmd',

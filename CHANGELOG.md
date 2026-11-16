@@ -6,6 +6,8 @@ All notable changes to these dotfiles, newest first. Built from the git history
 ## Unreleased
 
 ### Added
+- **Java**: `jdtls` language server (via Mason) with completion, enabled
+  when a JDK 25+ is available; Treesitter `java` parser.
 - **Kubernetes manifests**: any YAML file with top-level `apiVersion` and `kind`
   gets the Kubernetes schema in yamlls, wherever it lives, plus CRD schemas
   from yamlls' CRD catalog (ExternalSecret, Karpenter, cert-manager, ...).
