@@ -20,9 +20,9 @@ local servers = {
 }
 
 -- Some lspconfig servers define `cmd` as a function; name their binaries here.
--- `tsc` runs either `tsc` or `tsgo` (Mason's TypeScript 7 package).
+-- `tsc` runs the `tsc` binary from Mason's `tsc` package (TypeScript 7).
 local binaries = {
-  tsc = { 'tsc', 'tsgo' },
+  tsc = { 'tsc' },
   yamlls = { 'yaml-language-server' },
   jsonls = { 'vscode-json-language-server' },
   helm_ls = { 'helm_ls' },

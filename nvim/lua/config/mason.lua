@@ -9,7 +9,7 @@ local ensure_installed = {
   -- language servers
   'intelephense',
   'pyright',
-  'tsgo', -- TypeScript 7 native server, used by the `tsc` config
+  'tsc', -- TypeScript 7 native server, used by the `tsc` config
   'vtsls',
   'vue-language-server',
   'terraform-ls',
