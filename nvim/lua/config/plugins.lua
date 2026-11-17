@@ -88,6 +88,11 @@ vim.api.nvim_create_autocmd('FileType', {
 require('telescope').setup({
   defaults = {
     file_ignore_patterns = { '^.git/', 'node_modules/', 'vendor/', '%.terraform/' },
+    -- search dotfiles/dot-dirs (e.g. .github/) in grep pickers too, but never .git/
+    vimgrep_arguments = {
+      'rg', '--color=never', '--no-heading', '--with-filename', '--line-number',
+      '--column', '--smart-case', '--hidden', '--glob', '!**/.git/*',
+    },
   },
   pickers = { find_files = { hidden = true } },
 })
