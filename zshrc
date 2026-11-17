@@ -123,9 +123,9 @@ alias monitor="pactl load-module module-loopback"
 alias unmonitor="pactl unload-module module-loopback"
 alias visualvm="/opt/visualvm_2110/bin/visualvm &&"
 
-alias env-test="envload ~/Documents/barcelo/config/huawei_creds_test_auto"
-alias env-prod="envload ~/Documents/barcelo/config/huawei_creds_prod_auto"
-alias env-admin="envload ~/Documents/barcelo/config/huawei_creds_admin_auto"
+alias env-test="envload ~/Documents/barcelo/config/creds_test_auto"
+alias env-prod="envload ~/Documents/barcelo/config/creds_prod_auto"
+alias env-admin="envload ~/Documents/barcelo/config/creds_admin_auto"
 alias gitbarcelo="source ~/Documents/barcelo/config/git_credentials"
 
 
