@@ -127,6 +127,7 @@ alias env-test="envload ~/Documents/barcelo/config/huawei_creds_test_auto"
 alias env-prod="envload ~/Documents/barcelo/config/huawei_creds_prod_auto"
 alias env-admin="envload ~/Documents/barcelo/config/huawei_creds_admin_auto"
 alias gitbarcelo="source ~/Documents/barcelo/config/git_credentials"
+alias linux="hidapitester --vidpid 046D:B031 --usagePage 0xFF43 --usage 0x0202 --open --length 20 --send-output 0x11,0xFF,0x0A,0x1E,0x00 > /dev/null"
 
 
 DISABLE_AUTO_TITLE="true"
