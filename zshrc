@@ -127,6 +127,7 @@ alias env-test="envload ~/Documents/barcelo/config/creds_test_auto"
 alias env-prod="envload ~/Documents/barcelo/config/creds_prod_auto"
 alias env-admin="envload ~/Documents/barcelo/config/creds_admin_auto"
 alias gitbarcelo="source ~/Documents/barcelo/config/git_credentials"
+alias mac="solaar config LIFT change-host 2 > /dev/null"
 
 
 DISABLE_AUTO_TITLE="true"

@@ -5,7 +5,7 @@
       "src": "https://github.com/bkad/CamelCaseMotion"
     },
     "SchemaStore.nvim": {
-      "rev": "e8c3d2225d6bf5e2cbe414952c247d7a3411849b",
+      "rev": "62be7a3daa56bb0031803435cc9302dab36467a7",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "aerial.nvim": {
@@ -17,7 +17,7 @@
       "src": "https://github.com/mattn/emmet-vim"
     },
     "gitsigns.nvim": {
-      "rev": "dc7698f932792a764d3db95fedee26c38e728355",
+      "rev": "c0862d382a35b7b45757d8d151a6a634c09bf3ce",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "gv.vim": {
@@ -45,7 +45,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "6e72b89d499455611f09f46d13ee9f79325406e5",
+      "rev": "e1c6a5a45d95ad22cf55c874db2ff8ab969556f0",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-tree.lua": {
@@ -53,7 +53,7 @@
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "04f17886f75416dfdc25374c950a52c63f0e98fe",
+      "rev": "b706d642dd20d0922e7e92365dc73617f0fdb4ea",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -102,7 +102,7 @@
       "src": "https://github.com/tpope/vim-surround"
     },
     "vim-test": {
-      "rev": "2598b497a4a666f4d5d61b753ea3b6f8784e5a09",
+      "rev": "da975b3c4557fcce9f54c3f5b9315ef3cc553c60",
       "src": "https://github.com/vim-test/vim-test"
     },
     "vim-visual-multi": {
