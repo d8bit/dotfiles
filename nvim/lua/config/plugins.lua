@@ -80,7 +80,13 @@ vim.treesitter.language.register('yaml', 'yaml.helm-values')
 vim.api.nvim_create_autocmd('FileType', {
   callback = function(ev)
     if pcall(vim.treesitter.start, ev.buf) then
-      vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      -- Only use treesitter indent when the language ships an indents query;
+      -- otherwise its indentexpr returns 0 and <CR> drops the cursor to col 0
+      -- (dockerfile, helm, twig, vim...). Fall back to the ftplugin/autoindent.
+      local lang = vim.treesitter.language.get_lang(vim.bo[ev.buf].filetype)
+      if lang and vim.treesitter.query.get(lang, 'indents') then
+        vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end
     end
   end,
 })
