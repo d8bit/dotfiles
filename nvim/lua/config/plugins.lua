@@ -99,7 +99,8 @@ require('telescope').setup({
 
 require('nvim-tree').setup({
   view = { number = true, relativenumber = true },
-  filters = { dotfiles = false },
+  -- show dotfiles and git-ignored files (.kube/, .terraform/...); `I` toggles the latter
+  filters = { dotfiles = false, git_ignored = false },
   -- keep the tree open/closed consistently across all tabpages
   tab = { sync = { open = true, close = true } },
   -- highlight the current buffer's file in the tree
