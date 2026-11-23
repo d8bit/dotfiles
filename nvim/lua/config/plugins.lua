@@ -139,14 +139,19 @@ vim.api.nvim_create_autocmd('QuitPre', {
   end,
 })
 
--- :bd of the last file buffer closes the tree too
+-- :bd of the last file buffer closes the tree too.
+-- Checked after the fact (not by excluding ev.buf): opening the first file
+-- reuses the empty [No Name] buffer, which fires BufDelete on a buffer that
+-- then holds the file. A real :bd leaves it unlisted, :bwipe makes it invalid.
 vim.api.nvim_create_autocmd('BufDelete', {
   callback = function(ev)
     if is_tree_buf(ev.buf) or vim.bo[ev.buf].buftype ~= '' then return end
     vim.schedule(function()
       for _, b in ipairs(vim.api.nvim_list_bufs()) do
-        if b ~= ev.buf and vim.bo[b].buflisted and vim.bo[b].buftype == ''
-          and vim.api.nvim_buf_get_name(b) ~= '' then
+        local name = vim.api.nvim_buf_get_name(b)
+        if vim.api.nvim_buf_is_valid(b) and vim.bo[b].buflisted
+          and vim.bo[b].buftype == '' and name ~= ''
+          and vim.fn.isdirectory(name) == 0 then
           return
         end
       end
