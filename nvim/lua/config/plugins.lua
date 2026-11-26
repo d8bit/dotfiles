@@ -108,7 +108,8 @@ require('telescope').setup({
 })
 
 require('nvim-tree').setup({
-  view = { number = true, relativenumber = true },
+  -- fixed width so it doesn't fight the auto-width autocmds below
+  view = { width = 30, number = true, relativenumber = true },
   -- show dotfiles and git-ignored files (.kube/, .terraform/...); `I` toggles the latter
   filters = { dotfiles = false, git_ignored = false },
   -- keep the tree open/closed consistently across all tabpages
@@ -122,6 +123,45 @@ require('nvim-tree').setup({
 -- Close the tree together with the last file it accompanies
 local tree_api = require('nvim-tree.api')
 local is_tree_buf = function(buf) return vim.bo[buf].filetype == 'NvimTree' end
+
+-- Auto-width: the tree grows to fit its content (MIN_W..MAX_W) while focused
+-- and shrinks back to MIN_W when you leave it
+local TREE_MIN_W, TREE_MAX_W = 30, 80
+
+local function tree_content_width(win)
+  local buf = vim.api.nvim_win_get_buf(win)
+  local w = 0
+  for _, line in ipairs(vim.api.nvim_buf_get_lines(buf, 0, -1, false)) do
+    w = math.max(w, vim.fn.strdisplaywidth(line))
+  end
+  -- + number/sign columns (relativenumber is on) + a little margin
+  return w + vim.fn.getwininfo(win)[1].textoff + 2
+end
+
+local function tree_resize(win, focused)
+  if not (win and vim.api.nvim_win_is_valid(win)) then return end
+  if not is_tree_buf(vim.api.nvim_win_get_buf(win)) then return end
+  local width = TREE_MIN_W
+  if focused then
+    width = math.min(math.max(tree_content_width(win), TREE_MIN_W), TREE_MAX_W)
+  end
+  vim.api.nvim_win_set_width(win, width)
+end
+
+local tree_width_grp = vim.api.nvim_create_augroup('TreeAutoWidth', { clear = true })
+vim.api.nvim_create_autocmd('WinEnter', {
+  group = tree_width_grp,
+  callback = function() tree_resize(vim.api.nvim_get_current_win(), true) end,
+})
+vim.api.nvim_create_autocmd('WinLeave', {
+  group = tree_width_grp,
+  callback = function() tree_resize(vim.api.nvim_get_current_win(), false) end,
+})
+-- recalculate on redraw (expanding/collapsing folders, changes on disk)
+tree_api.events.subscribe(tree_api.events.Event.TreeRendered, function(data)
+  local win = vim.fn.bufwinid(data.bufnr)
+  if win ~= -1 then tree_resize(win, win == vim.api.nvim_get_current_win()) end
+end)
 
 -- :q on the last regular window of a tab also closes the tree, instead of
 -- leaving the tree as the only window (so :q quits nvim as expected)
