@@ -33,6 +33,7 @@ opt.undofile = true -- stored in stdpath('state')/undo, not /tmp
 
 opt.wildignore:append({ 'vendor/**', 'node_modules/**' })
 opt.completeopt = { 'menuone', 'noselect', 'popup', 'fuzzy' }
+opt.conceallevel = 2
 
 -- 2-space indent for these filetypes
 vim.api.nvim_create_autocmd('FileType', {
