@@ -27,7 +27,8 @@ All notable changes to these dotfiles, newest first. Built from the git history
   community fork `obsidian-nvim/obsidian.nvim`. Commands are now
   `:Obsidian <subcommand>` (e.g. `:Obsidian new`) instead of `:ObsidianNew`;
   only vaults that exist on the machine are registered, and the plugin is not
-  set up when none do.
+  set up when none do. Note frontmatter now has only `date` and `tags`
+  (no `id` or `aliases`).
 - zsh: `VISUAL`/`EDITOR` set to `nvim`; `nvime` opens `nvim/init.lua`; removed
   the `env-d8bit` alias.
 

@@ -238,5 +238,16 @@ if #obsidian_workspaces > 0 then
   require("obsidian").setup({
     legacy_commands = false, -- use `:Obsidian <subcommand>` instead of `:ObsidianX`
     workspaces = obsidian_workspaces,
+    -- Frontmatter holds only `date` (kept once set) and `tags`, no id/aliases;
+    -- any other properties already in a note are left untouched.
+    frontmatter = {
+      sort = { "date", "tags" },
+      func = function(note)
+        local out = vim.tbl_extend("force", {}, note.metadata or {})
+        out.date = out.date or os.date("%Y-%m-%d")
+        out.tags = note.tags
+        return out
+      end,
+    },
   })
 end
