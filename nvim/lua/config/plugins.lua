@@ -231,6 +231,7 @@ local obsidian_workspaces = vim.tbl_filter(function(ws)
 end, {
   { name = "obsidian_barcelo",      path = "~/Documents/barcelo/obsidian_barcelo/" },
   { name = "obsidian_virtual_cave", path = "~/Documents/virtualCave/obsidian_vc/" },
+  { name = "obsidian_veci",         path = "~/Documents/veci//obsidian_veci//" },
 })
 
 if #obsidian_workspaces > 0 then
