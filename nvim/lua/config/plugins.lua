@@ -252,4 +252,23 @@ if #obsidian_workspaces > 0 then
       end,
     },
   })
+
+  -- Native LSP completion only auto-triggers on trigger characters (`[`), when
+  -- obsidian-ls has nothing to offer yet (it needs completion.min_chars, 2, after
+  -- `[[`). Re-request while typing inside an unclosed `[[` so links complete.
+  vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(ev)
+      local client = vim.lsp.get_client_by_id(ev.data.client_id)
+      if not client or client.name ~= 'obsidian-ls' then return end
+      vim.api.nvim_create_autocmd('TextChangedI', {
+        buffer = ev.buf,
+        callback = function()
+          if vim.fn.pumvisible() == 1 then return end
+          local col = vim.api.nvim_win_get_cursor(0)[2]
+          local query = vim.api.nvim_get_current_line():sub(1, col):match('%[%[([^%]|]*)$')
+          if query and vim.fn.strchars(query) >= 2 then vim.lsp.completion.get() end
+        end,
+      })
+    end,
+  })
 end

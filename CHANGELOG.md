@@ -31,6 +31,8 @@ All notable changes to these dotfiles, newest first. Built from the git history
   (no `id` or `aliases`).
   Dropped `nvim-cmp`: the fork completes through its own LSP server, which
   Neovim's built-in completion already handles.
+  `[[` link completion triggers as you type (after 2 characters), since
+  built-in completion only auto-triggers on the `[` trigger character.
 - zsh: `VISUAL`/`EDITOR` set to `nvim`; `nvime` opens `nvim/init.lua`; removed
   the `env-d8bit` alias.
 
