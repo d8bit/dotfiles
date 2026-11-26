@@ -5,7 +5,7 @@
       "src": "https://github.com/bkad/CamelCaseMotion"
     },
     "SchemaStore.nvim": {
-      "rev": "62be7a3daa56bb0031803435cc9302dab36467a7",
+      "rev": "ffbe34a31de0cf696f688e7d9e226dc5b86b4323",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "aerial.nvim": {
@@ -41,19 +41,19 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lint": {
-      "rev": "52107ce2076a27a285af781248e2c59bad817cd0",
+      "rev": "6bf29b9dbdad60b38b489b23309c22ba6d4c915a",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "e1c6a5a45d95ad22cf55c874db2ff8ab969556f0",
+      "rev": "4648fd8ba5c678d7e2db75ae44ffac269bb589d8",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-tree.lua": {
-      "rev": "dbc9d96a3633c2de85f409416ebd4a3aacf4220a",
+      "rev": "6e539e91302d2e201b078a45d214177140134523",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "b706d642dd20d0922e7e92365dc73617f0fdb4ea",
+      "rev": "52773f0d13a0c11d0c3ef33c14ab6ecc1c17148b",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -70,7 +70,7 @@
       "src": "https://github.com/AndrewRadev/sideways.vim"
     },
     "srcery-vim": {
-      "rev": "eaa0fc5afaeb01b3294606d5accc84f3b49367a9",
+      "rev": "49764b4ec709ce170687f04f1103641a55fcf4e0",
       "src": "https://github.com/srcery-colors/srcery-vim"
     },
     "tabular": {
@@ -102,7 +102,7 @@
       "src": "https://github.com/tpope/vim-surround"
     },
     "vim-test": {
-      "rev": "da975b3c4557fcce9f54c3f5b9315ef3cc553c60",
+      "rev": "ad6e74cfac81158042014fe31d155df0b70e571a",
       "src": "https://github.com/vim-test/vim-test"
     },
     "vim-visual-multi": {
@@ -110,7 +110,7 @@
       "src": "https://github.com/mg979/vim-visual-multi"
     },
     "vimtex": {
-      "rev": "cedc0a172e40d0d1d49670dd0d936d6e2df61de7",
+      "rev": "90cd6619728df9f6161e5691ac247f0fe3437462",
       "src": "https://github.com/lervag/vimtex"
     }
   }
