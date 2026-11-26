@@ -23,6 +23,11 @@ All notable changes to these dotfiles, newest first. Built from the git history
   buffer closes the tree.
 
 ### Changed
+- **Obsidian**: switched from the unmaintained `epwalsh/obsidian.nvim` to the
+  community fork `obsidian-nvim/obsidian.nvim`. Commands are now
+  `:Obsidian <subcommand>` (e.g. `:Obsidian new`) instead of `:ObsidianNew`;
+  only vaults that exist on the machine are registered, and the plugin is not
+  set up when none do.
 - zsh: `VISUAL`/`EDITOR` set to `nvim`; `nvime` opens `nvim/init.lua`; removed
   the `env-d8bit` alias.
 

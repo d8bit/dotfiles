@@ -57,7 +57,7 @@ vim.pack.add({
   gh('lervag/vimtex'),
 
   -- obsidian
-  gh('epwalsh/obsidian.nvim'),
+  gh('obsidian-nvim/obsidian.nvim'),
   gh('hrsh7th/nvim-cmp')
 }, { confirm = false })
 
@@ -225,17 +225,18 @@ require('lualine').setup({
 require('nvim-autopairs').setup()
 require('neogen').setup()
 
-require("obsidian").setup({
-  workspaces = {
-    {
-      name = "obsidian_barcelo",
-      path = "~/Documents/barcelo/obsidian_barcelo/",
-    },
-    {
-      name = "obsidian_virtual_cave",
-      path = "~/Documents/virtualCave//obsidian_vc/",
-    }
-  },
-
-  -- see below for full list of options 👇
+-- obsidian-nvim/obsidian.nvim errors when no workspace path exists, so only
+-- pass the vaults present on this machine and skip setup when there are none.
+local obsidian_workspaces = vim.tbl_filter(function(ws)
+  return vim.fn.isdirectory(vim.fn.expand(ws.path)) == 1
+end, {
+  { name = "obsidian_barcelo",      path = "~/Documents/barcelo/obsidian_barcelo/" },
+  { name = "obsidian_virtual_cave", path = "~/Documents/virtualCave/obsidian_vc/" },
 })
+
+if #obsidian_workspaces > 0 then
+  require("obsidian").setup({
+    legacy_commands = false, -- use `:Obsidian <subcommand>` instead of `:ObsidianX`
+    workspaces = obsidian_workspaces,
+  })
+end
