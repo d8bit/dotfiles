@@ -212,7 +212,8 @@ require('aerial').setup({
 require('gitsigns').setup()
 
 require('lualine').setup({
-  options = { theme = 'auto', icons_enabled = true },
+  -- theme switchable with :LualineTheme (see config/statusline.lua)
+  options = { theme = require('config.statusline').saved(), icons_enabled = true },
   tabline = { lualine_a = { { 'buffers', mode = 2 } } },
   sections = {
     lualine_x = {

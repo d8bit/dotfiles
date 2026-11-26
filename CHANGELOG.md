@@ -21,6 +21,9 @@ All notable changes to these dotfiles, newest first. Built from the git history
 - **nvim-tree**: closes together with the last file — `:q` on the last
   editing window no longer leaves the tree behind, and `:bd` of the last file
   buffer closes the tree.
+- **Statusline themes**: `:LualineTheme <name>` switches the lualine theme
+  (tab-completes the ~40 bundled themes; no argument opens a picker). The
+  choice is remembered per machine; `auto` follows the colorscheme.
 
 ### Changed
 - **Obsidian**: switched from the unmaintained `epwalsh/obsidian.nvim` to the
