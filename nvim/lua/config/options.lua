@@ -33,7 +33,13 @@ opt.undofile = true -- stored in stdpath('state')/undo, not /tmp
 
 opt.wildignore:append({ 'vendor/**', 'node_modules/**' })
 opt.completeopt = { 'menuone', 'noselect', 'popup', 'fuzzy' }
-opt.conceallevel = 2
+
+-- Hide markup (e.g. **bold**, link syntax) only in Markdown; elsewhere
+-- concealing hides things like JSON quotes
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  callback = function() vim.opt_local.conceallevel = 2 end,
+})
 
 -- 2-space indent for these filetypes
 vim.api.nvim_create_autocmd('FileType', {
