@@ -21,6 +21,8 @@ All notable changes to these dotfiles, newest first. Built from the git history
 - **nvim-tree**: closes together with the last file — `:q` on the last
   editing window no longer leaves the tree behind, and `:bd` of the last file
   buffer closes the tree.
+- **nvim-tree**: switching tabs (`gt`) lands in the file window, not the
+  tree, even for tabs you left from the tree (e.g. after `<C-t>`).
 - **Statusline themes**: `:LualineTheme <name>` switches the lualine theme
   (tab-completes the ~40 bundled themes; no argument opens a picker). The
   choice is remembered per machine; `auto` follows the colorscheme.

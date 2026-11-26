@@ -162,6 +162,25 @@ tree_api.events.subscribe(tree_api.events.Event.TreeRendered, function(data)
   if win ~= -1 then tree_resize(win, win == vim.api.nvim_get_current_win()) end
 end)
 
+-- Each tabpage remembers its last focused window, so a tab you left from the
+-- tree (e.g. opening a file in a new tab with <C-t>) comes back focused on the
+-- tree. On entering a tab, move to the last-used file window instead.
+-- Scheduled so it runs after nvim-tree's own tab.sync handler.
+vim.api.nvim_create_autocmd('TabEnter', {
+  callback = vim.schedule_wrap(function()
+    if not is_tree_buf(vim.api.nvim_get_current_buf()) then return end
+    local prev = vim.fn.win_getid(vim.fn.winnr('#'))
+    if prev ~= 0 and not is_tree_buf(vim.api.nvim_win_get_buf(prev)) then
+      return vim.api.nvim_set_current_win(prev)
+    end
+    for _, w in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+      if vim.api.nvim_win_get_config(w).relative == '' and not is_tree_buf(vim.api.nvim_win_get_buf(w)) then
+        return vim.api.nvim_set_current_win(w)
+      end
+    end
+  end),
+})
+
 -- :q on the last regular window of a tab also closes the tree, instead of
 -- leaving the tree as the only window (so :q quits nvim as expected)
 vim.api.nvim_create_autocmd('QuitPre', {
