@@ -29,6 +29,8 @@ All notable changes to these dotfiles, newest first. Built from the git history
   only vaults that exist on the machine are registered, and the plugin is not
   set up when none do. Note frontmatter now has only `date` and `tags`
   (no `id` or `aliases`).
+  Dropped `nvim-cmp`: the fork completes through its own LSP server, which
+  Neovim's built-in completion already handles.
 - zsh: `VISUAL`/`EDITOR` set to `nvim`; `nvime` opens `nvim/init.lua`; removed
   the `env-d8bit` alias.
 

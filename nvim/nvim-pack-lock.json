@@ -40,10 +40,6 @@
       "rev": "3172f40c16563db871a58f20d205c710ad782311",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
-    "nvim-cmp": {
-      "rev": "fe29aba4117227a6df637bc41e4b4fb4e98864a0",
-      "src": "https://github.com/hrsh7th/nvim-cmp"
-    },
     "nvim-lint": {
       "rev": "6bf29b9dbdad60b38b489b23309c22ba6d4c915a",
       "src": "https://github.com/mfussenegger/nvim-lint"

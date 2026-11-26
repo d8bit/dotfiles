@@ -58,7 +58,6 @@ vim.pack.add({
 
   -- obsidian
   gh('obsidian-nvim/obsidian.nvim'),
-  gh('hrsh7th/nvim-cmp')
 }, { confirm = false })
 
 -- Puts Mason's bin/ on $PATH; must run before any executable() checks
