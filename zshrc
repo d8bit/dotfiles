@@ -186,7 +186,7 @@ source ~/.oh-my-zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-export KUBECONFIG=/home/david/Documents/k8s/kubeconfig-doliva.yaml
+# export KUBECONFIG=/home/david/Documents/k8s/kubeconfig-doliva.yaml
 
 
 
