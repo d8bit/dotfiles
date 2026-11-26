@@ -244,6 +244,8 @@ if #obsidian_workspaces > 0 then
       sort = { "date", "tags" },
       func = function(note)
         local out = vim.tbl_extend("force", {}, note.metadata or {})
+        -- metadata carries id/aliases too (aliases even when empty): drop them
+        out.id, out.aliases = nil, nil
         out.date = out.date or os.date("%Y-%m-%d")
         out.tags = note.tags
         return out
