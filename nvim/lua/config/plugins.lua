@@ -55,6 +55,10 @@ vim.pack.add({
   gh('mfussenegger/nvim-lint'),
   gh('vim-test/vim-test'),
   gh('lervag/vimtex'),
+
+  -- obsidian
+  gh('epwalsh/obsidian.nvim'),
+  gh('hrsh7th/nvim-cmp')
 }, { confirm = false })
 
 -- Puts Mason's bin/ on $PATH; must run before any executable() checks
@@ -180,3 +184,18 @@ require('lualine').setup({
 
 require('nvim-autopairs').setup()
 require('neogen').setup()
+
+require("obsidian").setup({
+  workspaces = {
+    {
+      name = "obsidian_barcelo",
+      path = "~/Documents/barcelo/obsidian_barcelo/",
+    },
+    {
+      name = "obsidian_virtual_cave",
+      path = "~/Documents/virtualCave//obsidian_vc/",
+    }
+  },
+
+  -- see below for full list of options 👇
+})
